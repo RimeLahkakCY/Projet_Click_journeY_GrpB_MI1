@@ -9,7 +9,6 @@ body{
 
 .header{
     background-color: #DB2763;
-    height: 105px;
 }
 
 p{
@@ -20,17 +19,18 @@ p{
 }
 
 .content{
-    background-color: #FCD46F;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    background-image: url("https://www.evasionsgourmandes.com/wp-content/uploads/2015/10/conseils-road-trip.jpg");
+    background-size: cover;
+    background-color: rgba(255,255,255,0.3);
+    background-blend-mode: lighten;
+    
 }
 
-.road{
-    width: 20%;
-}
 
 .part1{
-    width: 40%;
+    width: 100%;
     text-align: center;
     overflow: hidden;
 }
