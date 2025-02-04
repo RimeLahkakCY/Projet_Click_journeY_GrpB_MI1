@@ -1,0 +1,75 @@
+body{
+    margin: 0;
+}
+
+.all{
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    background-color: #DB2763;
+    height: 105px;
+}
+
+p{
+    font-size: 30px;
+    font-family: Arial;
+    padding-left: 10px;
+    margin: 5px;
+}
+
+.content{
+    background-color: #FCD46F;
+    display: flex;
+    justify-content: space-between;
+}
+
+.road{
+    width: 20%;
+}
+
+.part1{
+    width: 40%;
+    text-align: center;
+    overflow: hidden;
+}
+
+a{
+    padding-left: 10px
+}
+
+ul{
+  display: flex;
+  padding-left: 10px;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.navigation{
+    display: flex;
+    background-color: white;
+    height: 50px;
+}
+
+.menu{
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.intersection{
+    
+}
+
+.direction{
+    
+}
+
+.footer{
+    background-color: #B5F8FE;
+}
