@@ -16,14 +16,7 @@
                         </span>
                 
                         <div class="menu">
-                            <div class="lien">
-                                <a href="inscription.html">s'inscrire</a>
-                            </div>
-                            
-                            <div class="lien">
-                                <a href="connexion.html">se connecter</a>
-                            </div>
-
+          
                             <div class="lien">
                                 <a href="utilisateur.html"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="40px"/></a>
                             </div>
@@ -46,24 +39,85 @@
                         </div>
         	</div>
                     
-        </div>
-                
-            </div>
-
+        </div>        
+            
+			
+	<div class="all" style="background-image: url(https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg);
+        background-size: cover;height: 100vh;">
 
         <div style="display: flex;justify-content: center;margin-top: 20px;">
 
-           <form class="profil">
-           	
-           	<span style="border-radius: 50%"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="70px"/></span>
-               	<span><input type="file" name="image" class="champ"/></span>
-                <br/>           	
-           	<span>Nom :</span>
-           	<span>Prénom :</span>
-           	<span>E-mail :</span>
-           	
-           </form
+		   
+			<form name="inscription" method="post" action="xxx">
+                    
+                    <fieldset>
+                        
+                        <legend>Paramètre</legend>
+						
+						<center>
+						<div class="div1">
+							<label for="img">
+								<span style="border-radius: 50%"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="70px"/></span>
+							</label>
+							<span><input id="img" type="file" name="image" class="champ" multiple accept="image/*"/></span>
+						</div>
+						</center>
+						<br/> <br/>
+<!---https://stackoverflow.com/questions/2855589/replace-input-type-file-by-an-image --->
+						
+                        <div class="div1">
+                            Nom: <input type="text" name="nom" class="champ" maxlength="50" />
+                        </div>
+						<br/> <br/> 
+                        
+                        <div class="div1">
+                            Prénom: <input type="text" name="prenom" class="champ" maxlength="50" />
+                        </div>
+						<br/> <br/> 
+                        
+                        <div class="div1">
+                            Email: <input type="email" name="email" class="champ" >
+                        </div>
+						<br/> <br/> 
     
+                        <div class="div1">
+                            Mot de passe: <input type="password" name="mdp" class="champ" maxlength="10" />
+                        </div>
+						<br/> <br/> 
+						
+						<div class="div1">
+                            Confirmer: <input type="password" name="mdp2" class="champ" maxlength="10" />
+                        </div>
+						<br/> <br/> 
+                        
+                        <div class="div2">
+							<center>
+								<input type="submit" name="valider" value="Valider" class="champ"/>
+							</center>
+                        </div><br/>
+						
+                    </fieldset>
+                    
+                </form>
+    
+        </div>
+	</div>	
+		<div class="footer" style=" position: sticky;top: -1px;
+  z-index: var(--z-index-main-header);">
+                    <div style="display:flex; justify-content: space-between">
+                        <span class="titre">
+                            <img src="logo.png" alt="logo" height="80px">
+                        </span>
+						<center>Norah TOUMI-Asmaa NASSIRI-Rime LAHKAK</center>
+                        <div class="menu">
+
+                            <div class="lien">
+                                <a href="utilisateur.html"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="40px"/></a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
         </div>
     	
     </body>
