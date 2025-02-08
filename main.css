@@ -125,9 +125,63 @@ button, input[type="submit"]{
     color: white;
 }
 
+input[type="file"]{
+    display: none;
+}
+
+input[name="valider"]{
+    cursor: pointer;
+    background-color: #0b5da0d8;
+    border: 10px solid #007e9e;
+    border-radius: 4%;
+	font-size: 32px;
+    color: white;
+}
+
+input[name="valider"]:hover{
+	background-color: #03b4e0;
+	border: 10px solid #03b4e0;
+    color: #0b5da0d8;
+}
+
+input[name="ok"]{
+    cursor: pointer;
+    background-color: #0b5da0d8;
+    border: 2px solid #007e9e;
+    border-radius: 4%;
+    color: white;
+}
+
+input[name="ok"]:hover{
+	background-color: #66ff66;
+	border: 2px solid #66ff66;
+    color: #0b5da0d8;
+}
+
+select{
+    cursor: pointer;
+    background-color: #0b5da0d8;
+    border: 2px solid #007e9e;
+    border-radius: 4%;
+    color: white;
+}
+
 button > a{
 	color: white;
 	text-decoration: none;
+}
+
+table{
+	background-color: #03b4e0;
+	border: 2px solid #007e9e;
+    border-radius: 5%;
+	width: 500px;
+	border-spacing: 30px;
+}
+
+thead{
+	font-size: 32px; 
+	color: white;
 }
 
 .profil{
