@@ -16,14 +16,7 @@
                         </span>
                 
                         <div class="menu">
-                            <div class="lien">
-                                <a href="inscription.html">s'inscrire</a>
-                            </div>
-                            
-                            <div class="lien">
-                                <a href="connexion.html">se connecter</a>
-                            </div>
-
+                         
                             <div class="lien">
                                 <a href="utilisateur.html"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="40px"/></a>
                             </div>
@@ -68,7 +61,7 @@
                             </div>
                             
                             <div class="div2">
-                                <input type="text" name="nom" class="champ"/>
+                                <input type="text" name="nom" class="champ" maxlength="50" required="true"/>
                             </div><br/>
                             
                             <div class="div1">
@@ -76,15 +69,7 @@
                             </div>
                             
                             <div class="div2">
-                                <input type="text" name="prenom" class="champ"/>
-                            </div><br/>
-                            
-                            <div class="div1">
-                                Email
-                            </div>
-                            
-                            <div class="div2">
-                                <input type="text" name="email" class="champ"/>
+                                <input type="text" name="prenom" class="champ" maxlength="50" required="true"/>
                             </div><br/>
         
                             <div class="div1">
@@ -92,11 +77,11 @@
                             </div>
                             
                             <div class="div2">
-                                <input type="text" name="mdp" class="champ"/>
+                                <input type="password" name="mdp" class="champ" maxlength="10" required="true"/>
                             </div><br/>
                             
                             <div class="div2">
-                                <input type="submit" name="sinscrire" value="S'inscrire" class="champ"/>
+                                <input type="submit" name="sinscrire" value="S'inscrire" class="champ"/> <button type="submit" name="connexion" value="Se connecter" class="champ"><a href="file:///C:/Users/DELL/OneDrive/Documents/projetcliqcy/connexion.html">Se connecter</a></button>
                             </div><br/>
                             
                         </fieldset>
@@ -108,8 +93,22 @@
 
         </div>
             
-        <div class="footer">
-            <p>footer</p>
+        <div class="footer" style=" position: sticky;top: -1px;
+  z-index: var(--z-index-main-header);">
+                    <div style="display:flex; justify-content: space-between">
+                        <span class="titre">
+                            <img src="logo.png" alt="logo" height="80px">
+                        </span>
+						<center>Norah TOUMI-Asmaa NASSIRI-Rime LAHKAK</center>
+                        <div class="menu">
+
+                            <div class="lien">
+                                <a target="_blank" href="utilisateur.html"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="40px"/></a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
         </div>
 
     </body>
