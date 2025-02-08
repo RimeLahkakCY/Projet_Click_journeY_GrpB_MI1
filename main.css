@@ -11,12 +11,9 @@ body{
     background-color: #ffffff;
 }
 
-p,h1,a{
-    font-family: Georgia, Times, 'Times New Roman', serif;
-}
-
 p{
     font-size: 30px;
+    font-family: Arial;
     padding-left: 10px;
     margin: 5px;
 }
@@ -39,9 +36,7 @@ p{
 }
 
 a{
-    padding-left: 15px;
-    text-decoration: none;
-    color: #d45500;
+    padding-left: 10px
 }
 
 ul{
@@ -57,7 +52,6 @@ li{
 
 .navigation{
     display: flex;
-    flex-direction: row;
     background-color: #d45500;
     height: 55px;
 }
@@ -72,18 +66,20 @@ fieldset{
 .textInscription{
     display: flex;
     flex-direction: row;
-    background: rgba(3, 180, 224, 0.5); /* Fond noir avec transparence */
-    padding: 20px;
-    border-radius: 10px;
+    background-color: #03b4e0;
 }
 
 legend{
     color: white;
     border: 2px solid #007e9e;
     border-radius: 8%;
-    background-color: #0b5da0;
+    background-color: #0b5da0d8;
     font-size: 25px;
     padding: 4px;
+}
+
+a{
+    color: #d45500;
 }
 
 .menu{
@@ -96,7 +92,6 @@ legend{
 .dropdown {
   float: left;
   overflow: hidden;
-  margin-left: 5px;
 }
 
 .dropdown-content {
@@ -130,6 +125,11 @@ button, input[type="submit"]{
     color: white;
 }
 
+button > a{
+	color: white;
+	text-decoration: none;
+}
+
 .profil{
 
 	display: flex;
@@ -142,7 +142,4 @@ button, input[type="submit"]{
 
 .footer{
     background-color: #03b4e0;
-    margin: 0;
-    padding: 5px;
-    text-align: center;
 }
