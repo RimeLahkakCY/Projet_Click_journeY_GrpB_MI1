@@ -16,14 +16,7 @@
                         </span>
                 
                         <div class="menu">
-                            <div class="lien">
-                                <a href="inscription.html">s'inscrire</a>
-                            </div>
                             
-                            <div class="lien">
-                                <a href="connexion.html">se connecter</a>
-                            </div>
-
                             <div class="lien">
                                 <a href="utilisateur.html"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="40px"/></a>
                             </div>
@@ -50,67 +43,89 @@
                 
             </div>
 
-
-        <div class="all" style="background-image: url(https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg);
+	<div class="all" style="background-image: url(https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg);
         background-size: cover;height: 100vh;">
 
-            <div style="display: flex;justify-content: center;margin-top: 20px;">
+        <div style="display: flex;justify-content: center;margin-top: 20px;">
+		
 
-                <div class="textInscription">
-                    <h1 style="color: white;text-align: center; width: 40%;">Connectez-vous sur votre compte !</h1>
-        
-                    <form name="inscription" method="post" action="xxx">
-                        
-                        <fieldset>
-                            
-                            <legend>Connexion</legend>
-                            <div class="div1">
-                                Nom
-                            </div>
-                            
-                            <div class="div2">
-                                <input type="text" name="nom" class="champ"/>
-                            </div><br/>
-                            
-                            <div class="div1">
-                                Prénom
-                            </div>
-                            
-                            <div class="div2">
-                                <input type="text" name="prenom" class="champ"/>
-                            </div><br/>
-                            
-                            <div class="div1">
-                                Email
-                            </div>
-                            
-                            <div class="div2">
-                                <input type="text" name="email" class="champ"/>
-                            </div><br/>
-        
-                            <div class="div1">
-                                Mot de passe
-                            </div>
-                            
-                            <div class="div2">
-                                <input type="text" name="mdp" class="champ"/>
-                            </div><br/>
-                            
-                            <div class="div2">
-                                <input type="submit" name="connexion" value="Se connecter" class="champ"/>
-                            </div><br/>
-                            
-                        </fieldset>
-                        
-                    </form>
-                </div>
+            <div class="textInscription">
+                <h1 style="color: white;text-align: center; width: 40%;">Connectez-vous sur votre compte !</h1>
     
+                <form name="inscription" method="post" action="xxx">
+                    
+                    <fieldset>
+                        
+                        <legend>Connexion</legend>
+                        <div class="div1">
+                            Nom
+                        </div>
+                        
+                        <div class="div2">
+                            <input type="text" name="nom" class="champ" maxlength="50" required="true"/>
+                        </div><br/>
+                        
+                        <div class="div1">
+                            Prénom
+                        </div>
+                        
+                        <div class="div2">
+                            <input type="text" name="prenom" class="champ" maxlength="50" required="true"/>
+                        </div><br/>
+						
+						<div class="div1">
+                            Age
+                        </div>
+                        
+                        <div class="div2">
+                            <input type="number" name="age" class="champ" min="18" max="125" required="true"/>
+                        </div><br/>
+                        
+                        <div class="div1">
+                            Email
+                        </div>
+                        
+                        <div class="div2">
+                            <input type="email" name="email" class="champ" required="true"/>
+                        </div><br/>
+    
+                        <div class="div1">
+                            Mot de passe
+                        </div>
+                        
+                        <div class="div2">
+                            <input type="password" name="mdp" class="champ" maxlength="10" required="true"/>
+                        </div><br/>
+                        
+                        <div class="div2">
+                            <input type="submit" name="connexion" value="Se connecter" class="champ"/> <button type="submit" name="sinscrire" value="S'inscrire" class="champ"><a href="file:///C:/Users/DELL/OneDrive/Documents/projetcliqcy/inscription.html">S'inscrire</a></button>
+                        </div><br/>
+						
+                    </fieldset>
+                    
+                </form>
             </div>
 
         </div>
+	
+	</div>
+		
+		<div class="footer" style=" position: sticky;top: -1px;
+  z-index: var(--z-index-main-header);">
+                    <div style="display:flex; justify-content: space-between">
+                        <span class="titre">
+                            <img src="logo.png" alt="logo" height="80px">
+                        </span>
+						<center>Norah TOUMI-Asmaa NASSIRI-Rime LAHKAK</center>
+                        <div class="menu">
 
-        <div class="footer">
-            <p>footer</p>
+                            <div class="lien">
+                                <a target="_blank" href="utilisateur.html"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="40px"/></a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
         </div>
     	
     </body>
