@@ -5,10 +5,14 @@ body{
 .all{
     display: flex;
     flex-direction: column;
+    background-image: url(https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg);
+    background-size: cover;
+    height: 100vh;
 }
 
 .header{
     background-color: #ffffff;
+    z-index:100;
 }
 
 p{
@@ -184,7 +188,7 @@ button > a{
 table{
 	background-color: #03b4e0;
 	border: 2px solid #007e9e;
-    border-radius: 5%;
+    	border-radius: 5%;
 	width: 500px;
 	border-spacing: 30px;
 }
@@ -194,31 +198,48 @@ thead{
 	color: white;
 }
 
-.recherche{
+.rchrch{
 	background-color : #03b4e0;
-	height: 200px;
-	width: 1200px;
-	display: flex;
-	flex-direction: column;
+	border: 0px;
+}
+
+fieldset.recherche{
+	background-color : #03b4e0;
+	border-radius: 20px;
+	margin-top: 10px;
+}
+
+.bttn{
+display: flex; 
+flex-direction: row; 
+justify-content: space-between; 
+justify-content: center;
 }
 
 .container{
-    width: 25rem;
-    height: 100%;
+    width: 400px;
     margin: 0 1rem;
-    position: relative;
+    position: static;
+}
+
+.bttnrchrch{
+    width: 100px;
+    height: 50px;
+    margin: 0 1rem;
+    position: static;
 }
 
 .searchbar{
     font-size: 1.5rem;
-    width: 410px;
-    height: 70px;
+    width: 400px;
+    height: 30px;
     border: none;
     outline: none;
     border-radius: 10rem;
     padding: 2rem;
     transition: all 0.1s;
     transition-delay: 0.1s;
+    z-index:1;
 }
 
 .searchbar:hover{
@@ -227,10 +248,9 @@ thead{
 }
 
 .buttonSearch{
-    height: 2rem;
-    top: 1.3rem;
-    right: 0.5rem;
-    position: absolute;
+    width: 50px; 
+    height: 50px;
+    position: static;
     transition: all 0.1s;
     transition-delay: 0.1s;
 }
@@ -249,19 +269,20 @@ thead{
 
 
 .filtres{
-	background-color: red;
-	text-align: center;
-	margin: 10px;
-	padding: 5px;
-	width: 30%;
+	background-color: #d45500;
+	text-align: left;
+	margin: 50px;
+	padding: 20px;
+	width: 150px;
+	font-weight:bold;
 }
 
 .voyages{
-	background-color: green;
+	background-color: #0b5da0d8;
 	text-align: center;
-	margin: 10px;
-	padding: 5px;
-	width: 70%;
+	margin: 50px;
+	padding: 50px;
+	width: 1400px;
 }
 
 .profil{
