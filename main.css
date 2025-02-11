@@ -35,17 +35,31 @@ p{
     overflow: hidden;
 }
 
+img[alt="icon"]{
+	margin-left: 15px;
+}
+
 a{
-    padding-left: 10px
+    color: black;
+    text-decoration: none;
+}
+
+.lien{
+	color: #d45500;
+	border: 2px solid #03b4e0;
+	border-radius: 2rem;
+	background-color: #03b4e0;
+	padding: 5px;
+	margin: 5px;
 }
 
 ul{
+  list-style: none;
   display: flex;
   padding-left: 10px;
 }
 
 li{
-    list-style: none;
     display: inline-block;
     padding-right: 5px;
 }
@@ -76,10 +90,6 @@ legend{
     background-color: #0b5da0d8;
     font-size: 25px;
     padding: 4px;
-}
-
-a{
-    color: #d45500;
 }
 
 .menu{
@@ -182,6 +192,76 @@ table{
 thead{
 	font-size: 32px; 
 	color: white;
+}
+
+.recherche{
+	background-color : #03b4e0;
+	height: 200px;
+	width: 1200px;
+	display: flex;
+	flex-direction: column;
+}
+
+.container{
+    width: 25rem;
+    height: 100%;
+    margin: 0 1rem;
+    position: relative;
+}
+
+.searchbar{
+    font-size: 1.5rem;
+    width: 410px;
+    height: 70px;
+    border: none;
+    outline: none;
+    border-radius: 10rem;
+    padding: 2rem;
+    transition: all 0.1s;
+    transition-delay: 0.1s;
+}
+
+.searchbar:hover{
+    width: 27rem;
+    height: 6rem;
+}
+
+.buttonSearch{
+    height: 2rem;
+    top: 1.3rem;
+    right: 0.5rem;
+    position: absolute;
+    transition: all 0.1s;
+    transition-delay: 0.1s;
+}
+
+.buttonSearch:hover{
+    cursor: pointer;
+}
+.searchbar:hover + .buttonSearch{
+    height: 2.5rem;
+    top: 1.8rem;
+    right: 0;
+}
+.searchbar::placeholder{
+    opacity: 0.3;
+}
+
+
+.filtres{
+	background-color: red;
+	text-align: center;
+	margin: 10px;
+	padding: 5px;
+	width: 30%;
+}
+
+.voyages{
+	background-color: green;
+	text-align: center;
+	margin: 10px;
+	padding: 5px;
+	width: 70%;
 }
 
 .profil{
