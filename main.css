@@ -15,9 +15,12 @@ body{
     z-index:100;
 }
 
+p,a{
+	font-family: "Gill Sans", sans-serif;
+}
+
 p{
     font-size: 30px;
-    font-family: Arial;
     padding-left: 10px;
     margin: 5px;
 }
@@ -283,6 +286,13 @@ justify-content: center;
 	margin: 50px;
 	padding: 50px;
 	width: 1400px;
+}
+
+.thumbnail{
+	display:flex;
+	background-color: white;
+	box-shadow: 12px 12px 2px 1px rgba(255, 255, 255, .2);
+	margin: 5px;
 }
 
 .profil{
