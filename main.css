@@ -51,6 +51,11 @@ a{
     text-decoration: none;
 }
 
+a:hover{
+	opacity: 0.5;
+	box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+}
+
 .lien{
 	color: #d45500;
 	border: 2px solid #d45500;
