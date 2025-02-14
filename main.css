@@ -41,6 +41,10 @@ p{
     overflow: hidden;
 }
 
+.part1 a{
+    padding-left: 10px;
+}
+
 img[alt="icon"]{
 	margin-left: 15px;
 }
@@ -80,6 +84,11 @@ li{
     background-color: #d45500;
     height: 55px;
 }
+
+.navigation a{
+	padding-left: 30px;
+}
+
 
 fieldset{
     border: 3px solid #03b4e0;
@@ -138,6 +147,10 @@ legend{
   cursor: pointer;
 }
 
+center h1{
+	background-color: rgb(249, 249, 249,.7);
+}
+
 button, input[type="submit"]{
     cursor: pointer;
     background-color: #0b5da0d8;
@@ -179,9 +192,15 @@ input[name="ok"]:hover{
     color: #0b5da0d8;
 }
 
+.filtres input[name="ok"]{
+    width: 100px;
+	height: 50px;
+	font-size: 30px;
+}
+
 select{
     cursor: pointer;
-    background-color: #0b5da0d8;
+    background-color: #007e9e;
     border: 2px solid #007e9e;
     border-radius: 4%;
     color: white;
@@ -195,7 +214,7 @@ button > a{
 table{
 	background-color: #03b4e0;
 	border: 2px solid #007e9e;
-    	border-radius: 5%;
+    border-radius: 5%;
 	width: 500px;
 	border-spacing: 30px;
 }
@@ -217,10 +236,9 @@ fieldset.recherche{
 }
 
 .bttn{
-display: flex; 
-flex-direction: row; 
-justify-content: space-between; 
-justify-content: center;
+	display: flex; 
+	flex-direction: row; 
+	justify-content: space-between center;
 }
 
 .container{
@@ -282,6 +300,7 @@ justify-content: center;
 	padding: 20px;
 	width: 150px;
 	font-weight:bold;
+	font-size: 15px;
 }
 
 .voyages{
@@ -294,8 +313,8 @@ justify-content: center;
 
 .thumbnail{
 	display:flex;
-	background-color: white;
-	box-shadow: 12px 12px 2px 1px rgba(255, 255, 255, .2);
+	background-color: #03b4e0;
+	box-shadow: 12px 12px 2px 1px rgba(3, 180, 224, .2);
 	margin: 5px;
 }
 
@@ -310,5 +329,11 @@ justify-content: center;
 }
 
 .footer{
-    background-color: #03b4e0;
+    background-color: #0b5da0d8;
+}
+
+.footer p{
+    text-align: center;
+    overflow: hidden;
+	font-size: 20px;
 }
