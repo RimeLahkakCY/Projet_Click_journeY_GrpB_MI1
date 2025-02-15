@@ -222,7 +222,7 @@ input[name="ok"]:hover{
 .filtres input[name="ok"]{
     width: 100px;
 	height: 50px;
-	font-size: 30px;
+	font-size: 20px;
 }
 
 .info input[name="ok"]{
@@ -342,7 +342,7 @@ fieldset.recherche{
 	margin: 50px;
 	padding: 20px;
 	width: 150px;
-	height: 570px;
+	height: 600px;
 	font-weight:bold;
 	font-size: 15px;
 }
