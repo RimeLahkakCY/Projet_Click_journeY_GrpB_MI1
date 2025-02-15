@@ -21,10 +21,13 @@ body{
     z-index:100;
 }
 
-p,a{
+p,a,input{
 	font-family: "Arvo", serif;
 }
 
+fieldset{
+    text-align: center;
+}
 
 a{
     font-size: 15px;
