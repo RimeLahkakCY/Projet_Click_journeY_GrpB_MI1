@@ -1,6 +1,7 @@
 body{
     margin: 0;
 	font-family: "Didact Gothic", serif;
+    animation: fadeIn 1s ease-in-out;
     font-weight: 100;
 	width: 100%;
 }
@@ -10,18 +11,26 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-image: url(https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg);
+    animation: Slideshow 40s ease-in-out infinite;
     background-size: cover;
+    background-repeat: no-repeat;
     padding-bottom: 90px;
-    animation: fadeIn 1s ease-out;
 	width: 100%;
 }
 
 
 .header{
     background-color: #ffffff;
+    position: sticky;
+    top: -1px;
+    z-index: var(--z-index-main-header);
     z-index:100;
 	width: 100%;
+}
+
+h2{
+    margin: 0;
+    font-weight: bold;
 }
 
 p,a,input{
@@ -36,6 +45,7 @@ a{
 
 p{
     font-size: 20px;
+    font-weight: lighter;
     padding-left: 10px;
     margin: 5px;
 }
@@ -45,19 +55,23 @@ p{
     display: flex;
     flex-direction: column;
     background-size: cover;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.3);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 	background-blend-mode: lighten;
     padding: 20px;
-
 }
 
-@keyframes fadeIn {
-    from { opacity: 0.5; }
-    to { opacity: 1; }
+@keyframes Slideshow{
+    0%   {background-image: url('https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg');}
+    30%  {background-image: url('https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg');}
+    60%  {background-image: url('https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg');}
+    100% {background-image: url('https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg');}
 }
 
-
+@keyframes fadeIn{
+    from {opacity: 0.5;}
+    to {opacity: 1;}
+}
 
 .part1{
     width: 100%;
@@ -80,8 +94,8 @@ a{
 
 a:hover{
 	transition: transform 0.3s ease, color 0.3s ease;
-    color: #028ac9; /* Changer la couleur du lien */
-    transform: translateY(-4px); /* Ajouter un effet de déplacement */
+    color: #028ac9;
+    transform: translateY(-4px); 
 }
 
 .lien{
@@ -365,6 +379,7 @@ fieldset.recherche{
 	background-color: rgb(3, 180, 224);
 	box-shadow: 12px 12px 2px 1px rgba(3, 180, 224, .2);
 	margin-right: 15px;
+    margin-bottom: 40px;
 	width: 1000px;
 	height: 400px;
 	border-spacing: 10px;
@@ -372,6 +387,10 @@ fieldset.recherche{
 
 .illustration{
 	width: 200px;
+}
+
+.illustration > img{
+    border-radius: 10px;
 }
 
 .profil{
@@ -393,4 +412,16 @@ fieldset.recherche{
     text-align: center;
     overflow: hidden;
 	font-size: 20px;
+}
+
+.footer > div{
+    background-color: none;
+    font-size: 15px;
+    margin: 10px;
+}
+
+
+h4{
+    margin:0;
+    padding: 0;
 }
