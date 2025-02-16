@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <link href="main.css" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="logo.png">
-		<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
         <title>Projet web</title>
     </head>
     
@@ -26,7 +26,7 @@
                             </div>
 
                             <div class="lien">
-                                <a href="utilisateur.html"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="40px"/></a>
+                                <a href="utilisateur.html"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="profil" height="30px"/></a>
                             </div>
                             
                         </div>
@@ -64,7 +64,7 @@
                     
                     <fieldset>
                         
-                        <legend>Paramètre</legend>
+                        <legend>Profil</legend>
 						
 						<center>
 						<div class="div1">
@@ -78,34 +78,41 @@
 <!---https://stackoverflow.com/questions/2855589/replace-input-type-file-by-an-image --->
 						
                         <div class="div1">
-                            Nom: <input type="text" name="nom" class="champ" maxlength="50" />
+                            Nom
                         </div>
-						<br/> <br/> 
-                        
+
+                        <div class="div2">
+                            <input type="text" name="nom" class="champ" maxlength="50" required="true"/>
+                        </div><br/>
+
                         <div class="div1">
-                            Prénom: <input type="text" name="prenom" class="champ" maxlength="50" />
+                            Prénom
                         </div>
-						<br/> <br/> 
-                        
+
+                        <div class="div2">
+                             <input type="text" name="prenom" class="champ" maxlength="50" required="true"/>
+                        </div><br/>
+
                         <div class="div1">
-                            Email: <input type="email" name="email" class="champ" >
+                            Email
                         </div>
-						<br/> <br/> 
-    
-                        <div class="div1">
-                            Mot de passe: <input type="password" name="mdp" class="champ" maxlength="10" />
-                        </div>
-						<br/> <br/> 
+
+                        <div class="div2">
+                            <input type="email" name="email" class="champ" required="true"/>
+                        </div><br/>
 						
+                        <div class="div1">
+                            Confirmer votre e-mail
+                        </div>
+
 						<div class="div1">
-                            Confirmer: <input type="password" name="mdp2" class="champ" maxlength="10" />
+                            <input type="password" name="mdp2" class="champ" maxlength="10" />
                         </div>
 						<br/> <br/> 
                         
                         <div class="div2">
-							<center>
-								<input type="submit" name="valider" value="Valider" class="champ"/>
-							</center>
+							<input type="submit" name="valider" value="Valider" class="champ"/>
+                            <input type="submit" name="modif" value="Modifier" class="champ"/>
                         </div><br/>
 						
                     </fieldset>
