@@ -1,4 +1,5 @@
 <html>
+    
     <head>
         <meta charset="UTF-8">
         <link href="main.css" rel="stylesheet">
@@ -6,9 +7,10 @@
 		<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
         <title>Projet web</title>
     </head>
-
+    
     <body>
-            	<div class="header">
+    	
+    	    	<div class="header">
                     <div style="display:flex; justify-content: space-between">
                         <span class="titre">
                             <img src="logo.png" alt="logo" height="80px">
@@ -50,83 +52,71 @@
   			    
             </div>
                         
-        	</div>
+        	</div>      
+            
+			
+	<div class="all">
 
-        <div class="all">
+        <div style="display: flex;justify-content: center;margin-top: 20px;">
 
-                <!--
-                <div style="width: 100%; text-align: center">
-                    <iframe width="50%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                    <a href="https://www.gps.ie/">gps drone</a></iframe>
-                </div>	
-                
-                -->
-                
-               	<h1 class="titre">Nos voyages</h1>
-				<center>
-				<table class="info">
-					<tr>
-						<td class="illustration">
-							<img src="https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg" alt="img" height="200px"/> 
-						</td>
-						<td>
-							<h1>Italie: Week-end en amoureux</h1>
-							<p>Des villes pleines de charme, des paysages sublimes, une cuisine irrésistible et une atmosphère envoûtante. Un itinéaire qui mélange romantisme, culture et paysages à couper le souffle.</p>
-							<h2>Dès 515 $</h2>
-							<h2>345 km</h2>
-							<h2>2 jours</h2>
-						</td>
-					</tr>
-					
-					<tr>
-						<td colspan="2">
-							<p>Pour ceux qui aiment : l'ambiance romantique, les paysages rustiques</p>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							<input type="submit" name="ok" value="Réserver" class="champ"/> 
-						</td>
-					</tr>
-				</table>
-
-                <table class="info">
-					<tr>
-						<td class="illustration">
-							<img src="https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg" alt="img" height="200px"/> 
-						</td>
-						<td>
-							<h1>Ethiopie: En pleine nature</h1>
-							<p>Pour ceux qui rêvent de grands espaces, de paysages à couper le souffle. Et d’une nature encore préservée et éblouissante pour se ressourcer</p>
-							<h2>Dès 730 $</h2>
-							<h2>1200 km</h2>
-							<h2>6 jours</h2>
-						</td>
-					</tr>
-					
-					<tr>
-						<td colspan="2">
-							<p>Pour ceux qui aiment : la randonée, la nature, l'exploration !</p>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							<input type="submit" name="ok" value="Réserver" class="champ"/> 
-						</td>
-					</tr>
-				</table>
-				</center>
-
-        </div>
-        
-
-        <div class="footer">
-                    <div style="display:flex; justify-content: space-between">
+		   
+			<form name="inscription" method="post" action="xxx">
+                    
+                    <fieldset>
                         
-                        <div style="background-color:rgb(249, 249, 249, 0.7); height: 80px;">
+                        <legend>Paramètre</legend>
+						
+						<center>
+						<div class="div1">
+							<label for="img">
+								<span style="border-radius: 50%"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="70px"/></span>
+							</label>
+							<span><input id="img" type="file" name="image" class="champ" multiple accept="image/*"/></span>
+						</div>
+						</center>
+						<br/> <br/>
+<!---https://stackoverflow.com/questions/2855589/replace-input-type-file-by-an-image --->
+						
+                        <div class="div1">
+                            Nom: <input type="text" name="nom" class="champ" maxlength="50" />
+                        </div>
+						<br/> <br/> 
+                        
+                        <div class="div1">
+                            Prénom: <input type="text" name="prenom" class="champ" maxlength="50" />
+                        </div>
+						<br/> <br/> 
+                        
+                        <div class="div1">
+                            Email: <input type="email" name="email" class="champ" >
+                        </div>
+						<br/> <br/> 
+    
+                        <div class="div1">
+                            Mot de passe: <input type="password" name="mdp" class="champ" maxlength="10" />
+                        </div>
+						<br/> <br/> 
+						
+						<div class="div1">
+                            Confirmer: <input type="password" name="mdp2" class="champ" maxlength="10" />
+                        </div>
+						<br/> <br/> 
+                        
+                        <div class="div2">
+							<center>
+								<input type="submit" name="valider" value="Valider" class="champ"/>
+							</center>
+                        </div><br/>
+						
+                    </fieldset>
+                    
+                </form>
+    
+        </div>
+	</div>	
+		<div class="footer">
+                    <div style="display:flex; justify-content: space-between">
+                        <div style="background-color: rgb(249, 249, 249, 0.7); height: 80px;">
                             <img src="logo.png" alt="logo" height="80px">
                         </div>
 						
@@ -163,6 +153,7 @@
                     </div>
                     
         </div>
-
+    	
     </body>
+    
 </html>
