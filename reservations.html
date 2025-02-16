@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta charset="UTF-8">
         <link href="main.css" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="logo.png">
 		<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -7,8 +8,7 @@
     </head>
 
     <body>
-            	<div class="header" style=" position: sticky;top: -1px;
-  z-index: var(--z-index-main-header);">
+            	<div class="header">
                     <div style="display:flex; justify-content: space-between">
                         <span class="titre">
                             <img src="logo.png" alt="logo" height="80px">
@@ -37,14 +37,14 @@
                         <div class="dropdown">
     				<a class="dropbtn"><img src="https://cdn-icons-png.flaticon.com/128/2976/2976215.png" alt="profil" height="20px"/></a>
     					<div class="dropdown-content">
-      						<a target="_blank" href="main.html">Acceuil</a>
-      						<a target="_blank" href="administrateur.html">Admin</a>
-      						<a target="_blank" href="utilisateur.html">Paramètre</a>
+      						<a href="main.html">Acceuil</a>
+      						<a href="administrateur.html">Admin</a>
+      						<a href="utilisateur.html">Paramètre</a>
     					</div>
 						</div>
   			   
-						<a target="_blank" href="voyages.html"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="icon" height="20px"/></a>
-						<a target="_blank" href="reservations.html">Nos voyages</a>
+						<a href="voyages.html"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="icon" height="20px"/></a>
+						<a href="reservations.html">Nos voyages</a>
 
 				</ul>  
   			    
@@ -68,20 +68,47 @@
 				<table class="info">
 					<tr>
 						<td class="illustration">
-							<img src="https://media.routard.com/image/28/4/new-york-aerial.1515284.jpg" alt="img" height="200px"/> 
+							<img src="https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg" alt="img" height="200px"/> 
 						</td>
 						<td>
-							<p>nom</p>
-							<p>description</p>
-							<p>prix</p>
-							<p>km</p>
-							<p>essence L</p>
+							<h1>Italie: Week-end en amoureux</h1>
+							<p>Des villes pleines de charme, des paysages sublimes, une cuisine irrésistible et une atmosphère envoûtante. Un itinéaire qui mélange romantisme, culture et paysages à couper le souffle.</p>
+							<h2>Dès 515 $</h2>
+							<h2>345 km</h2>
+							<h2>2 jours</h2>
 						</td>
 					</tr>
 					
 					<tr>
 						<td colspan="2">
-							<p>information information information information information information information information information information information information information information information</p>
+							<p>Pour ceux qui aiment : l'ambiance romantique, les paysages rustiques</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<input type="submit" name="ok" value="Réserver" class="champ"/> 
+						</td>
+					</tr>
+				</table>
+
+                <table class="info">
+					<tr>
+						<td class="illustration">
+							<img src="https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg" alt="img" height="200px"/> 
+						</td>
+						<td>
+							<h1>Ethiopie: En pleine nature</h1>
+							<p>Pour ceux qui rêvent de grands espaces, de paysages à couper le souffle. Et d’une nature encore préservée et éblouissante pour se ressourcer</p>
+							<h2>Dès 730 $</h2>
+							<h2>1200 km</h2>
+							<h2>6 jours</h2>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2">
+							<p>Pour ceux qui aiment : la randonée, la nature, l'exploration !</p>
 						</td>
 					</tr>
 					
@@ -98,16 +125,40 @@
 
         <div class="footer">
                     <div style="display:flex; justify-content: space-between">
-                        <span class="titre">
+                        
+                        <div style="background-color:rgb(249, 249, 249, 0.7); height: 80px;">
                             <img src="logo.png" alt="logo" height="80px">
-                        </span>
-						<center>Norah TOUMI-Asmaa NASSIRI-Rime LAHKAK</center>
-                        <div class="menu">
+                        </div>
+						
+                        <div>
+                            <h3>Qui sommes-nous ?</h3>
+                            <h4>Nos services</h4>
+                            <h4>Notre équipe</h4>
+                            <h4>Voyage sur-mesure</h4>
+                        </div>
 
-                            <div class="lien">
-                                <a target="_blank" href="utilisateur.html"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="40px"/></a>
-                            </div>
-                            
+                        <div>
+                            <h3>Top destinations</h3>
+                            <h4>France</h4>
+                            <h4>Italie</h4>
+                            <h4>Japon</h4>
+                            <h4>Etats-Unis</h4>
+                            <h4>Australie</h4>
+                        </div>
+
+                        <div>
+                            <h3>Idées voyages</h3>
+                            <h4>En solo</h4>
+                            <h4>En couple</h4>
+                            <h4>Entre amis</h4>
+                            <h4>Déconnecter</h4>
+                        </div>
+
+                        <div>
+                            <h3>Top destinations</h3>
+                            <h4>France</h4>
+                            <h4>Italie</h4>
+                            <h4>Belgique</h4>
                         </div>
                     </div>
                     
