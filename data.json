@@ -1,0 +1,18 @@
+[
+	{
+		"login"      :"popo",
+		"password"   :"123"
+	
+	},
+	{
+		"login"      :"toto",
+		"password"   :"456"
+	
+	},
+	{
+		"login"      :"roro",
+		"password"   :"789"
+	
+	},
+
+}
