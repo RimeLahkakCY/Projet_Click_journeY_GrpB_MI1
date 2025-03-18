@@ -1,0 +1,9 @@
+{
+"utilisateur":[
+{"nom":"nator", "prenom":"anabelle", "mail":"a.nator@gmail.com", "mdp":"12df15dv","role":"user", "favori":"", "id":"1"},
+{"nom":"birahim", "prenom":"samy", "mail":"s.birahim@gmail.com", "mdp":"aeezf4552","role":"user", "favori":"", "id":"2"},
+{"nom":"somar", "prenom":"jasper", "mail":"j.somar@gmail.com", "mdp":"aadrerz85","role":"user", "favori":"", "id":"3"},
+{"nom":"toumi", "prenom":"norah", "mail":"n.toumi@gmail;com", "mdp":"CliqjourneY","role":"admin", "favori":"", "id":"4"},
+{"nom":"lahkak", "prenom":"rime", "mail":"r.lahkak@gmail.com", "mdp":"CliqjourneY","role":"admin", "favori":"", "id":"5"}
+]
+}

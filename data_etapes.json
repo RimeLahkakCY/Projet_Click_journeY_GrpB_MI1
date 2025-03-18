@@ -1,0 +1,16 @@
+{"etapes":[
+{"lieux":"Italie", "ville":"Naples", "activite":"restauration", "hebergement":"hotel"},
+{"lieux":"Italie", "ville":"Pompei", "activite":"musée", "hebergement":"hotel"},
+{"lieux":"Italie", "ville":"Vesuve", "activite":"visite", "hebergement":"hotel"},
+{"lieux":"Australie", "ville":"Sydney", "activite":"restauration", "hebergement":"hotel"},
+{"lieux":"Australie", "ville":"Great Ocean Road", "activite":"musee", "hebergement":"location"},
+{"lieux":"Australie", "ville":"Adelaide", "activite":"visite", "hebergement":"location"},
+{"lieux":"Australie", "ville":"Kangaroo island", "activite":"safari", "hebergement":"camping"},
+{"lieux":"Australie", "ville":"Uluru", "activite":"musée", "hebergement":"hotel"},
+{"lieux":"Australie", "ville":"Red Centre", "activite":"visite", "hebergement":"hotel"},
+{"lieux":"Ethiopie", "ville":"Parc national du Simien", "activite":"safari", "hebergement":"camping"},
+{"lieux":"Ethiopie", "ville":"Lalibela", "activite":"restauration", "hebergement":"location"},
+{"lieux":"Ethiopie", "ville":"Retour", "activite":"musee", "hebergement":"hotel"}
+{"lieux":"Ethiopie", "ville":"Addis-Abeda", "activite":"visite", "hebergement":"hotel"}
+]
+}

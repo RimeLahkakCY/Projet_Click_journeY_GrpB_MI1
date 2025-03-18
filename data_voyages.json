@@ -1,0 +1,19 @@
+{
+"voyages":[
+{"titre":"Week-end en amoureux", "lieux":"Italie", "description":"Des villes pleines de charme, des paysages sublimes, une cuisine irrésistible et une atmosphère envoûtante. Un itinéaire qui mélange romantisme, culture et paysages à couper le souffle.", "prix":"515", "duree":"2","debut":"", "fin":""},
+{"titre":"Vers la liberté", "lieux":"Australie", "description":"L'Australie est une terre d’aventure aux paysages époustouflants : plages paradisiaques, déserts rouges infinis, forêts tropicales luxuriantes et faune unique. Ce road trip te fera découvrir l’Outback, la Great Ocean Road et bien plus encore !", "prix":"979", "duree":"6","debut":"", "fin":""},
+{"titre":"En pleine nature", "lieux":"Ethiopie", "description":"", "prix":"730", "duree":"6","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""},
+{"titre":"", "lieux":"", "description":"", "prix":"", "duree":"","debut":"", "fin":""}
+]
+}
