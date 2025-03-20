@@ -61,7 +61,7 @@
                 <div class="textInscription">
                     <h1 style="color: white;text-align: center; width: 40%;">Créer un compte chez nous !!</h1>
         
-                    <form name="inscription" method="POST" action="submit_inscription.php>
+                    <form name="inscription" method="POST" action="submit_inscription.php">
                         
                         <fieldset>
                             
