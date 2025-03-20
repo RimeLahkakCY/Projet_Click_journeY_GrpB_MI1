@@ -18,15 +18,15 @@
 		
 				<div class="menu">
 					<div class="lien">
-						<a href="inscription.html">s'inscrire</a>
+						<a href="inscription.php">s'inscrire</a>
 					</div>
 					
 					<div class="lien">
-						<a href="connexion.html">se connecter</a>
+						<a href="connexion.php">se connecter</a>
 					</div>
 
 					<div class="lien">
-						<a href="utilisateur.html"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" 
+						<a href="utilisateur.php"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" 
 							alt="profil" height="30px"/></a>
 					</div>
 					
@@ -41,13 +41,13 @@
     				<a class="dropbtn"><img src="https://cdn-icons-png.flaticon.com/128/2976/2976215.png" alt="profil" height="20px"/></a>
     					<div class="dropdown-content">
       						<a href="main.html">Acceuil</a>
-      						<a href="administrateur.html">Admin</a>
-      						<a href="utilisateur.html">Paramètre</a>
+      						<a href="administrateur.php">Admin</a>
+      						<a href="utilisateur.php">Paramètre</a>
     					</div>
 						</div>
   			   
-						<a href="voyages.html"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="icon" height="20px"/></a>
-						<a href="reservations.html">Nos voyages</a>
+						<a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="icon" height="20px"/></a>
+						<a href="reservations.php">Nos voyages</a>
 
 				</ul>  
   			    
@@ -133,7 +133,7 @@
                             	
                             	<div class="voyages">
 									
-									<a href="reservations.html">
+									<a href="reservations.php">
 									<div class="thumbnail">
 									<div>
 										<img src="https://ulysse.com/news/wp-content/uploads/2024/05/Sydney-en-Australie-.jpg" alt="img" height="200px"/>   
@@ -149,7 +149,7 @@
 									</a>
 									</br></br>
 									
-									<a href="reservations.html">
+									<a href="reservations.php">
 									<div class="thumbnail">
 									<div>
 										<img src="https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg" alt="img" height="200px"/>   
@@ -164,7 +164,7 @@
 									</a>
 									</br></br>
 									
-									<a href="reservations.html">
+									<a href="reservations.php">
 									<div class="thumbnail">
 									<div>
 										<img src="https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg" alt="img" height="200px"/>   
