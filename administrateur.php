@@ -17,15 +17,15 @@
                 
                         <div class="menu">
                             <div class="lien">
-                                <a href="inscription.html">s'inscrire</a>
+                                <a href="inscription.php">s'inscrire</a>
                             </div>
                             
                             <div class="lien">
-                                <a href="connexion.html">se connecter</a>
+                                <a href="connexion.php">se connecter</a>
                             </div>
 
                             <div class="lien">
-								<a href="utilisateur.html"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="profil" height="30px"/></a>
+				<a href="utilisateur.php"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="profil" height="30px"/></a>
                             </div>
                             
                         </div>
@@ -39,13 +39,13 @@
     				<a class="dropbtn"><img src="https://cdn-icons-png.flaticon.com/128/2976/2976215.png" alt="profil" height="20px"/></a>
     					<div class="dropdown-content">
       						<a target="_blank" href="main.html">Acceuil</a>
-      						<a target="_blank" href="administrateur.html">Admin</a>
-      						<a target="_blank" href="utilisateur.html">Paramètre</a>
+      						<a target="_blank" href="administrateur.php">Admin</a>
+      						<a target="_blank" href="utilisateur.php">Paramètre</a>
     					</div>
 						</div>
   			   
-						<a target="_blank" href="voyages.html"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="icon" height="20px"/></a>
-						<a target="_blank" href="reservations.html">Nos voyages</a>
+						<a target="_blank" href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="icon" height="20px"/></a>
+						<a target="_blank" href="reservations.php">Nos voyages</a>
 
 				</ul>  
   			    
