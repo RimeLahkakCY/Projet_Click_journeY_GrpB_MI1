@@ -62,7 +62,7 @@
             <div class="textInscription">
                 <h1 style="color: white;text-align: center; width: 40%;">Connectez-vous sur votre compte !</h1>
     
-                <form name="inscription" method="POST" action="submit_connexion.php>
+                <form name="inscription" method="POST" action="submit_connexion.php">
                     
                     <fieldset>
                         
