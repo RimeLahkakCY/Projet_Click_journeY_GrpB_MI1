@@ -38,14 +38,14 @@
                         <div class="dropdown">
     				<a class="dropbtn"><img src="https://cdn-icons-png.flaticon.com/128/2976/2976215.png" alt="profil" height="20px"/></a>
     					<div class="dropdown-content">
-      						<a target="_blank" href="main.html">Acceuil</a>
-      						<a target="_blank" href="administrateur.php">Admin</a>
-      						<a target="_blank" href="utilisateur.php">Paramètre</a>
+      						<a href="main.html">Acceuil</a>
+      						<a href="administrateur.php">Admin</a>
+      						<a href="utilisateur.php">Paramètre</a>
     					</div>
 						</div>
   			   
-						<a target="_blank" href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="icon" height="20px"/></a>
-						<a target="_blank" href="reservations.php">Nos voyages</a>
+						<a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="icon" height="20px"/></a>
+						<a href="reservations.php">Nos voyages</a>
 
 				</ul>  
   			    
