@@ -55,95 +55,48 @@
 
         <div class="all">
 
-                <!--
-                <div style="width: 100%; text-align: center">
-                    <iframe width="50%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                    <a href="https://www.gps.ie/">gps drone</a></iframe>
-                </div>	
-                
-                -->
-                
-               	<h1 class="titre">Nos voyages</h1>
 				<center>
+					<h1 class="titre">Nos voyages</h1>
+					<?php
 
-				<table class="info">
-					<tr>
-						<td class="illustration">
-							<img src="https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg" alt="img" height="200px"/> 
-						</td>
-						<td>
-							<h1>Italie: Week-end en amoureux</h1>
-							<p>Des villes pleines de charme, des paysages sublimes, une cuisine irrésistible et une atmosphère envoûtante. Un itinéaire qui mélange romantisme, culture et paysages à couper le souffle.</p>
-							<h2>Dès 515 $</h2>
-							<h2>2 jours</h2>
-						</td>
-					</tr>
-					
-					<tr>
-						<td colspan="2">
-							<p>De Naples à Pompéi & Vésuve</p>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							<input type="submit" name="ok" value="Réserver" class="champ"/> 
-						</td>
-					</tr>
-				</table>
+						$voyages = json_decode(file_get_contents("data_voyages.json"), true);
 
-                <table class="info">
-					<tr>
-						<td class="illustration">
-							<img src="https://ulysse.com/news/wp-content/uploads/2024/05/Sydney-en-Australie-.jpg" alt="img" height="200px"/> 
-						</td>
-						<td>
-							<h1>Australie: Vers la liberté</h1>
-							<p>L'Australie est une terre d’aventure aux paysages époustouflants : plages paradisiaques, déserts rouges infinis, forêts tropicales luxuriantes et faune unique. Ce road trip te fera découvrir l’Outback, la Great Ocean Road et bien plus encore !</p>
-							<h2>Dès 979 $</h2>
-							<h2>6 jours</h2>
-						</td>
-					</tr>
-					
-					<tr>
-						<td colspan="2">
-							<p>De Sydney, Great Ocean Road, Adelaide & Kangaroo Island à Uluru & le Red Centre</p>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							<input type="submit" name="ok" value="Réserver" class="champ"/> 
-						</td>
-					</tr>
-				</table>
+						foreach($voyages as $voyage){
 
-                <table class="info">
-					<tr>
-						<td class="illustration">
-							<img src="https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg" alt="img" height="200px"/> 
-						</td>
-						<td>
-							<h1>Ethiopie: En pleine nature</h1>
-							<p>Pour ceux qui rêvent de grands espaces, de paysages à couper le souffle. Et d’une nature encore préservée et éblouissante pour se ressourcer</p>
-							<h2>Dès 730 $</h2>
-							<h2>6 jours</h2>
-						</td>
-					</tr>
-					
-					<tr>
-						<td colspan="2">
-							<p>Du Parc national du Simien, Lalibela, Retour à Addis-Abeba</p>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							<input type="submit" name="ok" value="Réserver" class="champ"/> 
-						</td>
-					</tr>
-				</table>
+							?>
+							<table class="info">
+								<tr>
+									<td class="illustration">
+										<img src="<?php echo $voyage['photo'] ?>" alt="img" height="200px"/> 
+									</td>
+									<td>
+										<h1><?php echo $voyage['titre'] ?></h1>
+										<p><?php echo $voyage['description'] ?></p>
+										<h2>Dès <?php echo $voyage['prix'] ?></h2>
+										<h2><?php echo $voyage['duree'] ?> jours</h2>
+									</td>
+								</tr>
+		
+								<tr>
+									<td colspan="2">
+										<p>Lieux: <?php echo $voyage['lieux'] ?></p>
+										<p>Options :<?php foreach ($voyage['options'] as $option){ ?>
+                        					<?php echo $option ?>,
+                    					<?php } ?></p>
+									</td>
+								</tr>
+		
+								<tr>
+									<td>
+										<input type="submit" name="ok" value="Réserver" class="champ"/> 
+									</td>
+								</tr>
+							</table>
+		
+							<?php
+						}
+					?>
+				
 				</center>
 
         </div>
