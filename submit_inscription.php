@@ -6,16 +6,10 @@ $email = $_POST['email'];
 $mdp = $_POST['mdp'];
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "L'email n'est pas valide.";
+    //echo "L'email n'est pas valide.";
+    header("Location: inscription.php");
     exit;
 }
-
-$data = array(
-        'nom' => $nom,
-        'prenom' => $prenom,
-        'email' => $email,
-        'mdp' => $mdp
-    );
 
 $file = 'data_utilisateur.json';
 
@@ -24,7 +18,8 @@ if(file_exists($file)){
     
     foreach($jsonData as $user){
     	if($user['email'] == $email || $user['mdp'] == $mdp){
-    		echo "l'email et/ou mot de passe est déjà pris";
+    		//echo "l'email ou mot de passe déjà pris. Veuillez en choisir un autre.";
+            header("Location: inscription.php");
     		exit;
     	}
     }
@@ -33,8 +28,20 @@ if(file_exists($file)){
 	echo "Erreur!! fichier vide";
 }
     
+$newId = count($jsonData) + 1;
+
+$data = array(
+    'nom' => $nom,
+    'prenom' => $prenom,
+    'email' => $email,
+    'mdp' => $mdp,
+    'role' => "user",
+    'id' => strval($newId),
+    'favori' => "",
+);
+
 $jsonData[] = $data;
 
 file_put_contents($file, json_encode($jsonData, JSON_PRETTY_PRINT));
-echo "Merci, votre inscription a été envoyé !";
+header("Location: connexion.php");
 ?>
