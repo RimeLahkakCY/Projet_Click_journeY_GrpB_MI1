@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['user'])){
+        header("Location: main.php");
+        exit;
+    }
+?>
+
 <html> 
      
     <head>
@@ -10,107 +19,98 @@
     
     <body>
     	
-    	    	<div class="header">
-                    <div style="display:flex; justify-content: space-between">
-                        <span class="titre">
-                            <img src="logo.png" alt="logo" height="80px">
-                        </span>
-                
-                        <div class="menu">
-                            <div class="lien">
-                                <a href="inscription.php">s'inscrire</a>
-                            </div>
-                            
-                            <div class="lien">
-                                <a href="connexion.php">se connecter</a>
-                            </div>
+    <div class="header">
+        <div style="display:flex; justify-content: space-between">
+            <span class="titre">
+                <img src="logo.png" alt="logo" height="80px">
+            </span>
 
-                            <div class="lien">
-                                <a href="utilisateur.php"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="profil" height="30px"/></a>
-                            </div>
-                            
-                        </div>
+            <div class="menu">
+
+                <?php if (isset($_SESSION['user'])): ?>
+                    <div class="lien">
+                        <a href="deconnexion.php">Se déconnecter</a>
                     </div>
-                    
-                
-                    
-        	<div class="navigation">
-        		<ul>
-                        <div class="dropdown">
-    				<a class="dropbtn"><img src="https://cdn-icons-png.flaticon.com/128/2976/2976215.png" alt="profil" height="20px"/></a>
-    					<div class="dropdown-content">
-      						<a href="main.html">Acceuil</a>
-      						<a href="administrateur.php">Admin</a>
-      						<a href="utilisateur.php">Paramètre</a>
-    					</div>
-						</div>
-  			   
-						<a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="icon" height="20px"/></a>
-						<a href="reservations.php">Nos voyages</a>
+                    <div class="lien">
+                        <a href="utilisateur.php"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png"
+                            alt="profil" height="30px" /></a>
+                    </div>
+                <?php else: ?>
+                    <div class="lien">
+                        <a href="connexion.php">Se connecter</a>
+                    </div>
+                    <div class="lien">
+                        <a href="inscription.php">S'inscrire</a>
+                    </div>
+                <?php endif; ?>
 
-				</ul>  
-  			    
             </div>
-                        
-        	</div>      
-            
+        </div>
+
+
+
+        <div class="navigation">
+            <ul>
+                <div class="dropdown">
+                    <a class="dropbtn"><img src="https://cdn-icons-png.flaticon.com/128/2976/2976215.png" alt="profil"
+                            height="20px" /></a>
+                    <div class="dropdown-content">
+                        <a href="main.php">Acceuil</a>
+                        <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == "admin"):?>
+                            <a href="administrateur.php">Admin</a>
+                        <?php endif; ?>
+                        <a href="utilisateur.php">Paramètre</a>
+                    </div>
+                </div>
+
+                <a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png"
+                        alt="icon" height="20px" /></a>
+                <a href="reservations.php">Nos voyages</a>
+
+            </ul>
+
+        </div>
+
+    </div>
 			
 	<div class="all">
 
-        <div style="display: flex;justify-content: center;margin-top: 20px;">
+        <div style="display: flex;justify-content: center;margin-top: 20px; min-height: 700px;">
 
 		   
-			<form name="inscription" method="post" action="xxx">
+			<form name="inscription" method="POST" action="submit_modification.php">
                     
                     <fieldset>
                         
                         <legend>Profil</legend>
 						
-						<center>
 						<div class="div1">
 							<label for="img">
 								<span style="border-radius: 50%"><img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png" alt="profil" height="70px"/></span>
 							</label>
 							<span><input id="img" type="file" name="image" class="champ" multiple accept="image/*"/></span>
 						</div>
-						</center>
-						<br/> <br/>
-<!---https://stackoverflow.com/questions/2855589/replace-input-type-file-by-an-image --->
+						<br/><br/>
+                        <!---https://stackoverflow.com/questions/2855589/replace-input-type-file-by-an-image --->
 						
                         <div class="div1">
-                            Nom
-                        </div>
-
-                        <div class="div2">
-                            <input type="text" name="nom" class="champ" maxlength="50" required="true"/>
+                            Nom : <h2><?php echo $_SESSION['user']['nom'] ?></h2>
                         </div><br/>
 
                         <div class="div1">
-                            Prénom
-                        </div>
-
-                        <div class="div2">
-                             <input type="text" name="prenom" class="champ" maxlength="50" required="true"/>
+                            Prénom :<h2><?php echo $_SESSION['user']['prenom'] ?></h2>
                         </div><br/>
 
                         <div class="div1">
-                            Email
-                        </div>
-
-                        <div class="div2">
-                            <input type="email" name="email" class="champ" required="true"/>
+                            Email : <h2><?php echo $_SESSION['user']['email'] ?></h2>
                         </div><br/>
 						
                         <div class="div1">
-                            Confirmer votre e-mail
-                        </div>
+                            Mot de passe : <h2><?php echo $_SESSION['user']['mdp'] ?></h2>
+                        </div><br/>
 
-						<div class="div1">
-                            <input type="password" name="mdp2" class="champ" maxlength="10" />
-                        </div>
-						<br/> <br/> 
                         
-                        <div class="div2">
+                        <div class="div1">
 							<input type="submit" name="valider" value="Valider" class="champ"/>
                             <input type="submit" name="modif" value="Modifier" class="champ"/>
                         </div><br/>
