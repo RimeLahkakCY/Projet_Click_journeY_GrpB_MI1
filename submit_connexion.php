@@ -17,7 +17,7 @@ $data = array(
         'mdp' => $mdp
     );
 
-$file = 'data.json';
+$file = 'data_utilisateur.json';
 
 if(file_exists($file)){
     $jsonData = json_decode(file_get_contents($file), true);
