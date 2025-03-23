@@ -5,8 +5,8 @@
         "email": "a.nator@gmail.com",
         "mdp": "12df15dv",
         "role": "user",
-        "favori": "",
-        "id": "1"
+        "id": "1",
+        "favori": ""
     },
     {
         "nom": "birahim",
@@ -14,8 +14,8 @@
         "email": "s.birahim@gmail.com",
         "mdp": "aeezf4552",
         "role": "user",
-        "favori": "",
-        "id": "2"
+        "id": "2",
+        "favori": ""
     },
     {
         "nom": "somar",
@@ -23,26 +23,34 @@
         "email": "j.somar@gmail.com",
         "mdp": "aadrerz85",
         "role": "user",
-        "favori": "",
-        "id": "3"
+        "id": "3",
+        "favori": ""
     },
     {
         "nom": "toumi",
         "prenom": "norah",
-        "email": "n.toumi@gmail;com",
-        "mdp": "CliqjourneY",
+        "email": "n.toumi@gmail.com",
+        "mdp": "ClickC",
         "role": "admin",
-        "favori": "",
-        "id": "4"
+        "id": "4",
+        "favori": ""
     },
     {
         "nom": "lahkak",
         "prenom": "rime",
-        "email": "r.lahkak@gmail.com",
-        "mdp": "CliqjourneY",
+        "email": "lahkak@gmail.com",
+        "mdp": "ClickC",
         "role": "admin",
-        "favori": "",
-        "id": "5"
+        "id": "5",
+        "favori": ""
+    },
+    {
+        "nom": "yuyu",
+        "prenom": "roro",
+        "email": "roro@gmail.com",
+        "mdp": "98765ezfez",
+        "role": "user",
+        "id": "6",
+        "favori": ""
     }
 ]
- 
