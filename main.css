@@ -1,12 +1,12 @@
-body{
+body {
     margin: 0;
-	font-family: "Didact Gothic", serif;
+    font-family: "Didact Gothic", serif;
     animation: fadeIn 1s ease-in-out;
     font-weight: 100;
-	width: 100%;
+    width: 100%;
 }
-  
-.all{
+
+.all {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -15,35 +15,37 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     padding-bottom: 90px;
-	width: 100%;
+    width: 100%;
 }
 
 
-.header{
+.header {
     background-color: #ffffff;
     position: sticky;
     top: -1px;
     z-index: var(--z-index-main-header);
-    z-index:100;
-	width: 100%;
+    z-index: 100;
+    width: 100%;
 }
 
-h2{
+h2 {
     margin: 0;
     font-weight: bold;
 }
 
-p,a,input{
-	font-family: "Arvo", serif;
+p,
+a,
+input {
+    font-family: "Arvo", serif;
 }
 
 
-a{
+a {
     font-size: 15px;
     font-weight: 600;
 }
 
-p{
+p {
     font-size: 20px;
     font-weight: lighter;
     padding-left: 10px;
@@ -51,98 +53,114 @@ p{
 }
 
 
-.content{
+.content {
     display: flex;
     flex-direction: column;
     background-size: cover;
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-	background-blend-mode: lighten;
+    background-blend-mode: lighten;
     padding: 20px;
 }
 
-@keyframes Slideshow{
-    0%   {background-image: url('https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg');}
-    30%  {background-image: url('https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg');}
-    60%  {background-image: url('https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg');}
-    100% {background-image: url('https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg');}
+@keyframes Slideshow {
+    0% {
+        background-image: url('https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg');
+    }
+
+    30% {
+        background-image: url('https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg');
+    }
+
+    60% {
+        background-image: url('https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg');
+    }
+
+    100% {
+        background-image: url('https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg');
+    }
 }
 
-@keyframes fadeIn{
-    from {opacity: 0.5;}
-    to {opacity: 1;}
+@keyframes fadeIn {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
-.part1{
+.part1 {
     width: 100%;
     text-align: center;
     overflow: hidden;
 }
 
-.part1 a{
+.part1 a {
     padding-left: 10px;
 }
 
-img[alt="icon"]{
-	margin-left: 15px;
+img[alt="icon"] {
+    margin-left: 15px;
 }
 
-a{
+a {
     color: black;
     text-decoration: none;
 }
 
-a:hover{
-	transition: transform 0.3s ease, color 0.3s ease;
+a:hover {
+    transition: transform 0.3s ease, color 0.3s ease;
     color: #028ac9;
-    transform: translateY(-4px); 
+    transform: translateY(-4px);
 }
 
-.lien{
-	color: #d45500;
-	border: 2px solid #d45500;
-	border-radius: 40px;
-	background-color: #d45500;
-	padding: 8px;
-	margin: 5px;
+.lien {
+    color: #d45500;
+    border: 2px solid #d45500;
+    border-radius: 40px;
+    background-color: #d45500;
+    padding: 8px;
+    margin: 5px;
 }
 
-ul{
-  list-style: none;
-  display: flex;
-  padding-left: 10px;
+ul {
+    list-style: none;
+    display: flex;
+    padding-left: 10px;
 }
 
-li{
+li {
     display: inline-block;
     padding-right: 5px;
 }
 
-.navigation{
+.navigation {
     display: flex;
     background-color: #d45500;
     height: 55px;
 }
 
-.navigation a{
-	padding-left: 30px;
+.navigation a {
+    padding-left: 30px;
 }
 
 
-fieldset{
+fieldset {
     border: 3px solid #03b4e0;
     border-radius: 2%;
     background-color: white;
     width: 300px;
 }
 
-.textInscription{
+.textInscription {
     display: flex;
     flex-direction: row;
     background-color: #03b4e0;
 }
 
-legend{
+legend {
     color: white;
     border: 2px solid #007e9e;
     border-radius: 8%;
@@ -153,7 +171,7 @@ legend{
     text-align: center;
 }
 
-.menu{
+.menu {
     margin-right: 15px;
     display: flex;
     align-items: center;
@@ -161,40 +179,41 @@ legend{
 }
 
 .dropdown {
-  float: left;
-  overflow: hidden;
+    float: left;
+    overflow: hidden;
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  min-width: 160px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 .dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
-  cursor: pointer;
+    display: block;
+    cursor: pointer;
 }
 
-.titre{
-	text-align: center;
-	background-color: rgb(249, 249, 249, .7);
-	font-size: 80px;
+.titre {
+    text-align: center;
+    background-color: rgb(249, 249, 249, .7);
+    font-size: 80px;
 }
 
-button, input[type="submit"]{
+button,
+input[type="submit"] {
     cursor: pointer;
     background-color: #0b5da0d8;
     border: 2px solid #007e9e;
@@ -202,20 +221,20 @@ button, input[type="submit"]{
     color: white;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     opacity: 0.9;
     box-shadow: 5px 5px 1px 1px rgba(0, 57, 71, 0.342);
 }
 
-input[type="submit"]:active{
+input[type="submit"]:active {
     opacity: 0.8;
 }
 
-input[type="file"]{
+input[type="file"] {
     display: none;
 }
 
-input[name="ok"]{
+input[name="ok"] {
     cursor: pointer;
     background-color: #0b5da0d8;
     border: 2px solid #007e9e;
@@ -223,31 +242,31 @@ input[name="ok"]{
     color: white;
 }
 
-input[name="ok"]:hover{
-	background-color: #66ff66;
-	border: 2px solid #66ff66;
+input[name="ok"]:hover {
+    background-color: #66ff66;
+    border: 2px solid #66ff66;
     color: #0b5da0d8;
 }
 
-.filtres input[name="ok"]{
+.filtres input[name="ok"] {
     width: 100px;
-	height: 50px;
-	font-size: 20px;
+    height: 50px;
+    font-size: 20px;
 }
 
-.info input[name="ok"]{
+.info input[name="ok"] {
     width: 80px;
-	height: 50px;
-	font-size: 15px;
+    height: 50px;
+    font-size: 15px;
 }
 
-table input[name="ok"]{
+table input[name="ok"] {
     width: 30px;
-	height: 30px;
-	font-size: 10px;
+    height: 30px;
+    font-size: 10px;
 }
 
-select{
+select {
     cursor: pointer;
     background-color: #007e9e;
     border: 2px solid #007e9e;
@@ -255,59 +274,59 @@ select{
     color: white;
 }
 
-button > a{
-	color: white;
-	text-decoration: none;
+button>a {
+    color: white;
+    text-decoration: none;
 }
 
-.admin{
-	background-color: #03b4e0;
-	border: 2px solid #007e9e;
+.admin {
+    background-color: #03b4e0;
+    border: 2px solid #007e9e;
     border-radius: 5%;
-	width: 500px;
-	height: 300px;
-	border-spacing: 20px;
+    width: 500px;
+    height: 300px;
+    border-spacing: 20px;
 }
 
-thead{
-	font-size: 32px; 
-	color: white;
+thead {
+    font-size: 32px;
+    color: white;
 }
 
-.rchrch{
-	background-color : #03b4e0;
-	border: 0px;
-	width: 50px;
-	height: 50px;
+.rchrch {
+    background-color: #03b4e0;
+    border: 0px;
+    width: 50px;
+    height: 50px;
 }
 
-fieldset.recherche{
-	background-color : #03b4e0;
-	border-radius: 20px;
-	margin-top: 10px;
+fieldset.recherche {
+    background-color: #03b4e0;
+    border-radius: 20px;
+    margin-top: 10px;
 }
 
-.bttn{
-	display: flex; 
-	flex-direction: row; 
-	justify-content: space-between center;
-	width: 1000px;
+.bttn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between center;
+    width: 1000px;
 }
 
-.container{
+.container {
     width: 50px;
     margin-right: 250px;
     position: static;
 }
 
-.bttnrchrch{
+.bttnrchrch {
     width: 50px;
     height: 50px;
     margin: 0 1rem;
     position: static;
 }
 
-.searchbar{
+.searchbar {
     font-size: 20px;
     width: 280px;
     height: 30px;
@@ -317,82 +336,82 @@ fieldset.recherche{
     padding: 2rem;
     transition: all 0.1s;
     transition-delay: 0.1s;
-    z-index:1;
+    z-index: 1;
 }
 
-.buttonSearch{
-    width: 50px; 
+.buttonSearch {
+    width: 50px;
     height: 50px;
     position: static;
     transition: all 0.1s;
     transition-delay: 0.1s;
 }
 
-.buttonSearch:hover{
+.buttonSearch:hover {
     cursor: pointer;
 }
 
-.searchbar::placeholder{
+.searchbar::placeholder {
     opacity: 0.3;
 }
 
 
-.filtres{
-	background-color: #d45500;
-	text-align: left;
-	margin: 50px;
-	padding: 20px;
-	width: 150px;
-	height: 600px;
-	font-weight:bold;
-	font-size: 15px;
+.filtres {
+    background-color: #d45500;
+    text-align: left;
+    margin: 50px;
+    padding: 20px;
+    width: 150px;
+    height: 600px;
+    font-weight: bold;
+    font-size: 15px;
 }
 
-.voyages{
-	background-color: #0b5da0d8;
-	text-align: center;
-	width: 900px;
+.voyages {
+    background-color: #0b5da0d8;
+    text-align: center;
+    width: 900px;
 }
 
-img[alt="img"]{
+img[alt="img"] {
     border-radius: 10px;
     border: 4px solid #0b5da0d8;
 }
 
-.thumbnail{
-	display:flex;
-	background-color: #03b4e0;
+.thumbnail {
+    display: flex;
+    background-color: #03b4e0;
     border-radius: 10px;
-	box-shadow: 12px 12px 2px 1px rgba(3, 180, 224, .2);
-	margin: 5px;
+    box-shadow: 12px 12px 2px 1px rgba(3, 180, 224, .2);
+    margin: 5px;
 }
 
-.info{
-	display:flex;
-	background-color: rgb(3, 180, 224);
-	box-shadow: 12px 12px 2px 1px rgba(3, 180, 224, .2);
-	margin-right: 15px;
+.info {
+    display: flex;
+    background-color: rgb(3, 180, 224);
+    box-shadow: 12px 12px 2px 1px rgba(3, 180, 224, .2);
+    margin-right: 15px;
     margin-bottom: 40px;
-	width: 1000px;
-	height: 400px;
-	border-spacing: 10px;
+    width: 1000px;
+    height: 400px;
+    border-spacing: 10px;
 }
 
-.illustration{
-	width: 200px;
+.illustration {
+    width: 200px;
 }
 
-.illustration > img{
+.illustration>img {
     border-radius: 10px;
 }
 
-.profil{
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	border: 2px solid #007e9e;
-	border-radius: 2%;
-	padding: 5px;
+.profil {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 2px solid #007e9e;
+    border-radius: 2%;
+    padding: 5px;
 }
 
 .footer {
@@ -401,23 +420,24 @@ img[alt="img"]{
     padding: 10px;
 }
 
-.footer p{
+.footer p {
     text-align: center;
     overflow: hidden;
-	font-size: 20px;
+    font-size: 20px;
 }
 
-.footer > div{
+.footer>div {
     background-color: none;
     font-size: 15px;
     margin: 10px;
 }
 
-.div1, .div2{
+.div1,
+.div2 {
     text-align: center;
 }
 
-h4{
-    margin:0;
+h4 {
+    margin: 0;
     padding: 0;
 }
