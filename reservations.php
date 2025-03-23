@@ -1,7 +1,8 @@
 <?php
-    session_start();
-?>
+session_start();
 
+$i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
+?>
 <html>
 	 
     <head>
@@ -13,7 +14,7 @@
     </head>
 
     <body>
-    <div class="header">
+            	<div class="header">
         <div style="display:flex; justify-content: space-between">
             <span class="titre">
                 <img src="logo.png" alt="logo" height="80px">
@@ -65,34 +66,28 @@
 
     </div>
 
-    <div class="all">
+        <div class="all">
 
 				<center>
 					<h1 class="titre">Nos voyages</h1>
-					<?php
-
-						$voyages = json_decode(file_get_contents("data_voyages.json"), true);
-
-						foreach($voyages as $voyage){
-
-							?>
+					
 							<table class="info">
 								<tr>
 									<td class="illustration">
-										<img src="<?php echo $voyage['photo'] ?>" alt="img" height="200px"/> 
+										<img src="<?php echo $_SESSION['voyages'][$i]['photo']; ?>" alt="img" height="200px"/> 
 									</td>
 									<td>
-										<h1><?php echo $voyage['titre'] ?></h1>
-										<p><?php echo $voyage['description'] ?></p>
-										<h2>Dès <?php echo $voyage['prix'] ?></h2>
-										<h2><?php echo $voyage['duree'] ?> jours</h2>
+										<h1><?php echo $_SESSION['voyages'][$i]['titre']; ?></h1>
+										<p><?php echo $_SESSION['voyages'][$i]['description']; ?></p>
+										<h2>Dès <?php echo $_SESSION['voyages'][$i]['prix']; ?>$</h2>
+										<h2><?php echo $_SESSION['voyages'][$i]['duree']; ?> jours</h2>
 									</td>
 								</tr>
 		
 								<tr>
 									<td colspan="2">
-										<p>Lieux: <?php echo $voyage['lieux'] ?></p>
-										<p>Options :<?php foreach ($voyage['options'] as $option){ ?>
+										<p>Lieux: <?php echo $_SESSION['voyages'][$i]['lieux']; ?></p>
+										<p>Options :<?php foreach ($_SESSION['voyages'][$i]['options'] as $option){ ?>
                         					<?php echo $option ?>,
                     					<?php } ?></p>
 									</td>
@@ -100,14 +95,10 @@
 		
 								<tr>
 									<td>
-										<input type="submit" name="ok" value="Réserver" class="champ"/> 
+										<a href="location-recpitulatif.php?i=<?php echo $i; ?>"><input type="submit" name="ok" value="Réserver" class="champ"/><a/>
 									</td>
 								</tr>
 							</table>
-		
-							<?php
-						}
-					?>
 				
 				</center>
 
