@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <html>
       
     <head>
@@ -9,49 +13,57 @@
     </head>
     
     <body>
-	    	<div class="header">
-                    <div style="display:flex; justify-content: space-between">
-                        <span class="titre">
-                            <img src="logo.png" alt="logo" height="80px">
-                        </span>
-                
-                        <div class="menu">
-                            <div class="lien">
-                                <a href="inscription.php">s'inscrire</a>
-                            </div>
-                            
-                            <div class="lien">
-                                <a href="connexion.php">se connecter</a>
-                            </div>
+	<div class="header">
+        <div style="display:flex; justify-content: space-between">
+            <span class="titre">
+                <img src="logo.png" alt="logo" height="80px">
+            </span>
 
-                            <div class="lien">
-				<a href="utilisateur.php"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="profil" height="30px"/></a>
-                            </div>
-                            
-                        </div>
+            <div class="menu">
+
+                <?php if (isset($_SESSION['user'])): ?>
+                    <div class="lien">
+                        <a href="deconnexion.php">Se déconnecter</a>
                     </div>
-                    
-                
-                    
-        	<div class="navigation">
-        		<ul>
-                        <div class="dropdown">
-    				<a class="dropbtn"><img src="https://cdn-icons-png.flaticon.com/128/2976/2976215.png" alt="profil" height="20px"/></a>
-    					<div class="dropdown-content">
-      						<a href="main.html">Acceuil</a>
-      						<a href="administrateur.php">Admin</a>
-      						<a href="utilisateur.php">Paramètre</a>
-    					</div>
-						</div>
-  			   
-						<a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="icon" height="20px"/></a>
-						<a href="reservations.php">Nos voyages</a>
+                    <div class="lien">
+                        <a href="utilisateur.php"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png"
+                            alt="profil" height="30px" /></a>
+                    </div>
+                <?php else: ?>
+                    <div class="lien">
+                        <a href="connexion.php">Se connecter</a>
+                    </div>
+                    <div class="lien">
+                        <a href="inscription.php">S'inscrire</a>
+                    </div>
+                <?php endif; ?>
 
-				</ul>  
-  			    
             </div>
-                        
-        	</div>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <div class="dropdown">
+                    <a class="dropbtn"><img src="https://cdn-icons-png.flaticon.com/128/2976/2976215.png" alt="profil"
+                            height="20px" /></a>
+                    <div class="dropdown-content">
+                        <a href="main.php">Acceuil</a>
+                        <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == "admin"):?>
+                            <a href="administrateur.php">Admin</a>
+                        <?php endif; ?>
+                        <a href="utilisateur.php">Paramètre</a>
+                    </div>
+                </div>
+
+                <a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png"
+                        alt="icon" height="20px" /></a>
+                <a href="reservations.php">Nos voyages</a>
+
+            </ul>
+
+        </div>
+
+    </div>
 			
 	<div class="all">
 		
