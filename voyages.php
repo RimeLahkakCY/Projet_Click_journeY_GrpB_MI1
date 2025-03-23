@@ -1,7 +1,6 @@
 <?php
-    session_start();
+session_start();
 ?>
-
 <html>
       
     <head>
@@ -14,7 +13,7 @@
     
     <body>
     
-	<div class="header">
+<div class="header">
         <div style="display:flex; justify-content: space-between">
             <span class="titre">
                 <img src="logo.png" alt="logo" height="80px">
@@ -66,8 +65,11 @@
 
     </div>
             
-             <div class="all">
+             <div class="all" >
 
+            
+
+	
                 <center><fieldset class="recherche">
                             
                             
@@ -140,52 +142,35 @@
                             	</div>
                             	
                             	<div class="voyages">
+								
+								<?php
+
+								$voyages = json_decode(file_get_contents("data_voyages.json"), true);
+								$etapes = json_decode(file_get_contents("data_etapes.json"), true);
+								$i=0;
+								$_SESSION['voyages']=$voyages;
+								foreach($voyages as $voyage){
+								?>
 									
-									<a href="reservations.php">
+									<a href="reservations.php?i=<?php echo $i; ?>">
 									<div class="thumbnail">
 									<div>
-										<img src="https://ulysse.com/news/wp-content/uploads/2024/05/Sydney-en-Australie-.jpg" alt="img" height="200px"/>   
+										<img src="<?php echo $voyage['photo'];?>" alt="img" height="200px"/>   
 									</div>
 									<div>
-										<h1>Australie: Vers la liberté</h1>
-										<p>L'Australie est une terre d’aventure aux paysages époustouflants : plages paradisiaques, déserts rouges infinis, forêts tropicales luxuriantes et faune unique. Ce road trip te fera découvrir l’Outback, la Great Ocean Road et bien plus encore !</p>
-										<h3>Dès 979 $</h3>
-										<h3>6 jours, de Sydney, Great Ocean Road, Adelaide & Kangaroo Island à Uluru & le Red Centre</h3>
+										<h1><?php echo $voyage['titre'];?></h1>
+										<p><?php echo $voyage['description'];?></p>
+										<h3>Dès <?php echo $voyage['prix'];?>$</h3>
+										<h3><?php echo $voyage['duree'];?> jours, <?php echo "|"; foreach ($etapes as $item)  {if($voyage['lieux']==$item['lieux']){echo $item['ville']."|";}}?></h3>
 
 									</div>
 									</div>
 									</a>
 									</br></br>
-									
-									<a href="reservations.php">
-									<div class="thumbnail">
-									<div>
-										<img src="https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg" alt="img" height="200px"/>   
-									</div>
-									<div>
-										<h1>Italie: Week-end en amoureux</h1>
-										<p>Des villes pleines de charme, des paysages sublimes, une cuisine irrésistible et une atmosphère envoûtante. Un itinéaire qui mélange romantisme, culture et paysages à couper le souffle.</p>
-										<h3>Dès 515 $</h3>
-										<h3>2 jours, de Naples à Pompéi & Vésuve</h3>
-									</div>
-									</div>
-									</a>
-									</br></br>
-									
-									<a href="reservations.php">
-									<div class="thumbnail">
-									<div>
-										<img src="https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg" alt="img" height="200px"/>   
-									</div>
-									<div>
-										<h1>Ethiopie: En pleine nature</h1>
-										<p>Pour ceux qui rêvent de grands espaces, de paysages à couper le souffle. Et d’une nature encore préservée et éblouissante pour se ressourcer</p>
-										<h3>Dès 730 $</h3>
-										<h3>4 jours, du Parc national du Simien, Lalibela, Retour à Addis-Abeba</h3>
-									</div>
-									</div>
-									</a>
-									</br></br>
+								<?php
+								$i++;
+								}
+								?>
                             	</div>
                             	
                             
