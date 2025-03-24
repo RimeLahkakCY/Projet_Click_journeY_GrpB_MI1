@@ -5,6 +5,9 @@
         header("Location: main.php");
         exit;
     }
+
+    $editeur = isset($_GET['modifier']);
+
 ?>
 
 <html> 
@@ -91,28 +94,54 @@
 							<span><input id="img" type="file" name="image" class="champ" multiple accept="image/*"/></span>
 						</div>
 						<br/><br/>
-                        <!---https://stackoverflow.com/questions/2855589/replace-input-type-file-by-an-image --->
 						
                         <div class="div1">
-                            Nom : <h2><?php echo $_SESSION['user']['nom'] ?></h2>
+                            Nom : 
+                            <?php if ($editeur): ?>
+                                <input type="text" name="nom" value="<?php echo $_SESSION['user']['nom']?>"><br>
+                            <?php else: ?>
+                                <h2><?php echo $_SESSION['user']['nom']; ?></h2>
+                            <?php endif; ?>
+
                         </div><br/>
 
                         <div class="div1">
-                            Prénom :<h2><?php echo $_SESSION['user']['prenom'] ?></h2>
+                            Prénom : 
+                            <?php if ($editeur): ?>
+                                <input type="text" name="prenom" value="<?php echo $_SESSION['user']['prenom']?>"><br>
+                            <?php else: ?>
+                                <h2><?php echo $_SESSION['user']['prenom']; ?></h2>
+                            <?php endif; ?>
+
                         </div><br/>
 
                         <div class="div1">
-                            Email : <h2><?php echo $_SESSION['user']['email'] ?></h2>
+                            E-mail : 
+                            <?php if ($editeur): ?>
+                                <input type="email" name="email" value="<?php echo $_SESSION['user']['email']?>"><br>
+                            <?php else: ?>
+                                <h2><?php echo $_SESSION['user']['email']; ?></h2>
+                            <?php endif; ?>
+
                         </div><br/>
-						
+
                         <div class="div1">
-                            Mot de passe : <h2><?php echo $_SESSION['user']['mdp'] ?></h2>
+                            Mot de passe : 
+                            <?php if ($editeur): ?>
+                                <input type="password" name="mdp" value="<?php echo $_SESSION['user']['mdp']?>"><br>
+                            <?php else: ?>
+                                <h2><?php echo $_SESSION['user']['mdp']; ?></h2>
+                            <?php endif; ?>
+
                         </div><br/>
 
                         
                         <div class="div1">
-							<input type="submit" name="valider" value="Valider" class="champ"/>
-                            <input type="submit" name="modif" value="Modifier" class="champ"/>
+                            <?php if ($editeur): ?>
+                                <input type="submit" name="valider" value="Valider" class="champ"/>
+                            <?php else: ?>
+                                <a href="?modifier=1" class="champ">Modifier</a>
+                            <?php endif; ?>
                         </div><br/>
 						
                     </fieldset>
