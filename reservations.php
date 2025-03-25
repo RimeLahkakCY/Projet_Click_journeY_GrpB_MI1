@@ -1,7 +1,13 @@
 <?php
 session_start();
 
-$i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
+$i = isset($_GET['i']) ? (int) $_GET['i'] : 0;
+
+if ($i < 0 || !isset($_SESSION['user'])){
+    header("Location: voyages.php");
+    exit();
+}
+
 ?>
 <html>
 	 
