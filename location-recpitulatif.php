@@ -135,28 +135,30 @@ $i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
         </div>
 
         <div class="action-buttons">
-            <a href="modifier-reservation.php" class="btn btn-secondary">Modifier la Réservation</a>
+            <a href="reservations.php?i=<?php echo $i; ?>" class="btn btn-secondary">Modifier la Réservation</a>
 			<?php
-			include('getapikey.php');
+			require('getapikey.php');
 
 			$transaction= '123456789ABCDEF';
 			$montant= $prix;
 			$vendeur= 'MI-1_B';
-			$retour= 'http://localhost/projetcliqcy/voyages';
+			
+			$retour= 'http://localhost:1234/main.php';
 
 			$api_key=getAPIKey($vendeur);
 
 			$control=md5($api_key."#".$transaction."#".$montant."#".$vendeur."#".$retour."#");
 
-			echo('<form action="https://www.plateforme-smc.fr/cybank/" method="POST">');
-			echo ('<input type="hidden" name="transaction" value="' .$transaction. '">');
-			echo ('<input type="hidden" name="montant" value="' .$montant. '">');
-			echo ('<input type="hidden" name="vendeur" value="' .$vendeur. '">');
-			echo ('<input type="hidden" name="retour" value="' .$retour. '">');
-			echo('<input type="hidden" name="control" value="' .$control. '">');
-			echo ('<input type="submit" class="btn btn-primary" value="Confirmer la Réservation">');
-			echo ('</form>');
+			
 		?>
+		<form action="https://www.plateforme-smc.fr/cybank/" method="POST">
+		<input type="hidden" name="transaction" value="<?php echo($transaction); ?>">
+		<input type="hidden" name="montant" value="<?php echo($montant); ?>">
+		<input type="hidden" name="vendeur" value="<?php echo($vendeur); ?>">
+		<input type="hidden" name="retour" value="<?php echo ($retour); ?>">
+		<input type="hidden" name="control" value="<?php echo ($control); ?>">
+		<input type="submit" class="btn btn-primary" value="Confirmer la Réservation">
+		</form>
         </div>
     </div>
 </body>
