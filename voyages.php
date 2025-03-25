@@ -65,18 +65,19 @@ session_start();
 
     </div>
             
-             <div class="all">
+             <div class="all" >
 
             
 
 	
-                <center><fieldset class="recherche">
-                            
+                <center>
+                <form method="GET" action="voyages.php">
+                <fieldset class="recherche">
                             
                             <div  class="bttn">
                             
                             	<span class="container">
-      <input type="search" maxlength="10" placeholder="Où allez-vous ?" class="searchbar"/>
+      <input type="search" maxlength="10" placeholder="Où allez-vous ?" class="searchbar" name="recherche"/>
       
     </span>
                             
@@ -88,10 +89,11 @@ session_start();
       <input type="number" maxlength="12" placeholder="Voyageurs" class="searchbar" min="1" max="16"/>
     </span>
     			    <span class="bttnrchrch">
-      <button type="button" class="rchrch"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="search icon" class="buttonSearch"/></button>
+      <button type="submit" class="rchrch"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="search icon" class="buttonSearch"/></button>
     </span>
                             
                             </div>
+                            </form>
                             </fieldset></center>
                              <div style="display: flex;justify-content: center;margin-top: 20px;">
                             <div style="display: flex; justify-content: space-between">
@@ -142,38 +144,40 @@ session_start();
                             	</div>
                             	
                             	<div class="voyages">
-								
-					<?php
-
-					$voyages = json_decode(file_get_contents("data_voyages.json"), true);
-					$etapes = json_decode(file_get_contents("data_etapes.json"), true);
-					$i=0;
-					$_SESSION['voyages']=$voyages;
-					foreach($voyages as $voyage){
-					?>
+				<?php
+				$voyages = json_decode(file_get_contents("data_voyages.json"), true);
+				$etapes = json_decode(file_get_contents("data_etapes.json"), true);
+				$i=0;
+				$_SESSION['voyages']=$voyages;
+				?>
+				<?php
+				foreach($voyages as $voyage){
+				if($_GET['recherche']==$voyage['lieux']){
+				?>
 									
-						<a href="reservations.php?i=<?php echo $i; ?>">
-						<div class="thumbnail">
-							<div>
-								<img src="<?php echo $voyage['photo'];?>" alt="img" height="200px"/>   
-							</div>
-						<div>
-							<h1><?php echo $voyage['titre'];?></h1>
-							<p><?php echo $voyage['description'];?></p>
-							<h3>Dès <?php echo $voyage['prix'];?>$</h3>
-							<h3><?php echo $voyage['duree'];?> jours, <?php echo "|"; 								foreach ($etapes as $item){
-								if($voyage['lieux']==$item['lieux']){
-								echo $item['ville']."|";}}
-								?></h3>
+									<a href="reservations.php?i=<?php echo $i; ?>">
+									<div class="thumbnail">
+									<div>
+										<img src="<?php echo $voyage['photo'];?>" alt="img" height="200px"/>   
+									</div>
+									<div>
+										<h1><?php echo $voyage['titre'];?></h1>
+										<p><?php echo $voyage['description'];?></p>
+										<h3>Dès <?php echo $voyage['prix'];?>$</h3>
+										<h3><?php echo $voyage['duree'];?> jours, <?php echo "|"; foreach ($etapes as $item)  {if($voyage['lieux']==$item['lieux']){echo $item['ville']."|";}}?></h3>
 
 									</div>
 									</div>
 									</a>
 									</br></br>
-								<?php
-								$i++;
-								}
-								?>
+				<?php
+				$i++;
+				
+					
+				}
+				}
+				
+				?>
                             	</div>
                             	
                             
