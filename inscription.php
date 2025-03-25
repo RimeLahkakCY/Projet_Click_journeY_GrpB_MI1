@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+
+if(isset($_SESSION['user'])){
+	header("Location: main.php");
+	exit;
+}
+?>
+
 <html>
       
     <head>
@@ -116,7 +126,6 @@
                 </div>
     
             </div>
-			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
         </div>
             
