@@ -1,5 +1,18 @@
 <?php
     session_start();
+    
+    if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin'){
+        header("Location: main.php");
+        exit();
+    }
+    
+    $file = "data_utilisateur.json";
+    
+    if(file_exists($file)){
+    	$users = json_decode(file_get_contents($file), true);
+    }else{
+    	die("il n'y a pas de fichier utilisateur");
+    }
 ?>
 
 <html>
@@ -75,217 +88,35 @@
 				<th>Nom</th>
 				<th>Prenom</th>
 				<th>Statut</th>
-			</thead
+			</thead>
 			<tbody>
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
+				<?php
+				foreach($users as $user){
+				?>
+					
+					<tr>
+						<td><?php echo $user['nom']; ?></td>
+						<td><?php echo $user['prenom']; ?></td>
+						<td>
+							<form method="POST" action="administrateur.php">
+							
+							<select name="statut">
+								<option value="user">user</option>
+								<option value="admin">admin</option>
+								<option value="banni">ban</option>
+							</select>
+						
+						</td>
+					
+							<td><input type="submit" name="ok" value="OK" class="champ"/>
+								</td>
+							</form>
+					</tr>
+				<?php
+				}
+				?>
 				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
-				
-				<tr>
-					<td><input type="text" name="nom" class="champ" maxlength="50"/></td>
-					<td><input type="text" name="prenom" class="champ" maxlength="50"/></td>
-					<td>
-						<select>
-							<option value="lambda">Lambda</option>
-							<option value="vip">VIP</option>
-							<option value="veterant">Veterant</option>
-							<option value="banni">BAN</option>
-						</select>
-					</td>
-					<td><input type="submit" name="ok" value="OK" class="champ"/></td>
-				</tr>
+
 			</tbody>
 		</table>
     	</center>
