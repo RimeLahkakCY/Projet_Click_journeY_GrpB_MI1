@@ -2,6 +2,11 @@
 session_start();
 
 $i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
+
+if(!isset($_SESSION['user'])){
+	header("Location: connexion.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr"> 
@@ -22,7 +27,11 @@ $i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
         <?php
         // Dans une application réelle, ces données proviendraient d'un formulaire,
         // d'une base de données ou de variables de session
-		$prix=$_SESSION['voyages'][$i]['prix'];
+		$nom = $_SESSION['user']['nom'];
+		$prenom = $_SESSION['user']['prenom'];
+		$prix = $_SESSION['voyages'][$i]['prix'];
+		$duree = $_SESSION['voyages'][$i]['duree'];
+		
         $rentalInfo = [
             'customer_name' => 'Jean Dupont',
             'car_model' => 'Toyota Camry',
