@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(isset($_SESSION['user'])){
+	header("Location: main.php");
+	exit;
+}
+?>
+
 <html>
       
     <head>
@@ -65,7 +74,7 @@
 
 	<div class="all">
 
-        <div style="display: flex;justify-content: center;margin-top: 20px;">
+        <<div style="display: flex;justify-content: center;margin-top: 20px;">
 		
 
             <div class="textInscription">
@@ -118,12 +127,12 @@
             </div>
 
         </div>
-	
+		
 	</div>
 		
-		<div class="footer">
+	<div class="footer">
                     <div style="display:flex; justify-content: space-between">
-                        <div style="background-color:rgb(249, 249, 249, 0.7); height: 80px;">
+                        <div style="background-color: rgb(249, 249, 249, 0.7); height: 80px;">
                             <img src="logo.png" alt="logo" height="80px">
                         </div>
 						
@@ -160,7 +169,7 @@
                     </div>
                     
         </div>
-    	
-    </body>
-    
-</html>
+            
+            
+            
+<html>
