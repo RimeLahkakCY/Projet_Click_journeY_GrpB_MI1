@@ -105,10 +105,43 @@
                         aventures sur la route une expérience unique et mémorable.</p>
 
                 </div>
-
+                <br/><br/>
+                <center>
+                <div class="voyages">
+                <br/>
+                <?php
+			$voyages = json_decode(file_get_contents("data_voyages.json"), true);
+			$etapes = json_decode(file_get_contents("data_etapes.json"), true);
+			$_SESSION['voyages']=$voyages;
+			$i=0;
+			foreach($voyages as $voyage){
+			
+		?>
+		<div class="thumbnail">
+			<div>
+				<img src="<?php echo $voyage['photo'];?>" alt="img" height="200px"/>   
+			</div>
+			<div>
+				<h1><?php echo $voyage['titre'];?></h1>
+				<p><?php echo $voyage['description'];?></p>
+				<h3>Dès <?php echo $voyage['prix'];?>$</h3>
+				<h3><?php echo $voyage['duree'];?> jours, <?php echo "|"; foreach ($etapes as $item)  {if($voyage['lieux']==$item['lieux']){echo $item['ville']."|";}}?></h3>
+			</div>
+			</div>
+			</br></br>
+			<?php
+			
+			if($i==2){
+				break;
+			}
+			$i++;
+			}
+			?>
             </div>
-
-        </div>
+            </div>
+        <center>
+    </div>
+    </div>
     </div>
 
     <div class="footer">
@@ -148,8 +181,8 @@
                 <h4>Italie</h4>
                 <h4>Belgique</h4>
             </div>
+            
         </div>
-
     </div>
 
 </body>
