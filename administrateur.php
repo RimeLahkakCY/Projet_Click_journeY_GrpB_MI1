@@ -87,6 +87,7 @@
 			<thead>
 				<th>Nom</th>
 				<th>Prenom</th>
+                <th>E-mail</th>
 				<th>Statut</th>
 			</thead>
 			<tbody>
@@ -95,8 +96,9 @@
 				?>
 					
 					<tr>
-						<td><?php echo $user['nom']; ?></td>
-						<td><?php echo $user['prenom']; ?></td>
+						<td><?php echo strtoupper($user['nom']); ?></td>
+						<td><?php echo strtoupper($user['prenom']); ?></td>
+                        <td><?php echo strtoupper($user['email']); ?></td>
 						<td>
 							<form method="POST" action="administrateur.php">
 							
