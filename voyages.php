@@ -129,7 +129,7 @@ session_start();
                         $resultat = false;
 
                         foreach($voyages as $voyage){
-                            // Filter by search keyword
+                            
                             if (!isset($_GET['recherche']) || empty($_GET['recherche']) || $_GET['recherche'] == $voyage['lieux']) {
                                 $resultat = true;
                                 ?>
