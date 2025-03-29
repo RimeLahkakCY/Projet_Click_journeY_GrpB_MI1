@@ -62,7 +62,6 @@
 
                 <a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png"
                         alt="icon" height="20px" /></a>
-                <a href="reservations.php">Nos voyages</a>
 
             </ul>
 
@@ -128,7 +127,9 @@
 				<h1><?php echo $voyage['titre'];?></h1>
 				<p><?php echo $voyage['description'];?></p>
 				<h3>Dès <?php echo $voyage['prix'];?>$</h3>
-				<h3><?php echo $voyage['duree'];?> jours, <?php echo "|"; foreach ($etapes as $item)  {if($voyage['lieux']==$item['lieux']){echo $item['ville']."|";}}?></h3>
+				<h3><?php echo $voyage['duree'];?> jours</h3>
+				<br/>
+				<h3><?php echo "|"; foreach ($voyage['villes'] as $ville){echo $ville."|";}?></h3>
 			</div>
 			</div>
 			</br></br>
