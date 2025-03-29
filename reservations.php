@@ -87,12 +87,14 @@ $i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
 									<td colspan="2">
 										<p>Lieux: <?php echo $_SESSION['voyages'][$i]['lieux']; ?></p>
 										<p>Options :<?php foreach ($_SESSION['voyages'][$i]['options'] as $option){ ?>
-                        					<?php echo $option ?>,
-                    					<?php } ?></p>
+                        								<?php echo $option ?>,
+                    								<?php } ?></p>
+                                        					<p>Etapes :<?php foreach ($_SESSION['etapes'][$i]['ville'] as $etape){ ?>
+                        								<?php echo $etape ?>,
+                    								<?php } ?></p>
+                                        
 									</td>
 								</tr>
-		
-								<tr>
 									<td>
 										<a href="location-recpitulatif.php?i=<?php echo $i; ?>"><input type="submit" name="ok" value="Réserver" class="champ"/><a/>
 									</td>
