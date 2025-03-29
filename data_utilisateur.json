@@ -52,5 +52,14 @@
         "role": "user",
         "id": "6",
         "favori": ""
+    },
+    {
+        "nom": "tetete",
+        "prenom": "zzzz",
+        "email": "dzfada@gmail.com",
+        "mdp": "eeeddd",
+        "role": "user",
+        "id": "7",
+        "favori": ""
     }
 ]
