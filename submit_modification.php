@@ -18,7 +18,7 @@ if (file_exists($file) && filesize($file) > 0) {
 
     $user_email = $_SESSION['user']['email'];
 
-    foreach ($jsonData as &$user) {  // Utilisation de & pour modifier l'élément directement
+    foreach ($jsonData as &$user) { 
         if ($user['email'] == $user_email) {
 
             // Mise à jour des informations
