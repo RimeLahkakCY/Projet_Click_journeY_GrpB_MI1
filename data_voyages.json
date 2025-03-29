@@ -1,12 +1,12 @@
 [
     {
+        "id": "0",
         "photo": "https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg",
         "titre": "Week-end en amoureux",
         "description": "Des villes pleines de charme, des paysages sublimes, une cuisine irrésistible et une atmosphère envoûtante. Un itinéraire qui mélange romantisme, culture et paysages à couper le souffle.",
         "prix": "515",
         "duree": "2",
         "lieux": "Italie",
-		"villes":["Naples", "Pompei", "Vesuve"],
         "options": [
             "animal de compagnie autorisé",
             "voiture décapotable"
@@ -15,13 +15,13 @@
         "fin": ""
     },
     {
+        "id": "1",
         "photo": "https://ulysse.com/news/wp-content/uploads/2024/05/Sydney-en-Australie-.jpg",
         "titre": "Vers la liberté",
         "description": "L'Australie est une terre d’aventure aux paysages époustouflants : plages paradisiaques, déserts rouges infinis, forêts tropicales luxuriantes et faune unique. Ce road trip te fera découvrir l’Outback, la Great Ocean Road et bien plus encore !",
         "prix": "979",
         "duree": "6",
         "lieux": "Australie",
-		"villes":["Sydney", "Great Ocean Road", "Adelaide", "Kangaroo island", "Uluru", "Red Centre"],
         "options": [
             "repas inclus",
             "animal de compagnie autorisé"
@@ -30,13 +30,13 @@
         "fin": ""
     },
     {
+        "id": "2",
         "photo": "https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg",
         "titre": "En pleine nature",
         "description": "Un voyage hors des sentiers battus à travers les montagnes du Simien, les églises troglodytiques de Lalibela et les paysages lunaires du désert du Danakil. Une immersion unique dans une nature sauvage et préservée.",
         "prix": "730",
         "duree": "6",
         "lieux": "Éthiopie",
-		"villes":["Parc national du Simien", "Lalibela", "Retour", "Addis-Abeda"],
         "options": [
             "voiture décapotable",
             "déjeuné inclus"
@@ -45,13 +45,13 @@
         "fin": ""
     },
     {
+        "id": "3",
         "photo": "https://voyagescouture-production.s3.amazonaws.com/uploads/images/products/ef545a72-c7b2-4302-9872-951e6ff2e44e/Route%2066%20-%201_product_preview.jpg",
         "titre": "Sur la route 66",
         "description": "Un road trip mythique à travers l'Amérique profonde, des néons de Chicago aux plages de Santa Monica. Entre villes fantômes, diners rétro et paysages désertiques, une aventure inoubliable !",
         "prix": "1350",
         "duree": "10",
         "lieux": "États-Unis",
-		"villes":["Chicago", "Illinois", "Santa Monica", "Californie"],
         "options": [
             "guide",
             "hébergement écoresponsable"
@@ -60,13 +60,13 @@
         "fin": ""
     },
     {
+        "id": "4",
         "photo": "https://www.rivagesdumonde.fr/media/contentmanager/content/repeater_block_media_layout/images/Geiranger_%C2%A9Hallestrandsfoto_iStock-504543029-2-1-1.jpg",
         "titre": "Les fjords sauvages",
         "description": "Un itinéraire à travers les fjords majestueux, les routes panoramiques et les villages pittoresques de Norvège. Entre randonnées, kayak et nuits sous les aurores boréales, une aventure nordique magique !",
         "prix": "890",
         "duree": "7",
         "lieux": "Norvège",
-		"villes":["Oslo","Bergen ", "Tromsø"],
         "options": [
             "animal de compagnie autorisé",
             "repas inclus"
@@ -75,13 +75,13 @@
         "fin": ""
     },
     {
+        "id": "5",
         "photo": "https://www.nomadays.fr/cdn/ma-public/s_erg_chegaga_2.jpg",
         "titre": "L'appel du désert",
         "description": "De Marrakech aux dunes dorées du Sahara, un road trip au cœur du Maroc. Entre kasbahs, oasis et nuits étoilées sous une tente berbère, une aventure envoûtante et dépaysante.",
         "prix": "560",
         "duree": "5",
         "lieux": "Maroc",
-		"villes":["Marrakech","Dunes de Merzouga","Erg Chebbi"],
         "options": [
             "animal de compagnie autorisé",
             "déjeuné inclus"
@@ -90,13 +90,13 @@
         "fin": ""
     },
     {
+        "id": "6",
         "photo": "https://www.etendues-sauvages.com/app/uploads/2019/11/01islande_jokulsarlon_sstock_009.jpg",
         "titre": "De glaciers en volcans",
         "description": "Un voyage spectaculaire sur la route circulaire islandaise, entre geysers, cascades grandioses, plages de sable noir et glaciers imposants. Une immersion dans une nature brute et puissante !",
         "prix": "1200",
         "duree": "8",
         "lieux": "Islande",
-		"villes":["Reykjavik", "Geysir", "Thingvellir", "Vatnajökull"],
         "options": [
             "voiture décapotable",
             "hébergement écoresponsable"
@@ -105,13 +105,13 @@
         "fin": ""
     },
     {
+        "id": "7",
         "photo": "https://i.f1g.fr/media/cms/936x526_cropupscale/2024/01/19/f0fc4b262cd2eb8fc436b36334a1970325435aa56e92338fa64c32887b73e910.jpg",
         "titre": "À travers l’Indochine",
         "description": "Un périple fascinant à travers l'Asie du Sud-Est, du delta du Mékong aux temples d'Angkor, en passant par les paysages karstiques de la baie d’Halong et les rizières en terrasses du nord du Vietnam.",
         "prix": "950",
         "duree": "12",
-        "lieux": "Vietnam, Laos, Cambodge",
-		"villes":["Hanoï", "Delta du Mékong", "Luang Prabang", "Vang Vieng", "Angkor Wat", "Phnom Penh", "Kampot"],
+        "lieux": "Vietnam",
         "options": [
             "guide",
             "repas inclus"
@@ -120,13 +120,13 @@
         "fin": ""
     },
     {
+        "id": "8",
         "photo": "https://www.travelstore.tn/voyages/1695029315chichen-itza.jpg",
         "titre": "Sur les traces des Mayas",
         "description": "Un road trip au cœur de la civilisation maya, des pyramides de Chichén Itzá aux temples cachés de Tikal, en passant par les plages caribéennes du Belize et les marchés colorés du Guatemala.",
         "prix": "1100",
         "duree": "10",
-        "lieux": "Mexique, Guatemala, Belize",
-		"villes":["Mexico", "Tikal", "Antigua", "Cancún"],
+        "lieux": "Mexique",
         "options": [
             "hébergement écoresponsable",
             "animal de compagnie autorisé"
@@ -135,13 +135,13 @@
         "fin": ""
     },
     {
+        "id": "9",
         "photo": "https://www.terres-argentines.com/uploads/sites/8/2019/12/paysage-montage-ande-fitz-roy-patagonie-argentine-galyna-andrushko-730x520-c-48x26.jpeg",
         "titre": "De la pampa à la Patagonie",
         "description": "Un road trip au bout du monde, entre les montagnes majestueuses de la Patagonie, les glaciers immenses et les vastes étendues de la pampa argentine. Un voyage inoubliable en pleine nature sauvage.",
         "prix": "1450",
         "duree": "14",
-        "lieux": "Argentine, Chili",
-		"villes":["Buenos Aires", "Bariloche", "Torres del Paine", "Ushuaïa"],
+        "lieux": "Argentine",
         "options": [
             "guide",
             "déjeuné inclus"
@@ -150,13 +150,13 @@
         "fin": ""
     },
     {
+        "id": "10",
         "photo": "https://cdn-s-www.ledauphine.com/images/7B169CCE-1C67-4A70-8E06-9CB7B4DF18D2/NW_raw/emblematique-des-splendeurs-du-canada-le-parc-national-de-banff-est-le-plus-ancien-du-pays-il-date-de-1885-situe-dans-les-rocheuses-canadiennes-il-est-constelle-de-magnifiques-sommets-glaciers-et-lacs-comme-le-lac-moraine-(photo)-photo-david-hamilton-de-pixabay-1727093833.jpg",
         "titre": "Aventure en terres sauvages",
         "description": "Un périple à travers les vastes étendues du Canada, des Rocheuses aux forêts boréales, avec des rencontres inoubliables avec la faune locale.",
         "prix": "1050",
         "duree": "9",
         "lieux": "Canada",
-		"villes":["Vancouver", "Montréal"],
         "options": [
             "animal de compagnie autorisé",
             "hébergement écoresponsable"
@@ -165,13 +165,13 @@
         "fin": ""
     },
     {
+        "id": "11",
         "photo": "https://thebalkantours.b-cdn.net/wp-content/uploads/Mostar-panorama-768x432.webp",
         "titre": "Le tour des Balkans",
         "description": "Un road trip captivant à travers les merveilles cachées des Balkans, entre plages secrètes, montagnes et villages médiévaux.",
         "prix": "880",
         "duree": "10",
-        "lieux": "Croatie, Monténégro, Albanie",
-		"villes":["Kotor"],
+        "lieux": "Croatie",
         "options": [
             "voiture décapotable",
             "repas inclus"
@@ -180,13 +180,13 @@
         "fin": ""
     },
     {
+        "id": "12",
         "photo": "https://www.allibert-trekking.com/uploads/media/images/2969-tokyo_1.png",
         "titre": "Lumières du Japon",
         "description": "Un voyage mêlant modernité et traditions, de Tokyo aux temples de Kyoto, en passant par le Mont Fuji et les onsens cachés.",
         "prix": "1600",
         "duree": "12",
         "lieux": "Japon",
-		"villes":["Tokyo", "Hakone", "Kyoto", "Hiroshima", "Osaka"],
         "options": [
             "guide",
             "repas inclus"
@@ -195,13 +195,13 @@
         "fin": ""
     },
     {
+        "id": "13",
         "photo": "https://cdn.generationvoyage.fr/2020/02/guide-montagnes-atlas.jpg",
         "titre": "De l’Atlas au Sahara",
         "description": "Un circuit enchanteur à travers les montagnes de l'Atlas, les kasbahs millénaires et les dunes dorées du Sahara.",
         "prix": "690",
         "duree": "7",
         "lieux": "Maroc",
-		"villes":["Marrakech", "Ouarzazate", "Merzouga"],
         "options": [
             "animal de compagnie autorisé",
             "déjeuné inclus"
@@ -210,13 +210,13 @@
         "fin": ""
     },
     {
+        "id": "14",
         "photo": "https://whc.unesco.org/uploads/thumbs/site_1459_0020-1200-630-20170322164215.jpg",
         "titre": "Sur les routes andines",
         "description": "Un itinéraire unique à travers les Andes, de la mystérieuse cité du Machu Picchu au désert de sel d'Uyuni.",
         "prix": "1350",
         "duree": "13",
-        "lieux": "Pérou, Bolivie",
-		"villes":["Machu Picchu", "Salar d’Uyuni"],
+        "lieux": "Pérou",
         "options": [
             "hébergement écoresponsable",
             "voiture décapotable"
