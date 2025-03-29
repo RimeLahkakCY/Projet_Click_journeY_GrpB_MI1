@@ -1,7 +1,16 @@
 <?php
 session_start();
 
-$i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
+$i = isset($_GET['i']) ? (int) $_GET['i'] : 0;
+
+if ($i < 0 || !isset($_SESSION['user'])){
+    header("Location: voyages.php");
+    exit();
+}
+
+$etapes = json_decode(file_get_contents("data_etapes.json"), true);
+$_SESSION['etapes'] = $etapes;
+
 ?>
 <html>
 	 
@@ -58,6 +67,7 @@ $i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
 
                 <a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png"
                         alt="icon" height="20px" /></a>
+                <a href="reservations.php">Nos voyages</a>
 
             </ul>
 
@@ -87,14 +97,16 @@ $i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
 									<td colspan="2">
 										<p>Lieux: <?php echo $_SESSION['voyages'][$i]['lieux']; ?></p>
 										<p>Options :<?php foreach ($_SESSION['voyages'][$i]['options'] as $option){ ?>
-                        								<?php echo $option ?>,
-                    								<?php } ?></p>
-                                        					<p>Etapes :<?php foreach ($_SESSION['etapes'][$i]['ville'] as $etape){ ?>
-                        								<?php echo $etape ?>,
-                    								<?php } ?></p>
+                        					<?php echo $option ?>,
+                    					<?php } ?></p>
+                                        <p>Etapes :<?php foreach ($_SESSION['etapes'][$i]['ville'] as $etape){ ?>
+                        					<?php echo $etape ?>,
+                    					<?php } ?></p>
                                         
 									</td>
 								</tr>
+		
+								<tr>
 									<td>
 										<a href="location-recpitulatif.php?i=<?php echo $i; ?>"><input type="submit" name="ok" value="Réserver" class="champ"/><a/>
 									</td>
