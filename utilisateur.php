@@ -68,7 +68,6 @@
 
                 <a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png"
                         alt="icon" height="20px" /></a>
-                <a href="reservations.php">Nos voyages</a>
 
             </ul>
 
