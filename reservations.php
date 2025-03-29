@@ -1,13 +1,7 @@
 <?php
 session_start();
 
-$i = isset($_GET['i']) ? (int) $_GET['i'] : 0;
-
-if ($i < 0 || !isset($_SESSION['user'])){
-    header("Location: voyages.php");
-    exit();
-}
-
+$i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
 ?>
 <html>
 	 
@@ -64,7 +58,6 @@ if ($i < 0 || !isset($_SESSION['user'])){
 
                 <a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png"
                         alt="icon" height="20px" /></a>
-                <a href="reservations.php">Nos voyages</a>
 
             </ul>
 
