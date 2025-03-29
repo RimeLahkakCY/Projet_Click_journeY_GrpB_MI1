@@ -50,7 +50,6 @@ session_start();
                     </div>
 
                     <a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="icon" height="20px" /></a>
-                    <a href="reservations.php">Nos voyages</a>
                 </ul>
             </div>
         </div>
@@ -123,14 +122,14 @@ session_start();
                     <div class="voyages">
                         <?php
                         $voyages = json_decode(file_get_contents("data_voyages.json"), true);
-                        $etapes = json_decode(file_get_contents("data_etapes.json"), true);
                         $i = 0;
                         $_SESSION['voyages'] = $voyages;
+						$patern="/".$_GET['recherche']."/i";
                         $resultat = false;
 
                         foreach($voyages as $voyage){
                             
-                            if (!isset($_GET['recherche']) || empty($_GET['recherche']) || $_GET['recherche'] == $voyage['lieux']) {
+                            if (!isset($_GET['recherche']) || empty($_GET['recherche']) || preg_match($patern, $voyage['lieux'])) {
                                 $resultat = true;
                                 ?>
                                 <a href="reservations.php?i=<?php echo $i; ?>">
@@ -142,13 +141,9 @@ session_start();
                                             <h1><?php echo $voyage['titre']; ?></h1>
                                             <p><?php echo $voyage['description']; ?></p>
                                             <h3>Dès <?php echo $voyage['prix']; ?>$</h3>
-                                            <h3><?php echo $voyage['duree']; ?> jours, <?php echo "|"; 
-                                                foreach ($etapes as $item) {
-                                                    if($voyage['lieux'] == $item['lieux']) {
-                                                        echo $item['ville']."|";
-                                                    }
-                                                }
-                                                ?></h3>
+                                            <h3><?php echo $voyage['duree']; ?> jours, 
+											<br/>
+											<?php echo "|"; foreach ($voyage['villes'] as $ville){echo $ville."|";}?></h3>
                                         </div>
                                     </div>
                                 </a>
