@@ -6,6 +6,7 @@
         "prix": "515",
         "duree": "2",
         "lieux": "Italie",
+		"villes":["Naples", "Pompei", "Vesuve"],
         "options": [
             "animal de compagnie autorisé",
             "voiture décapotable"
@@ -20,6 +21,7 @@
         "prix": "979",
         "duree": "6",
         "lieux": "Australie",
+		"villes":["Sydney", "Great Ocean Road", "Adelaide", "Kangaroo island", "Uluru", "Red Centre"],
         "options": [
             "repas inclus",
             "animal de compagnie autorisé"
@@ -34,6 +36,7 @@
         "prix": "730",
         "duree": "6",
         "lieux": "Éthiopie",
+		"villes":["Parc national du Simien", "Lalibela", "Retour", "Addis-Abeda"],
         "options": [
             "voiture décapotable",
             "déjeuné inclus"
@@ -48,6 +51,7 @@
         "prix": "1350",
         "duree": "10",
         "lieux": "États-Unis",
+		"villes":["Chicago", "Illinois", "Santa Monica", "Californie"],
         "options": [
             "guide",
             "hébergement écoresponsable"
@@ -62,6 +66,7 @@
         "prix": "890",
         "duree": "7",
         "lieux": "Norvège",
+		"villes":["Oslo","Bergen ", "Tromsø"],
         "options": [
             "animal de compagnie autorisé",
             "repas inclus"
@@ -76,6 +81,7 @@
         "prix": "560",
         "duree": "5",
         "lieux": "Maroc",
+		"villes":["Marrakech","Dunes de Merzouga","Erg Chebbi"],
         "options": [
             "animal de compagnie autorisé",
             "déjeuné inclus"
@@ -90,6 +96,7 @@
         "prix": "1200",
         "duree": "8",
         "lieux": "Islande",
+		"villes":["Reykjavik", "Geysir", "Thingvellir", "Vatnajökull"],
         "options": [
             "voiture décapotable",
             "hébergement écoresponsable"
@@ -104,6 +111,7 @@
         "prix": "950",
         "duree": "12",
         "lieux": "Vietnam, Laos, Cambodge",
+		"villes":["Hanoï", "Delta du Mékong", "Luang Prabang", "Vang Vieng", "Angkor Wat", "Phnom Penh", "Kampot"],
         "options": [
             "guide",
             "repas inclus"
@@ -118,6 +126,7 @@
         "prix": "1100",
         "duree": "10",
         "lieux": "Mexique, Guatemala, Belize",
+		"villes":["Mexico", "Tikal", "Antigua", "Cancún"],
         "options": [
             "hébergement écoresponsable",
             "animal de compagnie autorisé"
@@ -132,6 +141,7 @@
         "prix": "1450",
         "duree": "14",
         "lieux": "Argentine, Chili",
+		"villes":["Buenos Aires", "Bariloche", "Torres del Paine", "Ushuaïa"],
         "options": [
             "guide",
             "déjeuné inclus"
@@ -146,6 +156,7 @@
         "prix": "1050",
         "duree": "9",
         "lieux": "Canada",
+		"villes":["Vancouver", "Montréal"],
         "options": [
             "animal de compagnie autorisé",
             "hébergement écoresponsable"
@@ -160,6 +171,7 @@
         "prix": "880",
         "duree": "10",
         "lieux": "Croatie, Monténégro, Albanie",
+		"villes":["Kotor"],
         "options": [
             "voiture décapotable",
             "repas inclus"
@@ -174,6 +186,7 @@
         "prix": "1600",
         "duree": "12",
         "lieux": "Japon",
+		"villes":["Tokyo", "Hakone", "Kyoto", "Hiroshima", "Osaka"],
         "options": [
             "guide",
             "repas inclus"
@@ -188,6 +201,7 @@
         "prix": "690",
         "duree": "7",
         "lieux": "Maroc",
+		"villes":["Marrakech", "Ouarzazate", "Merzouga"],
         "options": [
             "animal de compagnie autorisé",
             "déjeuné inclus"
@@ -202,6 +216,7 @@
         "prix": "1350",
         "duree": "13",
         "lieux": "Pérou, Bolivie",
+		"villes":["Machu Picchu", "Salar d’Uyuni"],
         "options": [
             "hébergement écoresponsable",
             "voiture décapotable"
