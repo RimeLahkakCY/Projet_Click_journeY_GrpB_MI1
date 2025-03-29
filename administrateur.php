@@ -70,6 +70,7 @@
 
                 <a href="voyages.php"><img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png"
                         alt="icon" height="20px" /></a>
+                <a href="reservations.php">Nos voyages</a>
 
             </ul>
 
@@ -99,37 +100,22 @@
 						<td><?php echo strtoupper($user['prenom']); ?></td>
                         <td><?php echo strtoupper($user['email']); ?></td>
 						<td>
-						<?php
-								$role= isset($user['role']) ? $user['role'] : 'user'; 
-								if (isset($_POST['statut']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-									$r= $_POST['statut'];
-									$user['role']=$r;
-									file_put_contents($file, json_encode($user['role'], JSON_PRETTY_PRINT));
-								}
-						?> 
 							<form method="POST" action="administrateur.php">
 							
 							<select name="statut">
-							
-								<option value="user" <?= ($role == 'user') ? 'selected' : '' ?>>user</option>
-								<option value="admin" <?= ($role == 'admin') ? 'selected' : '' ?>>admin</option>
-								<option value="banni" <?= ($role == 'banni') ? 'selected' : '' ?>>ban</option>
+								<option value="user">user</option>
+								<option value="admin">admin</option>
+								<option value="banni">ban</option>
 							</select>
 						
 						</td>
 					
 							<td><input type="submit" name="ok" value="OK" class="champ"/>
 								</td>
-								
-								
-							
 							</form>
-							
 					</tr>
 				<?php
 				}
-				
-				
 				?>
 				
 
