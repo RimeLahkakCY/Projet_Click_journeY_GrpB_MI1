@@ -20,7 +20,7 @@ if(file_exists($file)){
     	if($user['email'] == $email || $user['mdp'] == $mdp){
     		//echo "l'email ou mot de passe déjà pris. Veuillez en choisir un autre.";
             header("Location: inscription.php");
-    		exit;
+    		exit();
     	}
     }
     
