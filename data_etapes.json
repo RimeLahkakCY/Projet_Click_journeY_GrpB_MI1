@@ -1,6 +1,271 @@
 [
-{"lieux":"Italie", "ville":["Naples", "Pompei", "Vesuve"], "activite":["restauration", "musée"], "hebergement":["hotel"]},
-{"lieux":"Australie", "ville":["Sydney", "Great Ocean Road", "Adelaide", "Kangaroo island", "Uluru", "Red Centre"], "activite":["restauration", "musee", "safari"], "hebergement":["hotel", "location", "camping"]},
-{"lieux":"Ethiopie", "ville":["Parc national du Simien", "Lalibela", "Retour", "Addis-Abeda"], "activite":["restauration","musee","safari"], "hebergement":["hotel", "location", "camping"]},
+    {
+        "lieux": "Italie",
+        "ville": [
+            "Naples",
+            "Pompei",
+            "Vesuve"
+        ],
+        "activite": [
+            "restauration",
+            "musée"
+        ],
+        "hebergement": [
+            "hôtel"
+        ]
+    },
+    {
+        "lieux": "Australie",
+        "ville": [
+            "Sydney",
+            "Great Ocean Road",
+            "Adelaide",
+            "Kangaroo Island",
+            "Uluru",
+            "Red Centre"
+        ],
+        "activite": [
+            "restauration",
+            "musée",
+            "safari",
+            "randonnée"
+        ],
+        "hebergement": [
+            "hôtel",
+            "location",
+            "camping"
+        ]
+    },
+    {
+        "lieux": "Éthiopie",
+        "ville": [
+            "Parc national du Simien",
+            "Lalibela",
+            "Retour",
+            "Addis-Abeba"
+        ],
+        "activite": [
+            "restauration",
+            "musée",
+            "safari",
+            "trekking"
+        ],
+        "hebergement": [
+            "hôtel",
+            "location",
+            "camping"
+        ]
+    },
+    {
+        "lieux": "États-Unis",
+        "ville": [
+            "Chicago",
+            "Saint-Louis",
+            "Oklahoma City",
+            "Albuquerque",
+            "Grand Canyon",
+            "Los Angeles"
+        ],
+        "activite": [
+            "restauration",
+            "musée",
+            "road trip",
+            "visite historique"
+        ],
+        "hebergement": [
+            "hôtel",
+            "motel",
+            "hébergement écoresponsable"
+        ]
+    },
+    {
+        "lieux": "Norvège",
+        "ville": [
+            "Bergen",
+            "Flåm",
+            "Geiranger",
+            "Tromsø"
+        ],
+        "activite": [
+            "randonnée",
+            "kayak",
+            "aurores boréales",
+            "croisière"
+        ],
+        "hebergement": [
+            "hôtel",
+            "chalet",
+            "camping"
+        ]
+    },
+    {
+        "lieux": "Maroc",
+        "ville": [
+            "Marrakech",
+            "Ouarzazate",
+            "Merzouga",
+            "Zagora"
+        ],
+        "activite": [
+            "restauration",
+            "désert",
+            "campement berbère",
+            "visite de kasbahs"
+        ],
+        "hebergement": [
+            "hôtel",
+            "tente berbère"
+        ]
+    },
+    {
+        "lieux": "Islande",
+        "ville": [
+            "Reykjavik",
+            "Golden Circle",
+            "Vik",
+            "Jökulsárlón"
+        ],
+        "activite": [
+            "randonnée",
+            "chute d'eau",
+            "glacier",
+            "volcan"
+        ],
+        "hebergement": [
+            "hôtel",
+            "gîte",
+            "hébergement écoresponsable"
+        ]
+    },
+    {
+        "lieux": "Vietnam",
+        "ville": [
+            "Hanoï",
+            "Baie d'Halong",
+            "Luang Prabang",
+            "Angkor Wat"
+        ],
+        "activite": [
+            "restauration",
+            "temples",
+            "croisière",
+            "marché local"
+        ],
+        "hebergement": [
+            "hôtel",
+            "guesthouse"
+        ]
+    },
+    {
+        "lieux": "Mexique",
+        "ville": [
+            "Chichén Itzá",
+            "Tikal",
+            "Caye Caulker",
+            "Antigua"
+        ],
+        "activite": [
+            "restauration",
+            "plongée",
+            "site archéologique"
+        ],
+        "hebergement": [
+            "hôtel",
+            "hébergement écoresponsable"
+        ]
+    },
+    {
+        "lieux": "Argentine",
+        "ville": [
+            "Buenos Aires",
+            "Bariloche",
+            "El Chaltén",
+            "Torres del Paine"
+        ],
+        "activite": [
+            "randonnée",
+            "glacier",
+            "faune sauvage"
+        ],
+        "hebergement": [
+            "hôtel",
+            "camping",
+            "hébergement écoresponsable"
+        ]
+    },
+    {
+        "lieux": "Canada",
+        "ville": [
+            "Banff",
+            "Jasper",
+            "Vancouver",
+            "Québec"
+        ],
+        "activite": [
+            "randonnée",
+            "faune sauvage",
+            "kayak"
+        ],
+        "hebergement": [
+            "hôtel",
+            "cabane",
+            "hébergement écoresponsable"
+        ]
+    },
+    {
+        "lieux": "Croatie",
+        "ville": [
+            "Dubrovnik",
+            "Kotor",
+            "Tirana",
+            "Lac de Skadar"
+        ],
+        "activite": [
+            "restauration",
+            "plage",
+            "randonnée"
+        ],
+        "hebergement": [
+            "hôtel",
+            "location"
+        ]
+    },
+    {
+        "lieux": "Japon",
+        "ville": [
+            "Tokyo",
+            "Kyoto",
+            "Mont Fuji",
+            "Hiroshima"
+        ],
+        "activite": [
+            "restauration",
+            "onsen",
+            "temples",
+            "ville futuriste"
+        ],
+        "hebergement": [
+            "hôtel",
+            "ryokan"
+        ]
+    },
+    {
+        "lieux": "Pérou",
+        "ville": [
+            "Lima",
+            "Cuzco",
+            "Machu Picchu",
+            "Salar d'Uyuni"
+        ],
+        "activite": [
+            "randonnée",
+            "site archéologique",
+            "désert de sel"
+        ],
+        "hebergement": [
+            "hôtel",
+            "gîte",
+            "hébergement écoresponsable"
+        ]
+    }
 ]
- 
