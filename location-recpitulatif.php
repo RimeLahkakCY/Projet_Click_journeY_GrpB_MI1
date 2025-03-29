@@ -5,7 +5,7 @@ $i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
 
 if(!isset($_SESSION['user'])){
 	header("Location: connexion.php");
-    exit();
+    	exit();
 }
 
 $prenom = $_SESSION['user']['prenom'];
