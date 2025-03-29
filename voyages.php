@@ -124,12 +124,11 @@ session_start();
                         $voyages = json_decode(file_get_contents("data_voyages.json"), true);
                         $i = 0;
                         $_SESSION['voyages'] = $voyages;
-						$patern="/".$_GET['recherche']."/i";
                         $resultat = false;
 
                         foreach($voyages as $voyage){
                             
-                            if (!isset($_GET['recherche']) || empty($_GET['recherche']) || preg_match($patern, $voyage['lieux'])) {
+                            if (!isset($_GET['recherche']) || empty($_GET['recherche']) || preg_match("/".$_GET['recherche']."/i", $voyage['lieux'])) {
                                 $resultat = true;
                                 ?>
                                 <a href="reservations.php?i=<?php echo $i; ?>">
