@@ -14,7 +14,7 @@ if(!isset($_SESSION['user'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location de Voiture - Résumé de Réservation</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -152,7 +152,7 @@ if(!isset($_SESSION['user'])){
 			$montant= $prix;
 			$vendeur= 'MI-1_B';
 			
-			$retour= 'http://localhost:1234/main.php';
+			$retour= 'http://'.$_SERVER['SERVER_NAME'].'/projetcliqcy/main.php';
 
 			$api_key=getAPIKey($vendeur);
 
