@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); 
 
 $i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
 
