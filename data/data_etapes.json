@@ -2,7 +2,7 @@
     {
         "lieux": "Italie",
         "ville": [
-            "Naples", 
+            "Naples",
             "Pompei",
             "Vesuve"
         ],
@@ -247,6 +247,22 @@
         "hebergement": [
             "hôtel",
             "ryokan"
+        ]
+    },
+    {
+        "lieux": "Sahara",
+        "ville": [
+            "Merzouga",
+            "Zagora"
+        ],
+        "activite": [
+            "désert",
+            "campement berbère",
+            "visite de kasbahs"
+        ],
+        "hebergement": [
+            "hôtel",
+            "tente berbère"
         ]
     },
     {
