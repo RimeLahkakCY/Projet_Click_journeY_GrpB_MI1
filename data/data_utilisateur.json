@@ -1,0 +1,65 @@
+[
+    {
+        "nom": "nator",
+        "prenom": "anabelle",
+        "email": "a.nator@gmail.com",
+        "mdp": "12df15dv",
+        "role": "user",
+        "id": "1",
+        "favori": ""
+    },
+    {
+        "nom": "birahim",
+        "prenom": "samy",
+        "email": "s.birahim@gmail.com",
+        "mdp": "aeezf4552",
+        "role": "user",
+        "id": "2",
+        "favori": ""
+    },
+    {
+        "nom": "somar",
+        "prenom": "jasper",
+        "email": "j.somar@gmail.com",
+        "mdp": "aadrerz85",
+        "role": "user",
+        "id": "3",
+        "favori": ""
+    },
+    {
+        "nom": "toumi",
+        "prenom": "norah",
+        "email": "n.toumi@gmail.com",
+        "mdp": "ClickC",
+        "role": "admin",
+        "id": "4",
+        "favori": ""
+    },
+    {
+        "nom": "lahkak",
+        "prenom": "rime",
+        "email": "lahkak@gmail.com",
+        "mdp": "ClickC",
+        "role": "admin",
+        "id": "5",
+        "favori": ""
+    },
+    {
+        "nom": "yuyu",
+        "prenom": "roro",
+        "email": "roro@gmail.com",
+        "mdp": "98765ezfez",
+        "role": "user",
+        "id": "6",
+        "favori": ""
+    },
+    {
+        "nom": "tetete",
+        "prenom": "zzzz",
+        "email": "dzfada@gmail.com",
+        "mdp": "eeeddd",
+        "role": "user",
+        "id": "7",
+        "favori": ""
+    }
+]
