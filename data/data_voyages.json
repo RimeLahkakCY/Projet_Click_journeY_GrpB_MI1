@@ -5,7 +5,7 @@
         "titre": "Week-end en amoureux",
         "description": "Des villes pleines de charme, des paysages sublimes, une cuisine irrésistible et une atmosphère envoûtante. Un itinéraire qui mélange romantisme, culture et paysages à couper le souffle.",
         "prix": "515",
-        "duree": "2",
+        "duree": "2", 
         "lieux": "Italie",
         "options": [
             "animal de compagnie autorisé",
