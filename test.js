@@ -33,3 +33,58 @@ function checkForm(){
 	}
 	
 }
+
+function verifForm() {
+    var form = document.getElementById('form');
+    var nom = document.getElementsByName('nom')[0];
+    var prenom = document.getElementsByName('prenom')[0];
+    var email = document.getElementsByName('email')[0];
+    var mdp = document.getElementsByName('mdp')[0];
+
+    var correct = true;
+    var errorMessages = [];
+
+    // Validate each field
+    if (nom.value.trim() === "") {
+        errorMessages.push("Champ Nom est vide !");
+        nom.style.borderColor = "#e87548";
+        nom.focus();
+        correct = false;
+    } else {
+        nom.style.borderColor = "#9de388";
+    }
+    
+    if (prenom.value.trim() === "") {
+        errorMessages.push("Champ Prénom est vide !");
+        prenom.style.borderColor = "#e87548";
+        prenom.focus();
+        correct = false;
+    } else {
+        prenom.style.borderColor = "#9de388";
+    }
+    
+    if (email.value.trim() === "") {
+        errorMessages.push("Champ Email est vide !");
+        email.style.borderColor = "#e87548";
+        email.focus();
+        correct = false;
+    } else {
+        email.style.borderColor = "#9de388";
+    }
+    
+    if (mdp.value.trim() === "") {
+        errorMessages.push("Champ Mot de passe est vide !");
+        mdp.style.borderColor = "#e87548";
+        mdp.focus();
+        correct = false;
+    } else {
+        mdp.style.borderColor = "#9de388";
+    }
+
+    if (correct) {
+        alert("Formulaire correct !");
+        form.submit();
+    } else {
+        alert("Formulaire incorrect !\n\n" + errorMessages.join("\n"));
+    }
+}
