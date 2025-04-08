@@ -9,7 +9,7 @@ $mdp = $_POST['mdp'];
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     //echo "L'email n'est pas valide.";
-    header("Location: connexion.php");
+    //header("Location: connexion.php");
     exit();
 }
 
