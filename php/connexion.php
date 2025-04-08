@@ -17,6 +17,7 @@ if(isset($_SESSION['user'])){
             href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
             rel="stylesheet">
         <title>Projet web</title>
+        <script type="text/javascript" src="../test.js"></script>
     </head>
     
     <body>
@@ -75,13 +76,13 @@ if(isset($_SESSION['user'])){
 
 	<div class="all">
 
-        <div style="display: flex;justify-content: center;margin-top: 20px;">
+          <div style="display: flex;justify-content: center;margin-top: 20px; min-height:550px">
 		
 
             <div class="textInscription">
                 <h1 style="color: white;text-align: center; width: 40%;">Connectez-vous sur votre compte !</h1>
     
-                <form name="inscription" method="POST" action="submit_connexion.php">
+                <form name="inscription" id="form1" method="POST" action="../php/submit_connexion.php">
                     
                     <fieldset>
                         
@@ -119,17 +120,16 @@ if(isset($_SESSION['user'])){
                         </div><br/>
                         
                         <div class="div2">
-                            <input type="submit" name="connexion" value="Se connecter" class="champ"/>
+                            <!-- <input type="submit" name="connexion" value="Se connecter" class="champ"/> -->
+                            <button onclick="verifForm();">Connexion</button>
                         </div><br/>
 						
                     </fieldset>
                     
                 </form>
-            </div>
-
         </div>
-		
-	</div>
+        </div>	
+        </div>
 		
 	<div class="footer">
                     <div style="display:flex; justify-content: space-between">
