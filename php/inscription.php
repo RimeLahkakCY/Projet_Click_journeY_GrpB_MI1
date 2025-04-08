@@ -17,6 +17,7 @@ if(isset($_SESSION['user'])){
         <link
             href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
             rel="stylesheet">
+            <script type="text/javascript" src="../test.js"></script>
         <title>Projet web</title>
     </head>
     
@@ -75,12 +76,12 @@ if(isset($_SESSION['user'])){
 
     <div class="all">
 
-            <div style="display: flex;justify-content: center;margin-top: 20px;">
+            <div style="display: flex;justify-content: center;margin-top: 20px; min-height:550px">
 
                 <div class="textInscription">
                     <h1 style="color: white;text-align: center; width: 40%;">Créer un compte chez nous !!</h1>
         
-                    <form name="inscription" method="POST" action="submit_inscription.php">
+                    <form name="inscription" id="form" method="POST" action="../php/submit_inscription.php" >
                         
                         <fieldset>
                             
@@ -118,7 +119,8 @@ if(isset($_SESSION['user'])){
                             </div><br/>
                             
                             <div class="div2">
-                                <input type="submit" name="sinscrire" value="S'inscrire" class="champ"/>
+                               
+                            	<button onclick="verifForm();">S'inscrire</button>
                             </div><br/>
                             
                         </fieldset>
