@@ -79,8 +79,12 @@ if(isset($_SESSION['user'])){
             <div style="display: flex;justify-content: center;margin-top: 20px; min-height:550px">
 
                 <div class="textInscription">
-                    <h1 style="color: white;text-align: center; width: 40%;">Créer un compte chez nous !!</h1>
-        
+            
+                    <div style="display: flex; flex-direction: column; width: 40%;">
+                        <h1 style="color: white;text-align: center;">Créer un compte chez nous !!</h1>
+                        <span id="errors" class="error-messages" style="color:rgb(221, 54, 42); padding: 15px; margin : 10px"></span>
+                    </div>
+
                     <form name="inscription" id="form" method="POST" action="../php/submit_inscription.php" >
                         
                         <fieldset>
@@ -91,7 +95,7 @@ if(isset($_SESSION['user'])){
                             </div>
                             
                             <div class="div2">
-                                <input type="text" name="nom" class="champ" maxlength="50" required="true"/>
+                                <input type="text" placeholder="Nom" name="nom" class="champ" maxlength="50" required="true"/>
                             </div><br/>
                             
                             <div class="div1">
@@ -99,15 +103,15 @@ if(isset($_SESSION['user'])){
                             </div>
                             
                             <div class="div2">
-                                <input type="text" name="prenom" class="champ" maxlength="50" required="true"/>
+                                <input type="text" placeholder="Prénom" name="prenom" class="champ" maxlength="50" required="true"/>
                             </div><br/>
 
                             <div class="div1">
-                                E-mail
+                                Email
                             </div>
                             
                             <div class="div2">
-                                <input type="email" name="email" class="champ" required="true"/>
+                                <input type="email" placeholder="Email" name="email" class="champ" required="true"/>
                             </div><br/>
         
                             <div class="div1">
@@ -115,11 +119,11 @@ if(isset($_SESSION['user'])){
                             </div>
                             
                             <div class="div2">
-                                <input type="password" name="mdp" class="champ" maxlength="10" required="true"/>
+                                <input type="password" placeholder="Mot de passe" name="mdp" class="champ" maxlength="10" required="true"/>
+                                <img class="eye"id="eye" onclick="showPassword();" height="20px" src="../img/eye_closed.png"/>
                             </div><br/>
                             
-                            <div class="div2">
-                               
+                            <div class="div1">
                             	<button onclick="verifForm();">S'inscrire</button>
                             </div><br/>
                             
