@@ -1,5 +1,5 @@
 body {
-    margin: 0; 
+    margin: 0;
     font-family: "Didact Gothic", serif;
     animation: fadeIn 1s ease-in-out;
     font-weight: 100;
@@ -108,6 +108,10 @@ img[alt="icon"] {
 a {
     color: black;
     text-decoration: none;
+}
+
+form {
+    box-sizing: border-box;
 }
 
 a:hover {
@@ -436,6 +440,35 @@ img[alt="img"] {
 .div2 {
     text-align: center;
 }
+
+
+.div2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+    margin: 3px 15px;
+    background-color: #ffffffcc;
+    border: 1px solid rgb(48, 50, 61);
+    border-radius: 5px;
+}
+
+.div2 input {
+    width: 90%;
+    padding: 0;
+    border: none;
+    outline: none;
+    vertical-align: middle;
+}
+
+.eye img {
+    height: 15px;
+    vertical-align: middle;
+}
+
+.eye:hover {
+    cursor: pointer;
+}
+
 
 h4 {
     margin: 0;
