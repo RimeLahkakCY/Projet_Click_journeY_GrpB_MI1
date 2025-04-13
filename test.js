@@ -59,59 +59,87 @@ function verifSearch() { //pour verifier les recherches de voyages
 
 }
 
+function Compteur() {
+    var mdp = document.getElementsByName('mdp')[0];
+    var compteur = document.getElementById('compteur');
+    var min_message = document.getElementById('minimum');
+
+    mdp.value = mdp.value.trim();
+    var longueur = mdp.value.length;
+    compteur.innerText = longueur + " / 10";
+
+    if (longueur < 5) {
+        min_message.innerText = "mininum 5 caractères.";
+    } else {
+        min_message.innerText = "";
+    }
+}
+
 function verifForm() {
     var form = document.getElementById('form');
+
     var nom = document.getElementsByName('nom')[0];
     var prenom = document.getElementsByName('prenom')[0];
     var email = document.getElementsByName('email')[0];
     var mdp = document.getElementsByName('mdp')[0];
+
     var errors = document.getElementById('errors');
 
     var correct = true;
     var errorMessages = [];
 
-    // Validate each field
     if (nom.value.trim() === "") {
         errorMessages.push("Champ Nom est vide !");
-        nom.style.borderColor = "#e87548";
+        nom.parentElement.style.borderColor = "#e35532";
         nom.focus();
         correct = false;
     } else {
-        nom.style.borderColor = "#9de388";
+        nom.parentElement.style.borderColor = "#80de64";
     }
+
 
     if (prenom.value.trim() === "") {
         errorMessages.push("Champ Prénom est vide !");
-        prenom.style.borderColor = "#e87548";
+        prenom.parentElement.style.borderColor = "#e35532";
         prenom.focus();
         correct = false;
     } else {
-        prenom.style.borderColor = "#9de388";
+        prenom.parentElement.style.borderColor = "#80de64";
     }
 
+    const email_valide = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (email.value.trim() === "") {
         errorMessages.push("Champ Email est vide !");
-        email.style.borderColor = "#e87548";
+        email.parentElement.style.borderColor = "#e35532";
         email.focus();
         correct = false;
+    }
+    else if (!email_valide.test(email.value.trim())) {
+        errorMessages.push("L'Email est incorrect !");
+        email.parentElement.style.borderColor = "#e35532";
+        correct = false;
     } else {
-        email.style.borderColor = "#9de388";
+        email.parentElement.style.borderColor = "#80de64";
     }
 
     if (mdp.value.trim() === "") {
         errorMessages.push("Champ Mot de passe est vide !");
-        mdp.style.borderColor = "#e87548";
+        mdp.parentElement.style.borderColor = "#e35532";
         mdp.focus();
         correct = false;
+    }
+    if (mdp.value.length < 5) {
+        errorMessages.push("Nombre de caractères < à 5");
+        mdp.parentElement.style.borderColor = "#e35532";
+        correct = false;
     } else {
-        mdp.style.borderColor = "#9de388";
+        mdp.parentElement.style.borderColor = "#80de64";
     }
 
     if (correct) {
         errors.innerHTML = "";
         form.submit();
     } else {
-        //alert("Formulaire incorrect !\n\n" + errorMessages.join("\n"));
         errors.innerHTML = "\n" + errorMessages.join("<strong><h2></h2></strong>") + "\n";
     }
 }
