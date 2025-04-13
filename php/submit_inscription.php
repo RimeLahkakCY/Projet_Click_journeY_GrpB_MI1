@@ -7,7 +7,7 @@ $mdp = $_POST['mdp'];
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
     //echo "L'email n'est pas valide.";
-    //header("Location: inscription.php");
+    header("Location: inscription.php");
     exit;
 }
 
@@ -19,7 +19,7 @@ if(file_exists($file)){
     foreach($jsonData as $user){
     	if($user['email'] == $email || $user['mdp'] == $mdp){
     		//echo "l'email ou mot de passe déjà pris. Veuillez en choisir un autre.";
-            	//header("Location: inscription.php");
+            	header("Location: inscription.php");
     		exit();
     	}
     }
