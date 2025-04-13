@@ -113,7 +113,6 @@ if(isset($_SESSION['user'])){
                         
                         <div class="div2">
                             <input type="email" placeholder="Email" name="email" class="champ" required="true"/>
-
                         </div><br/>
     
                         <div class="div1">
@@ -121,7 +120,9 @@ if(isset($_SESSION['user'])){
                         </div>
                         
                         <div class="div2">
-                            <input type="password" placeholder="Mot de passe" name="mdp" class="champ" maxlength="10" required="true"/>
+                            <input type="password" oninput="Compteur();" placeholder="Mot de passe" name="mdp" class="champ" maxlength="10" required="true"/>
+                            <p id="compteur" style="font-size: 9px">0/10</p>
+                            <p id="minimum" style="font-size: 9px"></p>
                             <img class="eye" id="eye" onclick="showPassword();" height="20px" src="../img/eye_closed.png"/>
                         </div><br/>
                         
