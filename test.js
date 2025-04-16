@@ -139,7 +139,39 @@ function verifForm() {
     if (correct) {
         errors.innerHTML = "";
         form.submit();
+        return true;
     } else {
         errors.innerHTML = "\n" + errorMessages.join("<strong><h2></h2></strong>") + "\n";
+        return false;
     }
+}
+
+
+function modifier(champ) {
+    var input = document.querySelector(`input[name="${champ}"]`);
+    var boutons = input.parentElement.querySelector('.boutons_user');
+
+    input.dataset.val_initial = input.value; // stocke l'ancienne valeur
+    input.disabled = false;
+    boutons.style.display = 'inline-block';
+}
+
+function annuler(champ) {
+    var input = document.querySelector(`input[name="${champ}"]`);
+    var boutons = input.parentElement.querySelector('.boutons_user');
+
+    input.value = input.dataset.val_initial;
+    input.disabled = true;
+    boutons.style.display = 'none';
+}
+
+function valider(champ) {
+    var input = document.querySelector(`input[name="${champ}"]`);
+    var boutons = input.parentElement.querySelector('.boutons_user');
+
+    input.disabled = true;
+    boutons.style.display = 'none';
+
+    // Affiche le bouton Soumettre
+    document.querySelector('button[type="submit"]').style.display = 'inline-block';
 }
