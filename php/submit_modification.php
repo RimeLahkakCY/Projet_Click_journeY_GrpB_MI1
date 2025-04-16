@@ -8,6 +8,7 @@ if (!isset($_SESSION['user'])) {
 }
 
 $file = '../data/data_utilisateur.json';
+$modif = false;
 
 if (file_exists($file) && filesize($file) > 0) {
     $jsonData = json_decode(file_get_contents($file), true);
