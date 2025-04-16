@@ -461,7 +461,7 @@ img[alt="img"] {
 }
 
 .eye img {
-    height: 15px;
+    height: 20px;
     vertical-align: middle;
 }
 
@@ -588,4 +588,9 @@ h4 {
 .btn-primary:hover {
     background-color: #2980b9;
     box-shadow: 3px 3px 8px #445769;
+}
+
+.soumettre {
+    text-align: center;
+    display: none;
 }
