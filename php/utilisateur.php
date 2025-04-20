@@ -83,7 +83,7 @@
         <div style="display: flex;justify-content: center;margin-top: 20px; min-height: 700px;">
 
 		   
-			<form name="inscription" id="form" method="POST" action="submit_modification.php">
+			<form name="inscription" id="form" method="POST" action="../php/submit_modification.php">
                     
                     <fieldset>
                         
@@ -104,8 +104,10 @@
                         <div class="div2">
                             <input type="text" name="nom" value="<?php echo $_SESSION['user']['nom']?>" disabled><br>
                             <img class="eye" onclick="modifier('nom');" src="../img/modify.png" id="modif" alt="modifier" height=20px;>
-                            <img class="eye" type="button" onclick="annuler('nom');" src="../img/cancel.png" alt="annuler" height=20px;>
-                            <img class="eye" type="button" onclick="valider('nom');" src="../img/valid.png" alt="valider" height=20px;>
+                            <div class="boutons_user" style="display: none;">
+                                <img class="eye" type="button" onclick="annuler('nom');" src="../img/cancel.png" alt="annuler" height=20px;>
+                                <img class="eye" type="button" onclick="valider('nom');" src="../img/valid.png" alt="valider" height=20px;>
+                            </div>
                         </div><br/>
 
                         <div class="div1">
@@ -115,8 +117,10 @@
                         <div class="div2">
                             <input type="text" name="prenom" value="<?php echo $_SESSION['user']['prenom']?>" disabled><br>
                             <img class="eye" onclick="modifier('prenom');" src="../img/modify.png" id="modif" alt="modifier" height=20px;>
-                            <img class="eye" type="button" onclick="annuler('prenom');" src="../img/cancel.png" alt="annuler" height=20px;>
-                            <img class="eye" type="button" onclick="valider('prenom');" src="../img/valid.png" alt="valider" height=20px;>
+                            <div class="boutons_user" style="display: none;">
+                                <img class="eye" type="button" onclick="annuler('prenom');" src="../img/cancel.png" alt="annuler" height=20px;>
+                                <img class="eye" type="button" onclick="valider('prenom');" src="../img/valid.png" alt="valider" height=20px;>
+                            </div>
                         </div><br/>
 
                         <div class="div1">
@@ -126,8 +130,10 @@
                         <div class="div2"> 
                             <input type="email" name="email" value="<?php echo $_SESSION['user']['email']?>" disabled><br>
                             <img class="eye" onclick="modifier('email');" src="../img/modify.png" id="modif" alt="modifier" height=20px;>
+                            <div class="boutons_user" style="display: none;">
                                 <img class="eye" type="button" onclick="annuler('email');" src="../img/cancel.png" alt="annuler" height=20px;>
                                 <img class="eye" type="button" onclick="valider('email');" src="../img/valid.png" alt="valider" height=20px;>
+                            </div>
                         </div><br/>
 
                         <div class="div1">
@@ -138,12 +144,15 @@
                             <input type="password" name="mdp" value="<?php echo $_SESSION['user']['mdp']?>" disabled><br>
                             <img class="eye" id="eye" onclick="showPassword();" height=20px src="../img/eye_closed.png"/>
                             <img class="eye" onclick="modifier('mdp');" src="../img/modify.png" id="modif" alt="modifier" height=20px;>
+                            
+                            <div class="boutons_user" style="display: none;">
                                 <img class="eye" type="button" onclick="annuler('mdp');" src="../img/cancel.png" alt="annuler" height=20px;>
                                 <img class="eye" type="button" onclick="valider('mdp');" src="../img/valid.png" alt="valider" height=20px;>
+                            </div>
                         </div><br/>
 
                         <div class="soumettre">
-                            <button type="submit" onclick="verifForm();">Soumettre</button>
+                            <button type="submit" id="user_submit" onclick="verifForm();" style="display:none;">Soumettre</button>
                         </div>
 						
                     </fieldset>
