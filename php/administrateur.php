@@ -24,6 +24,7 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
             rel="stylesheet">
+        <script type="text/javascript" src="../test.js"></script>
         <title>Projet web</title>
     </head>
     
@@ -94,25 +95,29 @@
 			<tbody>
 				<?php
 				foreach($users as $user){
+                    $cleanEmail = str_replace(['@', '.'], '_', $user['email']);
 				?>
 					
 					<tr>
 						<td><?php echo strtoupper($user['nom']); ?></td>
 						<td><?php echo strtoupper($user['prenom']); ?></td>
                         <td><?php echo strtoupper($user['email']); ?></td>
+
 						<td>
-							<form method="POST" action="administrateur.php">
+							<form method="POST" id="statut_<?php echo $cleanEmail?>">
 							
-							<select name="statut">
-								<option value="user">user</option>
-								<option value="admin">admin</option>
-								<option value="banni">ban</option>
+							<select name="statut_<?php echo $cleanEmail?>">
+								<option value="user" <?php echo $user['role'] == 'user' ? 'selected' : ''; ?>>user</option>
+								<option value="admin" <?php echo $user['role'] == 'admin' ? 'selected' : ''; ?>>admin</option>
+								<option value="banni" <?php echo $user['role'] == 'ban' ? 'selected' : ''; ?>>ban</option>
 							</select>
 						
 						</td>
 					
-							<td><input type="submit" name="ok" value="OK" class="champ"/>
-								</td>
+						<td>    
+                            <button type="button" name="statut_submit_<?php echo $cleanEmail; ?>" class="champ" onclick="statutModif('<?php echo $cleanEmail; ?>');">OK</button>
+                        </td>
+
 							</form>
 					</tr>
 				<?php
