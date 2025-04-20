@@ -153,7 +153,9 @@ function modifier(champ) {
 
     input.dataset.val_initial = input.value; // stocke l'ancienne valeur
     input.disabled = false;
-    boutons.style.display = 'inline-block';
+    boutons.style.display = 'flex';
+
+    document.getElementById("user_submit").style.display = 'none';
 }
 
 function annuler(champ) {
@@ -169,9 +171,27 @@ function valider(champ) {
     var input = document.querySelector(`input[name="${champ}"]`);
     var boutons = input.parentElement.querySelector('.boutons_user');
 
-    input.disabled = true;
+    input.readOnly = true;
     boutons.style.display = 'none';
 
     // Affiche le bouton Soumettre
-    document.querySelector('button[type="submit"]').style.display = 'inline-block';
+    document.getElementById("user_submit").style.display = 'inline-block';
+}
+
+function statutModif(userEmail) {
+    var valider = document.getElementsByName('statut_submit_' + userEmail)[0];
+    var statut = document.getElementsByName('statut_' + userEmail)[0];
+
+    valider.disabled = true;
+    statut.disabled = true;
+
+    setTimeout(function () {
+        valider.disabled = false;
+        statut.disabled = false;
+        alert(`Le statut de l'utilisateur avec l'email ${userEmail} a été mis à jour à : ${statut.value}`);
+    }, 1000);
+
+    valider.disabled = true;
+    statut.disabled = true;
+
 }
