@@ -9,6 +9,7 @@ session_start();
         <link
             href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
             rel="stylesheet">
+            <script type="text/javascript" src="../test.js"></script>
         <title>Projet web</title>
     </head>
     
@@ -88,41 +89,26 @@ session_start();
             <div style="display: flex;justify-content: center;margin-top: 20px;">
                 <div style="display: flex; justify-content: space-between">
                     <div class="filtres">
-                        <h1> Filtres </h1>
+                        <h1>Trier par :</h1>
 
-                        <span>Pays</span><br/>
-                        <div class="div2">
-                            <select name="pays" size="5" multiple="multiple">
-                                <option value="France">France</option>
-                                <option value="Belgique">Belgique</option>
-                                <option value="Allemagne">Allemagne</option>
-                                <option value="USA">USA</option>
-                                <option value="RDC">RDC</option>
-                            </select>
-                        </div><br/>
-
-                        <span>Voitures</span><br/>
-                        <div class="div2">
-                            <select name="voiture" multiple="multiple">
-                                <option value="Peugot">Peugot</option>
-                                <option value="Wolswagen">Wolswagen</option>
-                                <option value="Tesla">Tesla</option>
-                                <option value="Citroen">Citroen</option>
-                            </select>
-                        </div><br/>
-
-                        <span>Budget</span><br/>
-                        <div class="div2">
-                            <input type="checkbox" name="budget[]" value="50a100" class="champ"/>50-100<br/><br/>
-                            <input type="checkbox" name="budget[]" value="100a200" class="champ"/>100-200<br/><br/>
-                            <input type="checkbox" name="budget[]" value="200a500" class="champ"/>200-500<br/><br/>
-                            <input type="checkbox" name="budget[]" value="500a1000" class="champ"/>500-1000<br/><br/>
-                            <input type="checkbox" name="budget[]" value="1000a1500" class="champ"/>1000-1500<br/><br/>
-                        </div><br/>
-
-                        <div class="div2">
-                            <input type="submit" name="ok" value="valider" class="champ"/> 
-                        </div><br/>
+                        <h2>Prix</h2>
+                        <select id="prix" onchange="trier();">
+                            <option value="">Non trier</option>
+                            <option value="prixCroi">Prix croissant</option>
+                            <option value="prixDecroi">Prix décroissant</option>
+                        </select>
+                        <h2>Durée</h2>
+                        <select id="duree" onchange="trier();">
+                            <option value="">Non trier</option>
+                            <option value="dureeCroi">Durée croissante</option>
+                            <option value="dureeDecroi">Durée décroissante</option>
+                        </select>
+                        <h2>Etapes</h2>
+                        <select id="etapes" onchange="trier();">
+                            <option value="">Non trier</option>
+                            <option value="etapesCroi">Nb étapes croissant</option>
+                            <option value="etapesDecroi">Nb étapes décroissant</option>
+                        </select>
                     </div>
 
                     <div class="voyages">
@@ -139,7 +125,17 @@ session_start();
                                 $resultat = true;
                                 ?>
                                 <a href="reservations.php?i=<?php echo $voyage['id']; ?>">
-                                    <div class="thumbnail">
+                                    <?php
+                                        $nbEtapes = 0;
+                                        foreach ($etapes as $item) {
+                                            if ($voyage['lieux'] == $item['lieux']) {
+                                                $nbEtapes++;
+                                            }
+                                        }
+                                    ?>
+                                    <div class="thumbnail" data-prix="<?= $voyage['prix']; ?>" data-duree="<?= $voyage['duree']; ?>"
+                                    data-etapes="<?= $nbEtapes; ?>">
+
                                         <div>
                                             <img src="<?php echo $voyage['photo']; ?>" alt="img" height="200px"/>
                                         </div>
@@ -158,7 +154,6 @@ session_start();
                                         </div>
                                     </div>
                                 </a>
-                                <br/><br/>
                                 <?php
                                 $i++;
                             }
