@@ -195,3 +195,48 @@ function statutModif(userEmail) {
     statut.disabled = true;
 
 }
+
+function trier() {
+    var prix = document.getElementById("prix").value;
+    var duree = document.getElementById("duree").value;
+    var etapes = document.getElementById("etapes").value;
+
+    var apercus = document.querySelectorAll(".thumbnail");
+    var voyages = [];
+    for (i = 0; i < apercus.length; i++) {
+        voyages.push(apercus[i].parentElement);
+    }
+
+    voyages.sort(function (a, b) {
+        var aPrix = parseFloat(a.querySelector(".thumbnail").getAttribute("data-prix"));
+        var bPrix = parseFloat(b.querySelector(".thumbnail").getAttribute("data-prix"));
+
+        var aDuree = parseInt(a.querySelector(".thumbnail").getAttribute("data-duree"));
+        var bDuree = parseInt(b.querySelector(".thumbnail").getAttribute("data-duree"));
+
+        var aEtapes = parseInt(a.querySelector(".thumbnail").getAttribute("data-etapes"));
+        var bEtapes = parseInt(b.querySelector(".thumbnail").getAttribute("data-etapes"));
+
+        if (prix === "prixCroi") {
+            return aPrix - bPrix;
+        } else if (prix === "prixDecroi") {
+            return bPrix - aPrix;
+        } else if (duree === "dureeCroi") {
+            return aDuree - bDuree;
+        } else if (duree === "dureeDecroi") {
+            return bDuree - aDuree;
+        } else if (etapes === "etapesCroi") {
+            return aEtapes - bEtapes;
+        } else if (etapes === "etapesDecroi") {
+            return bEtapes - aEtapes;
+        }
+
+        return 0;
+    });
+
+
+    var content = document.querySelector('.voyages');
+    voyages.forEach(function (voyage) {
+        content.appendChild(voyage);
+    });
+}
