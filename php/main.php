@@ -13,6 +13,11 @@
         rel="stylesheet">
     <title>Projet web</title>
     <script type="text/javascript" src="../test.js"></script>
+    <script>
+    function color(){
+    	document.getElementsByClassName('aaa')[0].href='../css/dark.css';
+    }
+    </script>
 </head>
 
 <body>
@@ -64,7 +69,7 @@
                 
 
             </ul>
-
+	    <button style="margin-left: 1650px;" onclick="color()">mode sombre</button>
         </div>
 
     </div>
