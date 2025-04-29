@@ -1,7 +1,6 @@
 body {
     margin: 0;
     font-family: "Didact Gothic", serif;
-    animation: fadeIn 1s ease-in-out;
     font-weight: 100;
     width: 100%;
 }
@@ -11,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    animation: Slideshow 40s ease-in-out infinite;
+    background-image: url("https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     padding-bottom: 90px;
