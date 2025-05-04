@@ -1,28 +1,29 @@
 [
     {
-        "user_id": "2", 
+        "user_id": "5",
         "reservation": {
-            "title": "Sur les routes andines",
-            "place": "Pérou",
+            "title": "En pleine nature",
+            "place": "Éthiopie",
             "car_model": "Toyota",
             "car_class": "Essence",
-            "lenght": "13",
-            "pickup_date": "2025-03-30",
-            "return_date": "2025-04-12",
+            "lenght": "6",
+            "pickup_date": "2025-05-04",
+            "return_date": "2025-05-10",
             "pickup_location": "Aéroport de Orly",
             "return_location": "Aéroport de Orly",
-            "daily_rate": "1350",
+            "daily_rate": "730",
             "insurance": "Couverture Complete",
             "insurance_rate": 15,
-            "options": {
-                "Siege Enfant": "10.99"
-            },
+            "options": [
+                "voiture décapotable"
+            ],
             "activities": [
-                "restauration",
-                "musée"
+                "musée",
+                "safari",
+                "trekking"
             ],
             "accommodation": [
-                "chalet"
+                "hôtel"
             ]
         }
     }
