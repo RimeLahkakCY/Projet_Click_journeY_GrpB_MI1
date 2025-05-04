@@ -81,7 +81,7 @@
     </div>
 			
 	<div class="all">
-		
+        <div class="slideshow"></div>
 		<center>
     	<h1 class="titre">Administration</h1>
 		
@@ -94,7 +94,23 @@
 			</thead>
 			<tbody>
 				<?php
-				foreach($users as $user){
+
+                $nbUsers = count($users);
+                $nbParPage = 4;
+                $nbPages = ceil($nbUsers / $nbParPage);
+                $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;  
+                
+                if ($page < 1){
+                    $page = 1;
+                } 
+                if ($page > $nbPages){
+                    $page = $nbPages;
+                }
+
+                $debut = ($page - 1) * $nbParPage;
+                $usersPage = array_slice($users,$debut,$nbParPage);
+
+				foreach($usersPage as $user){
                     $cleanEmail = str_replace(['@', '.'], '_', $user['email']);
 				?>
 					
@@ -127,6 +143,18 @@
 
 			</tbody>
 		</table>
+        
+        <div class="pagination">
+            <a href="?page=<?php echo max(1, $page - 1)?>" class="page"> << </a>
+                <?php
+                    for ($j = 0; $j < $nbPages; $j++) {
+                        $pageNum = $j + 1;
+                        echo "<a href='?page=$pageNum' class='page'>$pageNum</a> ";
+                    }
+                ?>
+            <a href="?page=<?php echo min($nbPages, $page + 1)?>" class="page"> >> </a>
+        </div>
+
     	</center>
 	</div>
 	
