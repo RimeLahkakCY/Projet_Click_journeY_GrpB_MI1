@@ -10,13 +10,21 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-image: url("https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding-bottom: 90px;
     width: 100%;
+    position: relative;
 }
 
+.slideshow {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/imgVoyages/5.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease-in-out;
+    z-index: -1;
+    opacity: 1;
+}
 
 .header {
     background-color: #ffffff;
@@ -34,7 +42,8 @@ h2 {
 
 p,
 a,
-input {
+input,
+select {
     font-family: "Arvo", serif;
 }
 
@@ -55,39 +64,26 @@ p {
 .content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-size: cover;
     background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.45);
     background-blend-mode: lighten;
-    padding: 20px;
+    padding: 30px;
 }
 
-@keyframes Slideshow {
-    0% {
-        background-image: url('https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg');
-    }
-
-    30% {
-        background-image: url('https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg');
-    }
-
-    60% {
-        background-image: url('https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg');
-    }
-
-    100% {
-        background-image: url('https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg');
-    }
+.mainA {
+    height: 400px;
+    background-image: linear-gradient(rgba(49, 49, 49, 0.1), rgba(138, 138, 138, 0.2));
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0.5;
-    }
+.mainB {
+    background-color: #95cef0;
+}
 
-    to {
-        opacity: 1;
-    }
+.mainC {
+    background-color: white;
 }
 
 .part1 {
@@ -115,8 +111,12 @@ form {
 
 a:hover {
     transition: transform 0.3s ease, color 0.3s ease;
-    color: #028ac9;
+    color: #066e9e;
     transform: translateY(-4px);
+}
+
+a:hover .page {
+    box-shadow: 4px 4px 1px 1px rgba(0, 57, 71, 0.342);
 }
 
 .lien {
@@ -141,6 +141,7 @@ li {
 
 .navigation {
     display: flex;
+    justify-content: space-between;
     background-color: #d45500;
     height: 55px;
 }
@@ -161,6 +162,7 @@ fieldset {
     display: flex;
     flex-direction: row;
     background-color: #03b4e0;
+    margin-bottom: 40px;
 }
 
 legend {
@@ -184,6 +186,10 @@ legend {
 .dropdown {
     float: left;
     overflow: hidden;
+}
+
+.dropdown:hover {
+    cursor: pointer;
 }
 
 .dropdown-content {
@@ -211,8 +217,8 @@ legend {
 
 .titre {
     text-align: center;
-    background-color: rgb(249, 249, 249, .7);
     font-size: 80px;
+    color: rgb(43, 34, 34);
 }
 
 button,
@@ -269,12 +275,12 @@ table input[name="ok"] {
     font-size: 10px;
 }
 
-select {
+select,
+input[type="date"] {
     cursor: pointer;
-    background-color: #007e9e;
     border: 2px solid #007e9e;
     border-radius: 4%;
-    color: white;
+    color: #007e9e;
 }
 
 button>a {
@@ -289,6 +295,7 @@ button>a {
     width: 500px;
     height: 300px;
     border-spacing: 20px;
+    margin-bottom: 40px;
 }
 
 thead {
@@ -312,13 +319,12 @@ fieldset.recherche {
 .bttn {
     display: flex;
     flex-direction: row;
-    justify-content: space-between center;
-    width: 1000px;
+
 }
 
 .container {
-    width: 50px;
-    margin-right: 250px;
+    width: 225px;
+    margin-right: 50px;
     position: static;
 }
 
@@ -359,21 +365,26 @@ fieldset.recherche {
 }
 
 
+.conteneur-voyages {
+    display: flex;
+    align-items: stretch;
+}
+
 .filtres {
-    background-color: #d45500;
-    text-align: left;
-    margin: 50px;
+    background-color: #0098d4;
+    border-radius: 0.4rem;
+    margin: 0px 20px 20px 10px;
     padding: 20px;
-    width: 150px;
-    height: 600px;
     font-weight: bold;
-    font-size: 15px;
 }
 
 .voyages {
-    background-color: #0b5da0d8;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    border-radius: 10px;
     text-align: center;
-    width: 900px;
+    max-width: 900px;
 }
 
 img[alt="img"] {
@@ -384,9 +395,10 @@ img[alt="img"] {
 .thumbnail {
     display: flex;
     background-color: #03b4e0;
+    border: 4px solid #0b5da0d8;
     border-radius: 10px;
-    box-shadow: 12px 12px 2px 1px rgba(3, 180, 224, .2);
-    margin: 5px 5px 20px 5px;
+    box-shadow: 5px 5px 2px 1px rgba(0, 72, 90, 0.2);
+    margin: 0px 20px 15px 20px;
 }
 
 .info {
@@ -420,6 +432,7 @@ img[alt="img"] {
 .footer {
     background-color: #0b5da0d8;
     text-align: center;
+    position: relative;
     padding: 10px;
 }
 
@@ -521,7 +534,7 @@ h4 {
 }
 
 .resume-section h2 {
-    color: #3498db;
+    color: #007e9e;
     font-size: 1.2rem;
     margin-bottom: 15px;
     padding-bottom: 10px;
@@ -531,6 +544,7 @@ h4 {
 .resume-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 8px 0;
 }
 
@@ -568,6 +582,7 @@ h4 {
 .action-buttons {
     display: flex;
     justify-content: flex-end;
+    align-items: baseline;
     gap: 15px;
 }
 
@@ -591,4 +606,19 @@ h4 {
 
 .soumettre {
     text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.page {
+    border: 2px solid #2980b9;
+    border-radius: 2%;
+    background-color: #3498db;
+    color: white;
+    padding: 4px 6px 4px 6px;
+    margin: 0px 5px 0px 5px;
 }
