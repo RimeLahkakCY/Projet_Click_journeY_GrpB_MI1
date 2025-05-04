@@ -122,7 +122,7 @@
 
         <div class="content mainB">
 
-		    <h1 style="color:blue">Nos sélections du moment : </h1>
+		    <h1 class="selection_titre">Nos sélections du moment : </h1>
 			
                 <div class="voyages">
                 <br/>
