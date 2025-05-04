@@ -7,7 +7,7 @@ if(!isset($_SESSION['user'])){
 	header("Location: connexion.php");
     exit();
 }
-
+$voyageId = $_SESSION['voyages'][$i]['id'];
 $prenom = $_SESSION['user']['prenom'];
 $prix = $_SESSION['voyages'][$i]['prix'];
 $duree = $_SESSION['voyages'][$i]['duree'];
@@ -43,10 +43,12 @@ $rentalInfo = [
     'daily_rate' => $prix ,
     'insurance' => 'Couverture Complete',
     'insurance_rate' => 15.00,
+
+    // options, activités et hébergement pas défaut
     'options' => [
-        'GPS Navigation' => 5.99,
-        'Siege Enfant' => 10.99,
-        'Guide touristique' => 19.99
+        'GPS Navigation',
+        'Siege Enfant',
+        'Guide touristique',
     ],
     'activities' => [
         "restauration",
@@ -63,6 +65,28 @@ $rentalInfo = [
 
 ];
 
+$fileOptions = "../data/data_voyages.json";
+if(file_exists($fileOptions)){
+    $options = json_decode(file_get_contents($fileOptions),true);
+    foreach($options as $option){
+        if($option['id'] == $voyageId){
+            $rentalInfo['options'] = $option['options'];
+        }
+    }
+}
+
+$fileEtapes = "../data/data_etapes.json";
+if(file_exists($fileEtapes)){
+    $etapes = json_decode(file_get_contents($fileEtapes),true);
+    foreach($etapes as $etape){
+        if($etape['id'] == $voyageId){
+            $rentalInfo['activities'] = $etape['activite'];
+            $rentalInfo['accommodation'] = $etape['hebergement'];
+        }
+    }
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $rentalInfo['pickup_date'] = $_POST['pickup_date'] ?? date('Y-m-d');
@@ -73,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rentalInfo['return_location'] = $_POST['return_location'];
     $rentalInfo['options'] = isset($_POST['options']) ? $_POST['options'] : [];
     $rentalInfo['activities'] = isset($_POST['activities']) ? $_POST['activities'] : [];
-    $rentalInfo['accommodation'] = $_POST['accommodation'] ?? '';
+    $rentalInfo['accommodation'] = isset($_POST['accommodation']) ? [$_POST['accommodation']] : [];
 
     $dataFile = '../data/data_reservations.json';
 
@@ -139,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $rental_cost = $prix * $duree;
         $insurance_cost = $rentalInfo['insurance_rate'] * $duree;
-        $extras_cost = array_sum($rentalInfo['options']);
+        $extras_cost = count($rentalInfo['options']) * 10;
         $subtotal = $rental_cost + $insurance_cost + $extras_cost;
         $tax = $subtotal * 0.20; // TVA à 20%
         $total = $subtotal + $tax;
@@ -155,7 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h2>Informations du Véhicule</h2>
                 <div class="resume-item">
                     <span class="label">Modèle de Voiture:</span>
-                    <select name="car_model">
+                    <select style="margin-left: 600px;" name="car_model">
                         <option value="Toyota" <?php echo $rentalInfo['car_model'] == 'Toyota' ? 'selected' : ''; ?>>Toyota</option>
                         <option value="Renault" <?php echo $rentalInfo['car_model'] == 'Renault' ? 'selected' : ''; ?>>Renault</option>
                         <option value="Citroen" <?php echo $rentalInfo['car_model'] == 'Citroen' ? 'selected' : ''; ?>>Citroen</option>
@@ -163,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="resume-item">
                     <span class="label">Catégorie:</span>
-                    <select name="car_class">
+                    <select style="margin-left: 650px;" name="car_class">
                         <option value="Essence" <?php echo $rentalInfo['car_class'] == 'Essence' ? 'selected' : ''; ?>>Essence</option>
                         <option value="Diesel" <?php echo $rentalInfo['car_class'] == 'Diesel' ? 'selected' : ''; ?>>Diesel</option>
                         <option value="Electrique" <?php echo $rentalInfo['car_class'] == 'Electrique' ? 'selected' : ''; ?>>Electrique</option>
@@ -174,8 +198,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="resume-section">
                 <h2>Détails de la Location</h2>
                 <div class="resume-item">
-                    <span class="label">Date de Prise en Charge:</span>
-                    <input type="date" name="pickup_date" value="<?php echo $rentalInfo['pickup_date']; ?>" required><br><br>
+                    <div class="label">Date de Prise en Charge:</div>
+                    <input style="margin-left: 500px;" type="date" name="pickup_date" value="<?php echo $rentalInfo['pickup_date']; ?>" required><br><br>
                 </div>
                 <div class="resume-item">
                     <span class="label">Date de Retour:</span>
@@ -187,14 +211,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="resume-item">
                     <span class="label">Lieu de Prise en Charge:</span>
-                    <select name="pickup_location">
+                    <select style="margin-left: 435px;" name="pickup_location">
                         <option value="Aéroport de Orly" <?php echo $rentalInfo['pickup_location'] == 'Aéroport de Orly' ? 'selected' : ''; ?>>Aéroport de Orly</option>
                         <option value="Aéroport Charles De Gaulles" <?php echo $rentalInfo['pickup_location'] == 'Aéroport Charles De Gaulles' ? 'selected' : ''; ?>>Aéroport Charles De Gaulles</option>
                     </select></br>
                 </div>
                 <div class="resume-item">
                     <span class="label">Lieu de Retour:</span>
-                    <select name="return_location">
+                    <select style="margin-left: 500px;" name="return_location">
                         <option value="Aéroport de Orly" <?php echo $rentalInfo['return_location'] == 'Aéroport de Orly' ? 'selected' : ''; ?>>Aeroport de Orly</option>
                         <option value="Aéroport Charles De Gaulles" <?php echo $rentalInfo['return_location'] == 'Aéroport Charles De Gaulles' ? 'selected' : ''; ?>>Aeroport Charles De Gaulles</option>
                     </select></br>
@@ -226,18 +250,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <span class="label">Hébergement :</span><br>
                 <?php foreach ($rentalInfo['accommodation'] as $place): ?>
-                    <input type="radio" name="accommodation[]" value="<?php echo $place; ?>"
-                    <?php echo (!empty($_POST['accommodation']) && in_array($place, $_POST['accommodation'])) ? 'checked' : ''; ?> required>
-                    <?php echo $place; ?><br>
+                <input type="radio" name="accommodation" value="<?php echo $place; ?>" 
+                <?php echo (isset($_POST['accommodation']) ? ($_POST['accommodation'] == $place) : (isset($rentalInfo['accommodation'][0]) && $rentalInfo['accommodation'][0] == $place)) ? 'checked' : ''; ?> required>
+                <?php echo $place; ?><br>
                 <?php endforeach; ?>
                 <br>
 
                 <?php if (!empty($rentalInfo['options'])): ?>
-                    <span class="label">Options supplémentaires :</span><br>
-                    <?php foreach ($rentalInfo['options'] as $extra => $price): ?>
-                    <input type="checkbox" name="options[<?php echo $extra; ?>]" value="<?php echo $price; ?>"
-                    <?php echo (!empty($_POST['options']) && array_key_exists($extra, $_POST['options'])) ? 'checked' : ''; ?>>
-                    <?php echo $extra; ?> (<?php echo number_format($price, 2); ?> $)<br>
+                    <span class="label">Options supplémentaires (+10$ par option):</span><br>
+                    <?php foreach ($rentalInfo['options'] as $extra): ?>
+                    <input type="checkbox" name="options[]" value="<?php echo $extra; ?>"
+                    <?php echo (!empty($_POST['options']) && in_array($extra, $_POST['options'])) ? 'checked' : ''; ?>>
+                    <?php echo $extra; ?><br>
                 <?php endforeach; ?>
                 <?php endif; ?>
 
@@ -283,6 +307,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		<input type="hidden" name="vendeur" value="<?php echo $vendeur; ?>">
 		<input type="hidden" name="retour" value="<?php echo $retour; ?>">
 		<input type="hidden" name="control" value="<?php echo $control; ?>">
+
 		<input type="submit" class="btn btn-primary" value="Confirmer la Réservation">
 
 		</form>
