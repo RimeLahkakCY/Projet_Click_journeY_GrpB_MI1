@@ -7,20 +7,48 @@
     }
 
     $editeur = isset($_GET['modifier']);
-
+if(isset($_COOKIE['style'])){
+		$style=$_COOKIE['style'];
+}
 ?>
 
 <html> 
      
     <head>
         <meta charset="UTF-8">
-        <link href="../css/main.css" rel="stylesheet">
+        <?php if(isset($_COOKIE['style'])):?>
+	<?php if($_COOKIE['style']=='dark'):?>
+		<link class="aaa" href="../css/dark.css" rel="stylesheet">
+	<?php else :?>
+		<link class="aaa" href="../css/main.css" rel="stylesheet">
+    <?php endif; ?>
+	<?php endif; ?>
         <link rel="icon" type="image/x-icon" href="../img/logo.png">
         <link
             href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
             rel="stylesheet">
         <title>Projet web</title>
         <script type="text/javascript" src="../test.js"></script>
+	<script>
+	let modedark = false;
+    function color(){
+		var img_mode = document.getElementById('mode');
+		if (!modedark){
+			img_mode.src='../img/main_mode.png';
+			document.getElementsByClassName('aaa')[0].href='../css/dark.css';
+			<?php $style="dark";
+			setcookie("style",$style,time()+(365*24*36000),"/"); ?>;
+			modedark = true;
+		}
+		else{
+			img_mode.src='../img/dark_mode.png';
+			document.getElementsByClassName('aaa')[0].href='../css/main.css';
+			<?php $style="main";
+			setcookie("style",$style,time()+(365*24*36000),"/");?>;
+			modedark = false;
+		}
+    }
+    </script>
     </head>
     
     <body>
@@ -71,7 +99,9 @@
 
                     <a href="voyages.php"><img src="../img/search.png"
                         alt="icon" height="20px" /></a>
-                
+                <?php if (isset($_COOKIE['style'])):?>
+			<img class="mode" id="mode" onclick="color();" height="20px" style="padding-left: 1150px;" src="../img/dark_mode.png"/>
+		<?php endif; ?>
 
                 </ul>
         </div>
