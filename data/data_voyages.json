@@ -1,11 +1,11 @@
 [
     {
         "id": "0",
-        "photo": "https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg",
+        "photo": "../img/imgVoyages/0.jpg",
         "titre": "Week-end en amoureux",
         "description": "Des villes pleines de charme, des paysages sublimes, une cuisine irrésistible et une atmosphère envoûtante. Un itinéraire qui mélange romantisme, culture et paysages à couper le souffle.",
         "prix": "515",
-        "duree": "2", 
+        "duree": "2",
         "lieux": "Italie",
         "options": [
             "animal de compagnie autorisé",
@@ -16,7 +16,7 @@
     },
     {
         "id": "1",
-        "photo": "https://ulysse.com/news/wp-content/uploads/2024/05/Sydney-en-Australie-.jpg",
+        "photo": "../img/imgVoyages/1.png",
         "titre": "Vers la liberté",
         "description": "L'Australie est une terre d’aventure aux paysages époustouflants : plages paradisiaques, déserts rouges infinis, forêts tropicales luxuriantes et faune unique. Ce road trip te fera découvrir l’Outback, la Great Ocean Road et bien plus encore !",
         "prix": "979",
@@ -31,7 +31,7 @@
     },
     {
         "id": "2",
-        "photo": "https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg",
+        "photo": "../img/imgVoyages/2.png",
         "titre": "En pleine nature",
         "description": "Un voyage hors des sentiers battus à travers les montagnes du Simien, les églises troglodytiques de Lalibela et les paysages lunaires du désert du Danakil. Une immersion unique dans une nature sauvage et préservée.",
         "prix": "730",
@@ -46,7 +46,7 @@
     },
     {
         "id": "3",
-        "photo": "https://voyagescouture-production.s3.amazonaws.com/uploads/images/products/ef545a72-c7b2-4302-9872-951e6ff2e44e/Route%2066%20-%201_product_preview.jpg",
+        "photo": "../img/imgVoyages/3.jpg",
         "titre": "Sur la route 66",
         "description": "Un road trip mythique à travers l'Amérique profonde, des néons de Chicago aux plages de Santa Monica. Entre villes fantômes, diners rétro et paysages désertiques, une aventure inoubliable !",
         "prix": "1350",
@@ -61,7 +61,7 @@
     },
     {
         "id": "4",
-        "photo": "https://www.rivagesdumonde.fr/media/contentmanager/content/repeater_block_media_layout/images/Geiranger_%C2%A9Hallestrandsfoto_iStock-504543029-2-1-1.jpg",
+        "photo": "../img/imgVoyages/4.jpg",
         "titre": "Les fjords sauvages",
         "description": "Un itinéraire à travers les fjords majestueux, les routes panoramiques et les villages pittoresques de Norvège. Entre randonnées, kayak et nuits sous les aurores boréales, une aventure nordique magique !",
         "prix": "890",
@@ -69,14 +69,15 @@
         "lieux": "Norvège",
         "options": [
             "animal de compagnie autorisé",
-            "repas inclus"
+            "repas inclus",
+            "pack photos souvenirs"
         ],
         "debut": "",
         "fin": ""
     },
     {
         "id": "5",
-        "photo": "https://www.nomadays.fr/cdn/ma-public/s_erg_chegaga_2.jpg",
+        "photo": "../img/imgVoyages/5.jpg",
         "titre": "L'appel du désert",
         "description": "De Marrakech aux dunes dorées du Sahara, un road trip au cœur du Maroc. Entre kasbahs, oasis et nuits étoilées sous une tente berbère, une aventure envoûtante et dépaysante.",
         "prix": "560",
@@ -91,13 +92,14 @@
     },
     {
         "id": "6",
-        "photo": "https://www.etendues-sauvages.com/app/uploads/2019/11/01islande_jokulsarlon_sstock_009.jpg",
+        "photo": "../img/imgVoyages/6.jpg",
         "titre": "De glaciers en volcans",
         "description": "Un voyage spectaculaire sur la route circulaire islandaise, entre geysers, cascades grandioses, plages de sable noir et glaciers imposants. Une immersion dans une nature brute et puissante !",
         "prix": "1200",
         "duree": "8",
         "lieux": "Islande",
         "options": [
+            "kit cuisine de route (réchaud + ustensiles)",
             "voiture décapotable",
             "hébergement écoresponsable"
         ],
@@ -106,7 +108,7 @@
     },
     {
         "id": "7",
-        "photo": "https://i.f1g.fr/media/cms/936x526_cropupscale/2024/01/19/f0fc4b262cd2eb8fc436b36334a1970325435aa56e92338fa64c32887b73e910.jpg",
+        "photo": "../img/imgVoyages/7.png",
         "titre": "À travers l’Indochine",
         "description": "Un périple fascinant à travers l'Asie du Sud-Est, du delta du Mékong aux temples d'Angkor, en passant par les paysages karstiques de la baie d’Halong et les rizières en terrasses du nord du Vietnam.",
         "prix": "950",
@@ -114,6 +116,7 @@
         "lieux": "Vietnam",
         "options": [
             "guide",
+            "kit cuisine de route (réchaud + ustensiles)",
             "repas inclus"
         ],
         "debut": "",
@@ -121,7 +124,7 @@
     },
     {
         "id": "8",
-        "photo": "https://www.travelstore.tn/voyages/1695029315chichen-itza.jpg",
+        "photo": "../img/imgVoyages/8.jpg",
         "titre": "Sur les traces des Mayas",
         "description": "Un road trip au cœur de la civilisation maya, des pyramides de Chichén Itzá aux temples cachés de Tikal, en passant par les plages caribéennes du Belize et les marchés colorés du Guatemala.",
         "prix": "1100",
@@ -136,7 +139,7 @@
     },
     {
         "id": "9",
-        "photo": "https://www.terres-argentines.com/uploads/sites/8/2019/12/paysage-montage-ande-fitz-roy-patagonie-argentine-galyna-andrushko-730x520-c-48x26.jpeg",
+        "photo": "../img/imgVoyages/9.png",
         "titre": "De la pampa à la Patagonie",
         "description": "Un road trip au bout du monde, entre les montagnes majestueuses de la Patagonie, les glaciers immenses et les vastes étendues de la pampa argentine. Un voyage inoubliable en pleine nature sauvage.",
         "prix": "1450",
@@ -144,6 +147,7 @@
         "lieux": "Argentine",
         "options": [
             "guide",
+            "pack photos souvenirs",
             "déjeuné inclus"
         ],
         "debut": "",
@@ -151,7 +155,7 @@
     },
     {
         "id": "10",
-        "photo": "https://cdn-s-www.ledauphine.com/images/7B169CCE-1C67-4A70-8E06-9CB7B4DF18D2/NW_raw/emblematique-des-splendeurs-du-canada-le-parc-national-de-banff-est-le-plus-ancien-du-pays-il-date-de-1885-situe-dans-les-rocheuses-canadiennes-il-est-constelle-de-magnifiques-sommets-glaciers-et-lacs-comme-le-lac-moraine-(photo)-photo-david-hamilton-de-pixabay-1727093833.jpg",
+        "photo": "../img/imgVoyages/10.jpg",
         "titre": "Aventure en terres sauvages",
         "description": "Un périple à travers les vastes étendues du Canada, des Rocheuses aux forêts boréales, avec des rencontres inoubliables avec la faune locale.",
         "prix": "1050",
@@ -159,6 +163,7 @@
         "lieux": "Canada",
         "options": [
             "animal de compagnie autorisé",
+            "Wi-Fi illimité",
             "hébergement écoresponsable"
         ],
         "debut": "",
@@ -166,7 +171,7 @@
     },
     {
         "id": "11",
-        "photo": "https://thebalkantours.b-cdn.net/wp-content/uploads/Mostar-panorama-768x432.webp",
+        "photo": "../img/imgVoyages/11.png",
         "titre": "Le tour des Balkans",
         "description": "Un road trip captivant à travers les merveilles cachées des Balkans, entre plages secrètes, montagnes et villages médiévaux.",
         "prix": "880",
@@ -174,14 +179,15 @@
         "lieux": "Croatie",
         "options": [
             "voiture décapotable",
-            "repas inclus"
+            "repas inclus",
+            "carte SIM locale"
         ],
         "debut": "",
         "fin": ""
     },
     {
         "id": "12",
-        "photo": "https://www.allibert-trekking.com/uploads/media/images/2969-tokyo_1.png",
+        "photo": "../img/imgVoyages/12.png",
         "titre": "Lumières du Japon",
         "description": "Un voyage mêlant modernité et traditions, de Tokyo aux temples de Kyoto, en passant par le Mont Fuji et les onsens cachés.",
         "prix": "1600",
@@ -196,7 +202,7 @@
     },
     {
         "id": "13",
-        "photo": "https://cdn.generationvoyage.fr/2020/02/guide-montagnes-atlas.jpg",
+        "photo": "../img/imgVoyages/13.jpg",
         "titre": "De l’Atlas au Sahara",
         "description": "Un circuit enchanteur à travers les montagnes de l'Atlas, les kasbahs millénaires et les dunes dorées du Sahara.",
         "prix": "690",
@@ -204,14 +210,15 @@
         "lieux": "Maroc",
         "options": [
             "animal de compagnie autorisé",
-            "déjeuné inclus"
+            "déjeuné inclus",
+            "Wi-Fi illimité"
         ],
         "debut": "",
         "fin": ""
     },
     {
         "id": "14",
-        "photo": "https://whc.unesco.org/uploads/thumbs/site_1459_0020-1200-630-20170322164215.jpg",
+        "photo": "../img/imgVoyages/14.jpg",
         "titre": "Sur les routes andines",
         "description": "Un itinéraire unique à travers les Andes, de la mystérieuse cité du Machu Picchu au désert de sel d'Uyuni.",
         "prix": "1350",
@@ -219,7 +226,8 @@
         "lieux": "Pérou",
         "options": [
             "hébergement écoresponsable",
-            "voiture décapotable"
+            "voiture décapotable",
+            "carte SIM locale"
         ],
         "debut": "",
         "fin": ""
