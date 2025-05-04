@@ -2,24 +2,33 @@ function showAlert() {
     alert("Alert!");
 }
 
-var photos = [];
-photos[0] = "https://photos.altai-travel.com/1920x1040/roadtrip-en-islande-115.jpg";
-photos[1] = "https://www.donatello.fr/wp-content/uploads/2019/02/cote-amalfite-2-607x384.jpg";
-photos[2] = "https://www.etapes-ethiopiennes.com/app/uploads/sites/13/2019/08/hauts-plateaux-witr.jpeg";
-var i = 0;
+var photos = [
+    "../img/imgVoyages/0.jpg",
+    "../img/imgVoyages/1.png",
+    "../img/imgVoyages/2.png",
+    "../img/imgVoyages/3.jpg"
+];
 
-function slideshow(){
-	
-	document.querySelector(".all").style.backgroundImage = "url(" + photos[i] + ")";
-	if(i < (photos.length - 1)){
-		i++;
-	}else{
-		i=0;
-	}
-	setTimeout(slideshow, 2000);
+var i = 0;
+var slide;
+
+function slideshow() {
+    slide.style.opacity = 0;
+
+    setTimeout(() => {
+        slide.style.backgroundImage = "url(" + photos[i] + ")";
+        slide.style.opacity = 1;
+        if (i < (photos.length - 1)) {
+            i++;
+        } else {
+            i = 0;
+        }
+    }, 700); // wait 1s for fade-out
 }
-window.onload = function() {
-    slideshow();
+
+window.onload = function () {
+    slide = document.querySelector(".slideshow");
+    setInterval(slideshow, 5000); // run every 4 seconds
 };
 
 function checkForm() {
