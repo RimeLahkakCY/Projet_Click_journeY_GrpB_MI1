@@ -50,13 +50,13 @@
             </div>
         </div>
 
-        <div class="navigation">
-            <ul>
-                <div class="dropdown">
-                    <a class="dropbtn"><img src="../img/dropdown.png" alt="profil"
+        <div class="navigation">    
+                <ul>
+                    <div class="dropdown">
+                        <a class="dropbtn"><img src="../img/dropdown.png" alt="profil"
                             height="20px" /></a>
-                    <div class="dropdown-content">
-                        <a href="main.php">Acceuil</a>
+                        <div class="dropdown-content">
+                            <a href="main.php">Acceuil</a>
                         <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == "admin"):?>
                             <a href="administrateur.php">Admin</a>
                         <?php endif; ?>
@@ -67,80 +67,61 @@
                 <a href="voyages.php"><img src="../img/search.png"
                         alt="icon" height="20px" /></a>
                 
+                </ul>
 
-            </ul>
-	    <button style="margin-left: 1650px;" onclick="color()">mode sombre</button>
+            <button onclick="color()">mode sombre</button>
+
         </div>
 
     </div>
 
-
-
-
     <div class="all">
+        <div class="content mainA">
+            <div class="slideshow"></div>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <h1 class="titre">Bienvenue <?php echo $_SESSION['user']['prenom']?> !</h1>
+                <?php else: ?>
+                    <h1 class="titre">Trouvez votre roadtrip idéal !</h1>
+                <?php endif; ?>
 
-        <div class="content">
+                <div class="part1">
+                    <a href="#ancre1">Qui sommes-nous ?</a>
+                    <a href="#ancre2">Nos services</a>
+                    <a href="#ancre3">Notre équipe</a>
+                </div>                  
+        </div>
+    </div>
 
-            <?php if (isset($_SESSION['user'])): ?>
-                <h1 class="titre">Bienvenue <?php echo $_SESSION['user']['prenom']?> !</h1>
-            <?php else: ?>
-                <h1 class="titre">Trouvez votre roadtrip idéal !</h1>
-            <?php endif; ?>
+        <div class="content mainB">
 
-            <div class="part1">
-                <a href="#ancre1">Qui sommes-nous ?</a>
-                <a href="#ancre2">Nos services</a>
-                <a href="#ancre3">Notre équipe</a>
-
-                <div>
-                    <h1 id="ancre1">Qui sommes-nous :</h1>
-                    <p>Wheel Wonder est une agence de voyages spécialisée dans l'organisation de roadtrips inoubliables
-                        ! Nous proposons une sélection de séjours soigneusement conçus, avec des étapes déjà planifiées
-                        pour garantir une expérience sans stress et riche en découvertes.</p>
-
-                    <h1 id="ancre2">Nos services :</h1>
-                    <p>Nous vous offrons des voyages sur-mesure adaptés à vos envies, dans de nombreux pays à travers le
-                        monde. Que vous soyez en quête de liberté ou de conseils personnalisés, nous vous accompagnons
-                        pour planifier votre road-trip en toute sérénité, en prenant en charge tous les détails de votre
-                        itinéraire.</p>
-
-                    <h1 id="ancre3">Notre équipe :</h1>
-                    <p>Ce site a été conçu avec passion par Rime, Norah et Asmaa, une équipe dédiée à faire de vos
-                        aventures sur la route une expérience unique et mémorable.</p>
-
-                </div>
-                <br/><br/>
-                <center>
-			
-		<h1 style="color:blue">Nos sélections du moment : </h1>
+		    <h1 style="color:blue">Nos sélections du moment : </h1>
 			
                 <div class="voyages">
                 <br/>
                 <?php
-			$voyages = json_decode(file_get_contents("../data/data_voyages.json"), true);
-			$etapes = json_decode(file_get_contents("../data/data_etapes.json"), true);
-			$_SESSION['voyages']=$voyages;
-			$i=0;
-			foreach($voyages as $voyage){
-			
-		?>
-		<div class="thumbnail">
-			<div>
-				<img src="<?php echo $voyage['photo'];?>" alt="img" height="200px"/>   
-			</div>
-			<div>
-				<h1><?php echo $voyage['titre'];?></h1>
-				<p><?php echo $voyage['description'];?></p>
-				<h3>Dès <?php echo $voyage['prix'];?>$</h3>
-				<h3><?php echo $voyage['duree'];?> jours, 
-                <?php foreach ($etapes as $item){
-                    if($voyage['lieux'] == $item['lieux']){
-                        echo "en ".$item['lieux'];
-                    }
-                }
-                ?>
+			    $voyages = json_decode(file_get_contents("../data/data_voyages.json"), true);
+			    $etapes = json_decode(file_get_contents("../data/data_etapes.json"), true);
+			    $_SESSION['voyages']=$voyages;
+			    $i=0;
+			    foreach($voyages as $voyage){?>
 
-			</div>
+		    <div class="thumbnail">
+			    <div>
+				    <img src="<?php echo $voyage['photo'];?>" alt="img" height="200px"/>   
+			    </div>
+			    <div>
+				    <h1><?php echo $voyage['titre'];?></h1>
+				    <p><?php echo $voyage['description'];?></p>
+				    <h3>Dès <?php echo $voyage['prix'];?>$</h3>
+				    <h3><?php echo $voyage['duree'];?> jours, 
+                    <?php foreach ($etapes as $item){
+                        if($voyage['lieux'] == $item['lieux']){
+                            echo "en ".$item['lieux'];
+                        }
+                    }
+                    ?>
+
+			    </div>
 			</div>
 			</br></br>
 			<?php
@@ -151,11 +132,33 @@
 			$i++;
 			}
 			?>
+        </div>
+
+            <div class="content mainC">
+                    <h1>Qui sommes-nous :</h1>
+                    <p id="ancre1">Wheel Wonder est une agence de voyages spécialisée dans l'organisation de roadtrips inoubliables
+                        ! Nous proposons une sélection de séjours soigneusement conçus, avec des étapes déjà planifiées
+                        pour garantir une expérience sans stress et riche en découvertes.
+                    </p>
+
+                    <h1>Nos services :</h1>
+                    <p id="ancre2">Nous vous offrons des voyages sur-mesure adaptés à vos envies, dans de nombreux pays à travers le
+                        monde. Que vous soyez en quête de liberté ou de conseils personnalisés, nous vous accompagnons
+                        pour planifier votre road-trip en toute sérénité, en prenant en charge tous les détails de votre
+                        itinéraire.
+                    </p>
+
+                    <h1>Notre équipe :</h1>
+                    <p id="ancre3">Ce site a été conçu avec passion par Rime, Norah et Asmaa, une équipe dédiée à faire de vos
+                        aventures sur la route une expérience unique et mémorable.
+                    </p>
+
+                </div>
+
             </div>
-            </div>
-        <center>
-    </div>
-    </div>
+
+        </div>
+        </div>            
     </div>
 
     <div class="footer">
