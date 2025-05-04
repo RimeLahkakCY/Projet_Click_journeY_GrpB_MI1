@@ -62,6 +62,7 @@ session_start();
         </div>
         
         <div class="all">
+            <div class="slideshow"></div>
             <center>
                 <form method="GET" action="voyages.php">
                     <fieldset class="recherche">
@@ -70,24 +71,16 @@ session_start();
                                 <input type="search" maxlength="10" placeholder="Où allez-vous ?" class="searchbar" name="recherche"/>
                             </span>
 
-                            <span class="container">
-                                <input type="date" placeholder="Quel date ?" class="searchbar" name="date"/>
-                            </span>
-
-                            <span class="container">
-                                <input type="number" maxlength="12" placeholder="Voyageurs" class="searchbar" min="1" max="16" name="voyageurs"/>
-                            </span>
-
                             <span class="bttnrchrch">
                                 <button type="submit" class="rchrch"><img src="../img/search.png" alt="search icon" class="buttonSearch"/></button>
                             </span>
                         </div>
                     </fieldset>
                 </form>
-            </center>
+            </center> 
+            <div style="display: flex;justify-content: center;margin-top: 20px;">             
+                <div class="conteneur-voyages">
             
-            <div style="display: flex;justify-content: center;margin-top: 20px;">
-                <div style="display: flex; justify-content: space-between">
                     <div class="filtres">
                         <h1>Trier par :</h1>
 
@@ -112,30 +105,47 @@ session_start();
                     </div>
 
                     <div class="voyages">
-                        <?php
+                    <?php
                         $voyages = json_decode(file_get_contents("../data/data_voyages.json"), true);
                         $etapes = json_decode(file_get_contents("../data/data_etapes.json"), true);
                         $_SESSION['voyages'] = $voyages;
-                        $i = 0;
-                        $resultat = false;
 
+                        $resultat = [];
                         foreach($voyages as $voyage){
-                            
                             if (!isset($_GET['recherche']) || empty($_GET['recherche']) || stripos($voyage['lieux'], $_GET['recherche']) !== false) {
-                                $resultat = true;
-                                ?>
-                                <a href="reservations.php?i=<?php echo $voyage['id']; ?>">
-                                    <?php
-                                        $nbEtapes = 0;
-                                        foreach ($etapes as $item) {
-                                            if ($voyage['lieux'] == $item['lieux']) {
-                                                $nbEtapes++;
-                                            }
-                                        }
-                                    ?>
-                                    <div class="thumbnail" data-prix="<?= $voyage['prix']; ?>" data-duree="<?= $voyage['duree']; ?>"
-                                    data-etapes="<?= $nbEtapes; ?>">
+                                $resultat[] = $voyage;
+                            }
+                        }
 
+                        $nbVoyages = count($resultat);
+                        $nbParPages = 3;
+                        $nbPages = ceil($nbVoyages / $nbParPages);
+
+                        $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
+                        if($page < 1){
+                            $page = 1;
+                        }
+                        if($page > $nbPages){
+                            $page = $nbPages;
+                        } 
+
+                        $debut = ($page - 1) * $nbParPages;
+                        $resultatsPage = array_slice($resultat, $debut, $nbParPages);
+
+                        if (count($resultatsPage) === 0) {
+                            echo '<h2 style="color:white; margin:20px">Aucun voyage ne correspond à ce mot-clé</h2>';
+                        } else {
+                            foreach($resultatsPage as $voyage){
+                                $nbEtapes = 0;
+                                foreach ($etapes as $item) {
+                                    if ($voyage['lieux'] == $item['lieux']) {
+                                        $nbEtapes++;
+                                    }
+                                }
+                                ?>
+                            
+                                <a href="reservations.php?i=<?php echo $voyage['id']; ?>">
+                                    <div class="thumbnail" data-prix="<?= $voyage['prix']; ?>" data-duree="<?= $voyage['duree']; ?>" data-etapes="<?= $nbEtapes; ?>">
                                         <div>
                                             <img src="<?php echo $voyage['photo']; ?>" alt="img" height="200px"/>
                                         </div>
@@ -143,29 +153,30 @@ session_start();
                                             <h1><?php echo $voyage['titre']; ?></h1>
                                             <p><?php echo $voyage['description']; ?></p>
                                             <h3>Dès <?php echo $voyage['prix']; ?>$</h3>
-                                            <h3><?php echo $voyage['duree']; ?> jours, <?php
-                                                foreach ($etapes as $item) {
-                                                    if($voyage['lieux'] == $item['lieux']){
-                                                        echo "en ".$item['lieux'];
-                                                    }
-                                                }
-                                                ?>
-                                            </h3>
+                                            <h3><?php echo $voyage['duree']; ?> jours, en <?php echo $voyage['lieux']; ?></h3>
                                         </div>
                                     </div>
                                 </a>
                                 <?php
-                                $i++;
                             }
                         }
-
-                        if (!$resultat) {
-                            echo '<h2 style="color:white; margin:20px">Aucun voyage ne correspond à ce mot-clé</h2>';
-                        }
                         ?>
-                    </div>
+
+                    <div class="pagination">
+                    <a href="?page=<?php echo max(1, $page - 1)?>" class="page"> << </a>
+                    <?php
+                        for ($j = 0; $j < $nbPages; $j++) {
+                            $pageNum = $j + 1;
+                            echo "<a href='?page=$pageNum' class='page'>$pageNum</a> ";
+                        }
+                    ?>
+                    <a href="?page=<?php echo min($nbPages, $page + 1)?>" class="page"> >> </a>
                 </div>
-            </div>
+                        </div>
+                    </div>
+            </div> 
+             
+
         </div>
 
         <div class="footer">
