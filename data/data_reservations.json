@@ -1,30 +1,3 @@
 [
-    {
-        "user_id": "5",
-        "reservation": {
-            "title": "En pleine nature",
-            "place": "Éthiopie",
-            "car_model": "Toyota",
-            "car_class": "Essence",
-            "lenght": "6",
-            "pickup_date": "2025-05-04",
-            "return_date": "2025-05-10",
-            "pickup_location": "Aéroport de Orly",
-            "return_location": "Aéroport de Orly",
-            "daily_rate": "730",
-            "insurance": "Couverture Complete",
-            "insurance_rate": 15,
-            "options": [
-                "voiture décapotable"
-            ],
-            "activities": [
-                "musée",
-                "safari",
-                "trekking"
-            ],
-            "accommodation": [
-                "hôtel"
-            ]
-        }
-    }
+    
 ]
