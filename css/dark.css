@@ -110,6 +110,7 @@ li {
 
 .navigation {
     display: flex;
+	justify-content: space-between;
     background-color: #8a8a8a;
     height: 55px;
 }
