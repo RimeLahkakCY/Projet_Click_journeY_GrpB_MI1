@@ -2,6 +2,22 @@ function showAlert() {
     alert("Alert!");
 }
 
+let isPlaying = false;
+const audio = document.getElementById("music");
+const musicButton = document.getElementById("musicButton");
+
+function musicBox(){
+
+	if(!isPlaying){
+		audio.play();
+		musicButton.src = "../extra/soundOn.png";
+	}else{
+		audio.pause();
+		musicButton.src = "../extra/soundOff.png";
+	}
+	isPlaying = !isPlaying;
+}
+
 var photos = [
     "../img/imgVoyages/0.jpg",
     "../img/imgVoyages/1.png",
