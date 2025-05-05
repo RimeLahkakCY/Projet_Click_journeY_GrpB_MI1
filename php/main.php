@@ -95,9 +95,11 @@
                 
                 </ul>
 
-            <?php if (isset($_COOKIE['style'])):?>
-		<img class="mode" id="mode" onclick="color();" height="20px" style="padding-left: 1150px;" src="../img/dark_mode.png"/>
+            <div style="display: flex; align-items: center; margin: 15px;">
+            	<?php if (isset($_COOKIE['style'])):?>
+		<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
 	    <?php endif; ?>
+            </div>
 
         </div>
 
