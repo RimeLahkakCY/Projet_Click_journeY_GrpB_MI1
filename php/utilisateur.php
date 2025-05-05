@@ -188,6 +188,41 @@ if(isset($_COOKIE['style'])){
                     </fieldset>
                     
                 </form>
+
+		<div style="background-color: #0098d4; border: 3px solid #0098d4; border-radius: 2%;">
+                    <h1>Mes réservations</h1>
+                    <div class="conteneur-voyages">
+                        <?php 
+                          $reservFile = "../data/data_reservations.json";
+                          if(file_exists($reservFile)){
+                            $reservations = json_decode(file_get_contents($reservFile),true);  
+
+                            foreach($reservations as $reservation){
+                                if($reservation['user_id'] == $_SESSION['user']['id']){
+                                    foreach($reservation['reservations'] as $reserv){
+                                        echo "<div style='margin 20px ;padding: 10px; background-color: white;'>";
+                                        echo "<p>Séjour : ".$reserv['title']. "</p>";
+                                        echo "<p>Pays : ".$reserv['place']. "</p>";
+                                        echo "<p>Modèle voiture : ".$reserv['car_model']. "</p>";
+                                        echo "<p>Classe voiture : ".$reserv['car_class']. "</p>";
+                                        echo "<p>Début : ".$reserv['pickup_date']. "</p>";
+                                        echo "<p>Fin : ".$reserv['return_date']. "</p>";
+                                       
+                                        echo "<p>Options : ".implode(",",array_values($reserv['options'])). "</p>";
+                                        echo "<p>Activités : ".implode(",",array_values($reserv['activities'])). "</p>";
+                                        echo "<p>Hébergements : ".implode(",",array_values($reserv['accommodation'])). "</p>";
+                                        
+                                        echo "</div><br>";
+                                    }
+                                }
+                            }  
+                          }else{
+                                echo "<p>Aucune réservation trouvée.</p>";
+                          }
+
+                        ?>
+                    </div>
+                </div>
     
         </div>
 	</div>	
