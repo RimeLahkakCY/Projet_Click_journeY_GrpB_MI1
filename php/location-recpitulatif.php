@@ -185,7 +185,9 @@ function b(v){
 		v=v+10;
 	}
 	}
-	document.getElementById('ttl').innerHTML=v+" $";
+	document.getElementById('ssttl').innerHTML=v+" $";
+	document.getElementById('tva').innerHTML=(v* 0.20)+" $";
+	document.getElementById('ttl').innerHTML=(v+(v* 0.20))+" $";
 }
 </script>
     </head>
@@ -280,7 +282,7 @@ function b(v){
 
                 <span class="label">Activités :</span><br>
                 <?php foreach ($rentalInfo['activities'] as $activity): ?>
-                    <input type="checkbox" onmouseout="b(<?php echo $total ?>)" name="activities[]" value="<?php echo $activity; ?>"
+                    <input type="checkbox" onmouseout="b(<?php echo $subtotal ?>)" name="activities[]" value="<?php echo $activity; ?>"
                     <?php echo (!empty($_POST['activities']) && in_array($activity, $_POST['activities'])) ? 'checked' : ''; ?>>
                     <?php echo $activity; ?><br>
                 <?php endforeach; ?>
@@ -288,7 +290,7 @@ function b(v){
 
                 <span class="label">Hébergement :</span><br>
                 <?php foreach ($rentalInfo['accommodation'] as $place): ?>
-                <input type="radio" onmouseout="b(<?php echo $total ?>)" name="accommodation" value="<?php echo $place; ?>" 
+                <input type="radio" onmouseout="b(<?php echo $subtotal ?>)" name="accommodation" value="<?php echo $place; ?>" 
                 <?php echo (isset($_POST['accommodation']) ? ($_POST['accommodation'] == $place) : (isset($rentalInfo['accommodation'][0]) && $rentalInfo['accommodation'][0] == $place)) ? 'checked' : ''; ?> required>
                 <?php echo $place; ?><br>
                 <?php endforeach; ?>
@@ -297,7 +299,7 @@ function b(v){
                 <?php if (!empty($rentalInfo['options'])): ?>
                     <span class="label">Options supplémentaires (+10$ par option):</span><br>
                     <?php foreach ($rentalInfo['options'] as $extra): ?>
-                    <input type="checkbox" onmouseout="b(<?php echo $total ?>)" name="options[]" value="<?php echo $extra; ?>"
+                    <input type="checkbox" onmouseout="b(<?php echo $subtotal ?>)" name="options[]" value="<?php echo $extra; ?>"
                     <?php echo (!empty($_POST['options']) && in_array($extra, $_POST['options'])) ? 'checked' : ''; ?>>
                     <?php echo $extra; ?><br>
                 <?php endforeach; ?>
@@ -307,11 +309,11 @@ function b(v){
                 
                 <div class="resume-item subtotal">
                     <span class="label">Sous-total:</span>
-                    <span class="value"><?php echo number_format($subtotal, 2, ',', ' '); ?> $</span>
+                    <span id="ssttl" class="value"><?php echo number_format($subtotal, 2, ',', ' '); ?> $</span>
                 </div>
                 <div class="resume-item">
                     <span class="label">TVA (20%):</span>
-                    <span class="value"><?php echo number_format($tax, 2, ',', ' '); ?> $</span>
+                    <span id="tva" class="value"><?php echo number_format($tax, 2, ',', ' '); ?> $</span>
                 </div>
                 <div class="resume-item total">
                     <span class="label">Total:</span>
