@@ -307,3 +307,37 @@ function trier() {
         content.appendChild(voyage);
     });
 }
+
+function prix_reservation(v,d){
+ 	for(var i of document.getElementsByName('activities[]')){
+ 	if(i.checked){
+ 		if(i.value=='musée'){
+ 			v=v+30;
+ 		}
+ 		if(i.value=='restauration'){
+ 			v=v+10;
+ 		}
+		if(i.value=='randonnée'){
+ 			v=v+5;
+ 		}
+ 		if(i.value=='visite historique'){
+ 			v=v+20;
+ 		}
+		if(i.value=='croisière'){
+ 			v=v+40;
+ 		}
+		else{
+			v=v+50;
+		}
+ 	}
+ 	}
+ 	for(var j of document.getElementsByName('options[]')){
+ 	if(j.checked){
+ 		v=v+10;
+ 	}
+ 	}
+	for(var k of document.getElementsByName('assurance')){
+ 	if(!k.checked){
+ 		v=v-10;
+ 	}
+ 	}
