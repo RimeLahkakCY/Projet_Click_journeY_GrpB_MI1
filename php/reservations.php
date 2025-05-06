@@ -1,37 +1,35 @@
 <?php 
 session_start();
 
+if(!isset($_COOKIE['style'])){
+    setcookie("style", "main", time() + 360*60, "/");
+    $style = "main";
+}else{
+    $style = $_COOKIE['style'];
+}
+
 $i = isset($_GET['i']) ? (int) $_GET['i'] : 0;
 
-if ($i < 0 || !isset($_SESSION['user'])){
+if (!isset($_SESSION['user'])){
     header("Location: voyages.php");
     exit();
 }
 
-$etapes = json_decode(file_get_contents("data_etapes.json"), true);
+$etapes = json_decode(file_get_contents("../data/data_etapes.json"), true);
 $_SESSION['etapes'] = $etapes;
 
-if(isset($_COOKIE['style'])){
-		$style=$_COOKIE['style'];
-}
 ?>
 <html>
 	 
     <head>
-        <meta charset="UTF-8">
-        <?php if(isset($_COOKIE['style'])):?>
-	<?php if($_COOKIE['style']=='dark'):?>
-		<link class="aaa" href="../css/dark.css" rel="stylesheet">
-	<?php else :?>
-		<link class="aaa" href="../css/main.css" rel="stylesheet">
-        <?php endif; ?>
-	<?php endif; ?>
-        <link rel="icon" type="image/x-icon" href="../img/logo.png">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-            rel="stylesheet">
-        <title>Projet web</title>
-
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/<?php echo $style; ?>.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <title>Projet web</title>
+    <script type="text/javascript" src="../test.js"></script>
     </head>
 
     <body>
@@ -48,7 +46,7 @@ if(isset($_COOKIE['style'])){
                         <a href="deconnexion.php">Se déconnecter</a>
                     </div>
                     <div class="lien">
-                        <a href="utilisateur.php"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png"
+                        <a href="utilisateur.php"><img src="../img/profil.png"
                             alt="profil" height="30px" /></a>
                     </div>
                 <?php else: ?>
@@ -63,35 +61,37 @@ if(isset($_COOKIE['style'])){
             </div>
         </div>
 
-            <div class="navigation">
+            <div class="navigation">    
                 <ul>
                     <div class="dropdown">
                         <a class="dropbtn"><img src="../img/dropdown.png" alt="profil"
                             height="20px" /></a>
                         <div class="dropdown-content">
                             <a href="main.php">Acceuil</a>
-                            <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == "admin"):?>
-                                <a href="administrateur.php">Admin</a>
-                            <?php endif; ?>
-                            <a href="utilisateur.php">Paramètre</a>
-                        </div>
+                        <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == "admin"):?>
+                            <a href="administrateur.php">Admin</a>
+                        <?php endif; ?>
+                        <a href="utilisateur.php">Paramètre</a>
                     </div>
+                </div>
 
-                    <a href="voyages.php"><img src="../img/search.png"
+                <a href="voyages.php"><img src="../img/search.png"
                         alt="icon" height="20px" /></a>
-
+                
                 </ul>
+
             <div style="display: flex; align-items: center; margin: 15px;">
             	<?php if (isset($_COOKIE['style'])):?>
-			<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
-	    	<?php endif; ?>
-            </div> 
+				<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
+	    		<?php endif; ?>
             </div>
+
+        </div>
 
     </div>
 
         <div class="all">
-
+            <div class="slideshow"></div>                    
 				<center>
 					<h1 class="titre">Nos voyages</h1>
 					
@@ -110,8 +110,8 @@ if(isset($_COOKIE['style'])){
 		
 								<tr>
 									<td colspan="2">
-										<p>Lieux: <?php echo $_SESSION['voyages'][$i]['lieux']; ?></p>
-                                        					<p>Etapes : <?php echo implode(", ",array_values($_SESSION['etapes'][$i]['ville']))?></p>
+										<p>Lieux : <?php echo $_SESSION['voyages'][$i]['lieux']; ?></p>
+                                        <p>Etapes : <?php echo implode(", ",array_values($_SESSION['etapes'][$i]['ville']))?></p>
                                         
 									</td>
 								</tr>
