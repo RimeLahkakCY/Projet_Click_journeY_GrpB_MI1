@@ -1,6 +1,13 @@
 <?php
     session_start(); 
     
+    if(!isset($_COOKIE['style'])){
+		setcookie("style", "main", time() + 360*60, "/");
+		$style = "main";
+	}else{
+		$style = $_COOKIE['style'];
+	}
+    
     if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin'){
         header("Location: main.php");
         exit();
@@ -13,29 +20,19 @@
     }else{
     	die("il n'y a pas de fichier utilisateur");
     }
-	
-	if(isset($_COOKIE['style'])){
-		$style=$_COOKIE['style'];
-	}
 ?>
+
 <html>
       
     <head>
-        <meta charset="UTF-8">
-        <?php if(isset($_COOKIE['style'])):?>
-	<?php if($_COOKIE['style']=='dark'):?>
-		<link class="aaa" href="../css/dark.css" rel="stylesheet">
-	<?php else :?>
-		<link class="aaa" href="../css/main.css" rel="stylesheet">
-    <?php endif; ?>
-	<?php endif; ?>
-        <link rel="icon" type="image/x-icon" href="../img/logo.png">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-            rel="stylesheet">
-        <script type="text/javascript" src="../test.js"></script>
-        <title>Projet web</title>
-
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/<?php echo $style; ?>.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <title>Projet web</title>
+    <script type="text/javascript" src="../test.js"></script>
     </head>
     
     <body>
@@ -67,29 +64,31 @@
             </div>
         </div>
 
-        <div class="navigation">
+        <div class="navigation">    
                 <ul>
                     <div class="dropdown">
                         <a class="dropbtn"><img src="../img/dropdown.png" alt="profil"
                             height="20px" /></a>
                         <div class="dropdown-content">
                             <a href="main.php">Acceuil</a>
-                            <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == "admin"):?>
-                                <a href="administrateur.php">Admin</a>
-                            <?php endif; ?>
-                            <a href="utilisateur.php">Paramètre</a>
-                        </div>
+                        <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == "admin"):?>
+                            <a href="administrateur.php">Admin</a>
+                        <?php endif; ?>
+                        <a href="utilisateur.php">Paramètre</a>
                     </div>
+                </div>
 
-                    <a href="voyages.php"><img src="../img/search.png"
+                <a href="voyages.php"><img src="../img/search.png"
                         alt="icon" height="20px" /></a>
-
+                
                 </ul>
+
             <div style="display: flex; align-items: center; margin: 15px;">
             	<?php if (isset($_COOKIE['style'])):?>
 			<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
 	    	<?php endif; ?>
-            </div> 
+            </div>
+
         </div>
 
     </div>
