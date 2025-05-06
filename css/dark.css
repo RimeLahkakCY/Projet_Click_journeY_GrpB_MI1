@@ -3,12 +3,12 @@ body {
     font-family: "Didact Gothic", serif;
     font-weight: 100;
     width: 100%;
-	color: #ffffff;
-	background-color: #525252;
+    color: #ffffff;
+    background-color: #525252;
 }
 
 .all {
-	background-color: #525252;
+    background-color: #525252;
 }
 
 .header {
@@ -47,6 +47,8 @@ p {
 
 .content {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     background-size: cover;
     background: #303030;
@@ -55,9 +57,14 @@ p {
     padding: 20px;
 }
 
-.selection_titre{
-	color: #ffffff;
+.mainB {
+    background-color: #303030;
 }
+
+.mainC {
+    background-color: rgba(82,82,82,0.5);
+}
+
 .part1 {
     width: 100%;
     text-align: center;
@@ -84,8 +91,12 @@ form {
 
 a:hover {
     transition: transform 0.3s ease, color 0.3s ease;
-    color: #028ac9;
+    color: #066e9e;
     transform: translateY(-4px);
+}
+
+a:hover .page {
+    box-shadow: 4px 4px 1px 1px rgba(0, 57, 71, 0.342);
 }
 
 .lien {
@@ -110,7 +121,7 @@ li {
 
 .navigation {
     display: flex;
-	justify-content: space-between;
+    justify-content: space-between;
     background-color: #8a8a8a;
     height: 55px;
 }
@@ -125,12 +136,14 @@ fieldset {
     border-radius: 2%;
     background-color: white;
     width: 300px;
+    color: black;
 }
 
 .textInscription {
     display: flex;
     flex-direction: row;
-    background-color: #03b4e0;
+    background-color: #020030;
+    margin-bottom: 40px;
 }
 
 legend {
@@ -154,6 +167,10 @@ legend {
 .dropdown {
     float: left;
     overflow: hidden;
+}
+
+.dropdown:hover {
+    cursor: pointer;
 }
 
 .dropdown-content {
@@ -239,12 +256,12 @@ table input[name="ok"] {
     font-size: 10px;
 }
 
-select {
+select,
+input[type="date"] {
     cursor: pointer;
-    background-color: #525252;
-    border: 2px solid #525252;
+    border: 2px solid #007e9e;
     border-radius: 4%;
-    color: white;
+    color: #007e9e;
 }
 
 button>a {
@@ -259,6 +276,7 @@ button>a {
     width: 500px;
     height: 300px;
     border-spacing: 20px;
+    margin-bottom: 40px;
 }
 
 thead {
@@ -283,12 +301,11 @@ fieldset.recherche {
     display: flex;
     flex-direction: row;
     justify-content: space-between center;
-    width: 1000px;
 }
 
 .container {
-    width: 50px;
-    margin-right: 250px;
+    width: 225px;
+    margin-right: 50px;
     position: static;
 }
 
@@ -328,6 +345,10 @@ fieldset.recherche {
     opacity: 0.3;
 }
 
+.conteneur-voyages {
+    display: flex;
+    align-items: stretch;
+}
 
 .filtres {
     background-color: #8a8a8a;
@@ -341,9 +362,13 @@ fieldset.recherche {
 }
 
 .voyages {
-    background-color: #020030;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    border-radius: 10px;
     text-align: center;
-    width: 900px;
+    max-width: 900px;
+    background-color: #020030;
 }
 
 img[alt="img"] {
@@ -354,9 +379,9 @@ img[alt="img"] {
 .thumbnail {
     display: flex;
     background-color: #07036a;
-    border-radius: 10px;
-    box-shadow: 12px 12px 2px 1px rgba(7, 3, 106, .2);
-    margin: 5px 5px 20px 5px;
+    border-radius: 4px solid;
+    box-shadow: 5px 5px 2px 1px rgba(7, 3, 106, .2);
+    margin: 0px 20px 15px 20px;
 }
 
 .info {
@@ -390,6 +415,7 @@ img[alt="img"] {
 .footer {
     background-color: #8a8a8a;
     text-align: center;
+    position: relative;
     padding: 10px;
 }
 
@@ -501,6 +527,7 @@ h4 {
 .resume-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 8px 0;
 }
 
@@ -538,6 +565,7 @@ h4 {
 .action-buttons {
     display: flex;
     justify-content: flex-end;
+    align-items: baseline;
     gap: 15px;
 }
 
@@ -561,4 +589,19 @@ h4 {
 
 .soumettre {
     text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 20px 80px 20px;
+}
+
+.page {
+    border: 2px solid #2980b9;
+    border-radius: 2%;
+    background-color: #3498db;
+    color: white;
+    padding: 4px 6px 4px 6px;
+    margin: 0px 5px 0px 5px;
 }
