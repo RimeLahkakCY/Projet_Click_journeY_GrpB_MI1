@@ -170,7 +170,7 @@ if(isset($_COOKIE['style'])){
                     
                 </form>
 
-		<div style="background-color: #0098d4; border: 3px solid #0098d4; border-radius: 2%;">
+		<div class="reservation">
                     <h1>Mes réservations</h1>
                     <div class="conteneur-voyages">
                         <?php 
