@@ -116,29 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="../css/main.css">
-        <script> 
- function b(v){
- 	for(var i of document.getElementsByName('activities[]')){
- 	if(i.checked){
- 		if(i.value=='musée'){
- 			v=v+20;
- 		}
- 		if(i.value=='restauration'){
- 			v=v+30;
- 		}
- 	}
- 	}
- 	for(var j of document.getElementsByName('options[]')){
- 	if(j.checked){
- 		v=v+10;
- 	}
- 	}
- 	
- 	document.getElementById('ssttl').innerHTML=v+" $";
- 	document.getElementById('tva').innerHTML=(v* 0.20)+" $";
- 	document.getElementById('ttl').innerHTML=(v+(v* 0.20))+" $";
- }
- </script>
+		<script type="text/javascript" src="../test.js"></script>
     </head>
 <body class="location">
     <div class="container_location">
@@ -187,16 +165,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="resume-section">
                 <h2>Détails de la Location</h2>
                 <div class="resume-item">
-                    <div class="label">Date de Prise en Charge:</div>
-                    <input style="margin-left: 500px;" type="date" name="pickup_date" value="<?php echo $rentalInfo['pickup_date']; ?>" required><br><br>
+                    <span class="label">Date de Prise en Charge:</span>
+                    <input onchange="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" id="depart" type="date" name="pickup_date" value="<?php echo $rentalInfo['pickup_date']; ?>" required><br><br>
                 </div>
                 <div class="resume-item">
                     <span class="label">Date de Retour:</span>
-                    <span class="value"><?php echo date('j F Y', strtotime($rentalInfo['return_date'])); ?></span>
+                    <input onchange="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" id="retour" type="date" name="pickup_date" value="<?php echo $rentalInfo['pickup_date']; ?>" required><br><br>
                 </div>
                 <div class="resume-item">
                     <span class="label">Durée:</span>
-                    <span class="value"><?php echo $rentalInfo['lenght']; ?> jours</span>
+                    <span id="duree" class="value">0 jours</span>
                 </div>
                 <div class="resume-item">
                     <span class="label">Lieu de Prise en Charge:</span>
@@ -221,17 +199,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="value"><?php echo $prix; ?> $</span>
                 </div>
                 <div class="resume-item">
-                    <span class="label">Coût de Location (<?php echo $duree; ?> jours):</span>
-                    <span class="value"><?php echo number_format($rental_cost, 2, ',', ' '); ?> $</span>
+                    <span class="label">Coût de Location:</span>
+                    <span id="prix_duree" class="value">0 $</span>
                 </div>
                 <div class="resume-item">
-                    <span class="label">Assurance (<?php echo $rentalInfo['insurance']; ?>):</span>
+                     <span class="label"><input type="checkbox" onmouseout="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" name="assurance" value="Assurance"checked>Assurance (Couverture Complete):</span>
                     <span class="value"><?php echo number_format($insurance_cost, 2, ',', ' '); ?> $</span>
                 </div>
 
                 <span class="label">Activités :</span><br>
                 <?php foreach ($rentalInfo['activities'] as $activity): ?>
-                    <input type="checkbox" onmouseout="b(<?php echo $subtotal ?>)" name="activities[]" value="<?php echo $activity; ?>"
+                    <input type="checkbox" onmouseout="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" name="activities[]" value="<?php echo $activity; ?>"
                     <?php echo (!empty($_POST['activities']) && in_array($activity, $_POST['activities'])) ? 'checked' : ''; ?>>
                     <?php echo $activity; ?><br>
                 <?php endforeach; ?>
@@ -239,7 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <span class="label">Hébergement :</span><br>
                 <?php foreach ($rentalInfo['accommodation'] as $place): ?>
-                    <input type="radio" onmouseout="b(<?php echo $subtotal ?>)" name="accommodation" value="<?php echo $place; ?>"  
+                    <input type="radio" onmouseout="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" name="accommodation" value="<?php echo $place; ?>"  
                 <?php echo (isset($_POST['accommodation']) ? ($_POST['accommodation'] == $place) : (isset($rentalInfo['accommodation'][0]) && $rentalInfo['accommodation'][0] == $place)) ? 'checked' : ''; ?> required>
                 <?php echo $place; ?><br>
                 <?php endforeach; ?>
@@ -248,7 +226,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php if (!empty($rentalInfo['options'])): ?>
                     <span class="label">Options supplémentaires (+10$ par option):</span><br>
                     <?php foreach ($rentalInfo['options'] as $extra): ?>
-                    <input type="checkbox" onmouseout="b(<?php echo $subtotal ?>)" name="options[]" value="<?php echo $extra; ?>"
+                    <input type="checkbox" onmouseout="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" name="options[]" value="<?php echo $extra; ?>"
                     <?php echo (!empty($_POST['options']) && in_array($extra, $_POST['options'])) ? 'checked' : ''; ?>>
                     <?php echo $extra; ?><br>
                 <?php endforeach; ?>
