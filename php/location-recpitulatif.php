@@ -309,7 +309,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$montant= $total;
 			$vendeur= 'MI-1_B';
 			$titre = $_SESSION['voyages'][$i]['titre'];
-			$retour= 'http://localhost:1234/main.php';
+			$retour= 'http://localhost:1234/php/main.php';
 
 			$api_key=getAPIKey($vendeur);
 
