@@ -87,7 +87,6 @@ if(file_exists($fileEtapes)){
     }
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $rentalInfo['pickup_date'] = $_POST['pickup_date'] ?? date('Y-m-d');
@@ -100,62 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rentalInfo['activities'] = isset($_POST['activities']) ? $_POST['activities'] : [];
     $rentalInfo['accommodation'] = isset($_POST['accommodation']) ? [$_POST['accommodation']] : [];
 
-    $dataFile = '../data/data_reservations.json';
-    $data = [];
-
-    $existe_user = false;
-
-    if(file_exists($dataFile)){
-        $data = json_decode(file_get_contents($dataFile), true);
-
-        foreach($data as &$userData){
-            if($userData['user_id'] == $_SESSION['user']['id']){
-                $existe_user = true;
-
-                if(isset($_POST['retour_accueil'])){
-        
-                    foreach ($userData['reservations'] as $key => $reservation) {
-                        if ($reservation['id'] == $voyageId) {
-                            unset($userData['reservations'][$key]); 
-                            $userData['reservations'] = array_values($userData['reservations']);
-                            break;
-                        }
-                    }
-                    file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-                    header("Location: main.php");
-                    exit();
-                }
-
-                $existe_reserve = false;
-
-                foreach ($userData['reservations'] as &$reservation) {
-                    if ($reservation['id'] == $voyageId) {
-                        $reservation = $rentalInfo;
-                        $existe_reserve = true;
-                        break;
-                    }
-                }
-
-                if (!$existe_reserve) {
-                    $userData['reservations'][] = $rentalInfo;
-                }
-
-                break;
-
-            }
-        }
-
-    }
-
-    if(!$existe_user){
-        $data[] = [
-            'user_id' => $_SESSION['user']['id'],
-            'reservations' => [$rentalInfo]
-        ];
-    }
-
-    file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    
 }
+
+	$_SESSION['paiement'] = $rentalInfo;
+
 ?>
 
 <html> 
@@ -168,28 +116,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="../css/main.css">
-<script> 
-function b(v){
-	for(var i of document.getElementsByName('activities[]')){
-	if(i.checked){
-		if(i.value=='musée'){
-			v=v+20;
-		}
-		if(i.value=='restauration'){
-			v=v+30;
-		}
-	}
-	}
-	for(var j of document.getElementsByName('options[]')){
-	if(j.checked){
-		v=v+10;
-	}
-	}
-	document.getElementById('ssttl').innerHTML=v+" $";
-	document.getElementById('tva').innerHTML=(v* 0.20)+" $";
-	document.getElementById('ttl').innerHTML=(v+(v* 0.20))+" $";
-}
-</script>
+        <script> 
+ function b(v){
+ 	for(var i of document.getElementsByName('activities[]')){
+ 	if(i.checked){
+ 		if(i.value=='musée'){
+ 			v=v+20;
+ 		}
+ 		if(i.value=='restauration'){
+ 			v=v+30;
+ 		}
+ 	}
+ 	}
+ 	for(var j of document.getElementsByName('options[]')){
+ 	if(j.checked){
+ 		v=v+10;
+ 	}
+ 	}
+ 	
+ 	document.getElementById('ssttl').innerHTML=v+" $";
+ 	document.getElementById('tva').innerHTML=(v* 0.20)+" $";
+ 	document.getElementById('ttl').innerHTML=(v+(v* 0.20))+" $";
+ }
+ </script>
     </head>
 <body class="location">
     <div class="container_location">
@@ -290,7 +239,7 @@ function b(v){
 
                 <span class="label">Hébergement :</span><br>
                 <?php foreach ($rentalInfo['accommodation'] as $place): ?>
-                <input type="radio" onmouseout="b(<?php echo $subtotal ?>)" name="accommodation" value="<?php echo $place; ?>" 
+                    <input type="radio" onmouseout="b(<?php echo $subtotal ?>)" name="accommodation" value="<?php echo $place; ?>"  
                 <?php echo (isset($_POST['accommodation']) ? ($_POST['accommodation'] == $place) : (isset($rentalInfo['accommodation'][0]) && $rentalInfo['accommodation'][0] == $place)) ? 'checked' : ''; ?> required>
                 <?php echo $place; ?><br>
                 <?php endforeach; ?>
@@ -304,7 +253,6 @@ function b(v){
                     <?php echo $extra; ?><br>
                 <?php endforeach; ?>
                 <?php endif; ?>
-
 
                 
                 <div class="resume-item subtotal">
@@ -328,15 +276,15 @@ function b(v){
 			<?php
 			require('getapikey.php');
 
-			$transaction= '123456789ABCDEF';
-			$montant= $total;
-			$vendeur= 'MI-1_B';
-			$titre = $_SESSION['voyages'][$i]['titre'];
-			$retour= 'http://localhost:1234/php/main.php';
+			$transaction = '123456789ABCDEF';
+			$montant = $total;
+			$vendeur = 'MI-1_B';
+			$titre  = $_SESSION['voyages'][$i]['titre'];
+            		$retour = "http://localhost:1234/php/detailsPaiement.php";
 
-			$api_key=getAPIKey($vendeur);
+			$api_key = getAPIKey($vendeur);
 
-			$control=md5($api_key."#".$transaction."#".$montant."#".$vendeur."#".$retour."#");
+			$control = md5($api_key."#".$transaction."#".$montant."#".$vendeur."#".$retour."#");
 		?>
 
         </form>
