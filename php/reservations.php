@@ -31,26 +31,7 @@ if(isset($_COOKIE['style'])){
             href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
             rel="stylesheet">
         <title>Projet web</title>
-	<script>
-	let modedark = false;
-    function color(){
-		var img_mode = document.getElementById('mode');
-		if (!modedark){
-			img_mode.src='../img/main_mode.png';
-			document.getElementsByClassName('aaa')[0].href='../css/dark.css';
-			<?php $style="dark";
-			setcookie("style",$style,time()+(365*24*36000),"/"); ?>;
-			modedark = true;
-		}
-		else{
-			img_mode.src='../img/dark_mode.png';
-			document.getElementsByClassName('aaa')[0].href='../css/main.css';
-			<?php $style="main";
-			setcookie("style",$style,time()+(365*24*36000),"/");?>;
-			modedark = false;
-		}
-    }
-    </script>
+
     </head>
 
     <body>
