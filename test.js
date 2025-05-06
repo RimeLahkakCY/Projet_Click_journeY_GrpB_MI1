@@ -292,13 +292,11 @@ function color(){
 	if (!modedark){
 		img_mode.src='../img/main_mode.png';
 		document.getElementsByClassName('aaa')[0].href='../css/dark.css';
-		document.cookie="style=dark; path=/; expires="+Date(Date.now()+(365*24*36000));
 		modedark = true;
 	}
 	else{
 		img_mode.src='../img/dark_mode.png';
 		document.getElementsByClassName('aaa')[0].href='../css/main.css';
-		document.cookie="style=main; path=/; expires="+Date(Date.now()+(365*24*36000));
 		modedark = false;
 	}
 }
