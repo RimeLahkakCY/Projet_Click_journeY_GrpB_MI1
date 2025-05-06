@@ -6,16 +6,16 @@ let isPlaying = false;
 const audio = document.getElementById("music");
 const musicButton = document.getElementById("musicButton");
 
-function musicBox(){
+function musicBox() {
 
-	if(!isPlaying){
-		audio.play();
-		musicButton.src = "../extra/soundOn.png";
-	}else{
-		audio.pause();
-		musicButton.src = "../extra/soundOff.png";
-	}
-	isPlaying = !isPlaying;
+    if (!isPlaying) {
+        audio.play();
+        musicButton.src = "../extra/soundOn.png";
+    } else {
+        audio.pause();
+        musicButton.src = "../extra/soundOff.png";
+    }
+    isPlaying = !isPlaying;
 }
 
 var photos = [
@@ -27,6 +27,28 @@ var photos = [
 
 var i = 0;
 var slide;
+
+
+function color() {
+
+    let actuel;
+    let nouveau;
+
+    if (document.cookie.includes("style=dark")) {
+        actuel = "dark";
+    } else {
+        actuel = "main";
+    }
+
+    if (actuel === "dark") {
+        nouveau = "main";
+    } else {
+        nouveau = "dark";
+    }
+    document.cookie = "style=" + nouveau + "; path=/; max-age=" + (360 * 60);
+    location.reload();
+}
+
 
 function slideshow() {
     slide.style.opacity = 0;
@@ -284,19 +306,4 @@ function trier() {
     voyages.forEach(function (voyage) {
         content.appendChild(voyage);
     });
-}
-
-let modedark = false;
-function color(){
-	var img_mode = document.getElementById('mode');
-	if (!modedark){
-		img_mode.src='../img/main_mode.png';
-		document.getElementsByClassName('aaa')[0].href='../css/dark.css';
-		modedark = true;
-	}
-	else{
-		img_mode.src='../img/dark_mode.png';
-		document.getElementsByClassName('aaa')[0].href='../css/main.css';
-		modedark = false;
-	}
 }
