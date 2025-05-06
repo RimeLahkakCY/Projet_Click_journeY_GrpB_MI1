@@ -16,6 +16,7 @@ $debut = date('Y-m-d');
 $fin = date('Y-m-d', strtotime("$debut +$duree days"));
    		
 $rentalInfo = [
+    'id' => $voyageId,
     'title' => $_SESSION['voyages'][$i]['titre'],
     'place' => $_SESSION['voyages'][$i]['lieux'],
 
@@ -88,7 +89,7 @@ if(file_exists($fileEtapes)){
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+    
     $rentalInfo['pickup_date'] = $_POST['pickup_date'] ?? date('Y-m-d');
     $rentalInfo['return_date'] = date('Y-m-d', strtotime("$rentalInfo[pickup_date] +$duree days"));
     $rentalInfo['car_model'] = $_POST['car_model'];
@@ -100,40 +101,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rentalInfo['accommodation'] = isset($_POST['accommodation']) ? [$_POST['accommodation']] : [];
 
     $dataFile = '../data/data_reservations.json';
+    $data = [];
 
-    $existe_reserve = false;
+    $existe_user = false;
+
     if(file_exists($dataFile)){
         $data = json_decode(file_get_contents($dataFile), true);
 
-        foreach($data as $reservations => $reservation){
-            if($reservation['user_id'] == $_SESSION['user']['id']){
-                $data[$reservations]['reservation'] = $rentalInfo;
-                $existe_reserve = true;
+        foreach($data as &$userData){
+            if($userData['user_id'] == $_SESSION['user']['id']){
+                $existe_user = true;
+
+                if(isset($_POST['retour_accueil'])){
+        
+                    foreach ($userData['reservations'] as $key => $reservation) {
+                        if ($reservation['id'] == $voyageId) {
+                            unset($userData['reservations'][$key]); 
+                            $userData['reservations'] = array_values($userData['reservations']);
+                            break;
+                        }
+                    }
+                    file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+                    header("Location: main.php");
+                    exit();
+                }
+
+                $existe_reserve = false;
+
+                foreach ($userData['reservations'] as &$reservation) {
+                    if ($reservation['id'] == $voyageId) {
+                        $reservation = $rentalInfo;
+                        $existe_reserve = true;
+                        break;
+                    }
+                }
+
+                if (!$existe_reserve) {
+                    $userData['reservations'][] = $rentalInfo;
+                }
+
                 break;
+
             }
         }
 
-        if(isset($_POST['retour_accueil'])){
-        
-            foreach ($data as $key => $reservation) {
-                if ($reservation['user_id'] == $_SESSION['user']['id']) {
-                    unset($data[$key]); 
-                    break;
-                }
-            }
-            file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-            header("Location: main.php");
-            exit();
-        }
     }
 
-    if(!$existe_reserve){
-        $New_reservationData = [
+    if(!$existe_user){
+        $data[] = [
             'user_id' => $_SESSION['user']['id'],
-            'reservation' => $rentalInfo
+            'reservations' => [$rentalInfo]
         ];
-    
-        $data[] = $New_reservationData;
     }
 
     file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
