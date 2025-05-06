@@ -1,28 +1,26 @@
-<?php  
-session_start();
-
-if(isset($_COOKIE['style'])){
-		$style=$_COOKIE['style'];
-}
+<?php 
+    session_start();
+	
+	if(!isset($_COOKIE['style'])){
+		setcookie("style", "main", time() + 360*60, "/");
+		$style = "main";
+	}else{
+		$style = $_COOKIE['style'];
+	}	
 ?>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <?php if(isset($_COOKIE['style'])):?>
-	<?php if($_COOKIE['style']=='dark'):?>
-		<link class="aaa" href="../css/dark.css" rel="stylesheet">
-	<?php else :?>
-		<link class="aaa" href="../css/main.css" rel="stylesheet">
-    <?php endif; ?>
-	<?php endif; ?>
-        <link rel="icon" type="image/x-icon" href="../img/logo.png">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-            rel="stylesheet">
-            <script type="text/javascript" src="../test.js"></script>
-        <title>Projet web</title>
 
-    </head>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/<?php echo $style; ?>.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <title>Projet web</title>
+    <script type="text/javascript" src="../test.js"></script>
+</head>
     
     <body>
         <div class="header">
@@ -68,11 +66,12 @@ if(isset($_COOKIE['style'])){
                         alt="icon" height="20px" /></a>
                 
                 </ul>
-            <div style="display: flex; align-items: center; margin: 15px;">
+                <div style="display: flex; align-items: center; margin: 15px;">
             	<?php if (isset($_COOKIE['style'])):?>
-			<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
-	    	<?php endif; ?>
+		<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
+	    <?php endif; ?>
             </div>
+                
             </div>
         </div>
         
