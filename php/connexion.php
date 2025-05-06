@@ -1,33 +1,30 @@
 <?php 
 session_start();
 
+if(!isset($_COOKIE['style'])){
+		setcookie("style", "main", time() + 360*60, "/");
+		$style = "main";
+	}else{
+		$style = $_COOKIE['style'];
+	}
+
 if(isset($_SESSION['user'])){
 	header("Location: main.php");
 	exit();
-}
-
-if(isset($_COOKIE['style'])){
-		$style=$_COOKIE['style'];
 }
 ?>
 
 <html>
       
     <head>
-        <meta charset="UTF-8">
-        <?php if(isset($_COOKIE['style'])):?>
-	<?php if($_COOKIE['style']=='dark'):?>
-		<link class="aaa" href="../css/dark.css" rel="stylesheet">
-	<?php else :?>
-		<link class="aaa" href="../css/main.css" rel="stylesheet">
-    <?php endif; ?>
-	<?php endif; ?>
-        <link rel="icon" type="image/x-icon" href="../img/logo.png">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-            rel="stylesheet">
-        <title>Projet web</title>
-        <script type="text/javascript" src="../test.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/<?php echo $style; ?>.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <title>Projet web</title>
+    <script type="text/javascript" src="../test.js"></script>
     </head>
     
     <body>
@@ -82,8 +79,8 @@ if(isset($_COOKIE['style'])){
 
             <div style="display: flex; align-items: center; margin: 15px;">
             	<?php if (isset($_COOKIE['style'])):?>
-		<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
-	    <?php endif; ?>
+				<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
+	    		<?php endif; ?>
             </div>
 
         </div>
@@ -91,10 +88,9 @@ if(isset($_COOKIE['style'])){
     </div>
 
 	<div class="all">
-
-          <div style="display: flex;justify-content: center;margin-top: 20px; min-height:550px">
-		
-
+        <div class="slideshow"></div>
+        <div style="display: flex;justify-content: center;margin: 20px 0px 80px 0px; min-height:550px">
+	
             <div class="textInscription">
 
                 <div style="display: flex; flex-direction: column; width: 40%;">
@@ -150,9 +146,9 @@ if(isset($_COOKIE['style'])){
                     </fieldset>
                     
                 </form>
-        </div>
+            </div>
         </div>	
-        </div>
+    </div>
 		
 	<div class="footer">
                     <div style="display:flex; justify-content: space-between">
