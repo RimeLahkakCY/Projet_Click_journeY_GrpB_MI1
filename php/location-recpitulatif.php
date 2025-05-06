@@ -168,6 +168,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="../css/main.css">
+<script> 
+function b(v){
+	for(var i of document.getElementsByName('activities[]')){
+	if(i.checked){
+		if(i.value=='musée'){
+			v=v+20;
+		}
+		if(i.value=='restauration'){
+			v=v+30;
+		}
+	}
+	}
+	for(var j of document.getElementsByName('options[]')){
+	if(j.checked){
+		v=v+10;
+	}
+	}
+	document.getElementById('ttl').innerHTML=v+" $";
+}
+</script>
     </head>
 <body class="location">
     <div class="container_location">
@@ -260,7 +280,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <span class="label">Activités :</span><br>
                 <?php foreach ($rentalInfo['activities'] as $activity): ?>
-                    <input type="checkbox" name="activities[]" value="<?php echo $activity; ?>"
+                    <input type="checkbox" onmouseout="b(<?php echo $total ?>)" name="activities[]" value="<?php echo $activity; ?>"
                     <?php echo (!empty($_POST['activities']) && in_array($activity, $_POST['activities'])) ? 'checked' : ''; ?>>
                     <?php echo $activity; ?><br>
                 <?php endforeach; ?>
@@ -268,7 +288,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <span class="label">Hébergement :</span><br>
                 <?php foreach ($rentalInfo['accommodation'] as $place): ?>
-                <input type="radio" name="accommodation" value="<?php echo $place; ?>" 
+                <input type="radio" onmouseout="b(<?php echo $total ?>)" name="accommodation" value="<?php echo $place; ?>" 
                 <?php echo (isset($_POST['accommodation']) ? ($_POST['accommodation'] == $place) : (isset($rentalInfo['accommodation'][0]) && $rentalInfo['accommodation'][0] == $place)) ? 'checked' : ''; ?> required>
                 <?php echo $place; ?><br>
                 <?php endforeach; ?>
@@ -277,11 +297,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php if (!empty($rentalInfo['options'])): ?>
                     <span class="label">Options supplémentaires (+10$ par option):</span><br>
                     <?php foreach ($rentalInfo['options'] as $extra): ?>
-                    <input type="checkbox" name="options[]" value="<?php echo $extra; ?>"
+                    <input type="checkbox" onmouseout="b(<?php echo $total ?>)" name="options[]" value="<?php echo $extra; ?>"
                     <?php echo (!empty($_POST['options']) && in_array($extra, $_POST['options'])) ? 'checked' : ''; ?>>
                     <?php echo $extra; ?><br>
                 <?php endforeach; ?>
                 <?php endif; ?>
+
 
                 
                 <div class="resume-item subtotal">
@@ -294,7 +315,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="resume-item total">
                     <span class="label">Total:</span>
-                    <span class="value"><?php echo number_format($total, 2, ',', ' '); ?> $</span>
+                    <span id="ttl" class="value"><?php echo number_format($total, 2, ',', ' '); ?> $</span>
                 </div>
             </div>
         </div>
