@@ -622,3 +622,9 @@ h4 {
     padding: 4px 6px 4px 6px;
     margin: 0px 5px 0px 5px;
 }
+
+.reservation{
+    background-color: #020030; 
+    border: 3px solid #020030; 
+    border-radius: 2%;
+}
