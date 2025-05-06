@@ -129,7 +129,6 @@ if(isset($_COOKIE['style'])){
 									<td colspan="2">
 										<p>Lieux: <?php echo $_SESSION['voyages'][$i]['lieux']; ?></p>
                                         					<p>Etapes : <?php echo implode(", ",array_values($_SESSION['etapes'][$i]['ville']))?></p>
-                    					<?php } ?></p>
                                         
 									</td>
 								</tr>
