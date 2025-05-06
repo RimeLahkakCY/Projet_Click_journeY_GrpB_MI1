@@ -1,0 +1,196 @@
+<?php 
+	session_start();
+
+    if (!isset($_SESSION['user']) || !isset($_SESSION['paiement'])) {
+    	header("Location: main.php");
+    	exit();
+	}
+
+    if(!isset($_COOKIE['style'])){
+		setcookie("style", "main", time() + 360*60, "/");
+		$style = "main";
+	}else{
+		$style = $_COOKIE['style'];
+	}
+
+	$dataFile = '../data/data_reservations.json';
+	$data = [];
+	$userId = $_SESSION['user']['id'];
+	$reservation = $_SESSION['paiement'];
+
+	if (file_exists($dataFile)) {
+    	$data = json_decode(file_get_contents($dataFile), true);
+    	$userFound = false;
+
+    	foreach ($data as &$userData) {
+        	if ($userData['user_id'] == $userId) {
+            	$userFound = true;
+            	$found = false;
+            	foreach ($userData['reservations'] as &$res) {
+                	if ($res['id'] == $reservation['id']) {
+                    	$res = $reservation;
+                    	$found = true;
+                    	break;
+                	}
+            	}
+            	if (!$found) {
+                	$userData['reservations'][] = $reservation;
+            	}
+            	break;
+        	}
+    	}
+
+    	if (!$userFound) {
+        	$data[] = [
+            	'user_id' => $userId,
+            	'reservations' => [$reservation]
+        	];
+    	}
+	}
+
+	file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+	// Nettoyage
+	//unset($_SESSION['paiement']);
+
+	//header("Location: main.php");
+	//exit();
+		
+?>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/<?php echo $style; ?>.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <title>Projet web</title>
+    <script type="text/javascript" src="../test.js"></script>
+</head>
+    
+    <body>
+        <div class="header">
+            <div style="display:flex; justify-content: space-between">
+                <span class="titre">
+                    <img src="../img/logo.png" alt="logo" height="80px">
+                </span>
+
+                <div class="menu">
+                    <?php if (isset($_SESSION['user'])): ?>
+                        <div class="lien">
+                            <a href="deconnexion.php">Se déconnecter</a>
+                        </div>
+                        <div class="lien">
+                            <a href="utilisateur.php"><img src="../img/profil.png" alt="profil" height="30px" /></a>
+                        </div>
+                    <?php else: ?>
+                        <div class="lien">
+                            <a href="connexion.php">Se connecter</a>
+                        </div>
+                        <div class="lien">
+                            <a href="inscription.php">S'inscrire</a>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <ul>
+                    <div class="dropdown">
+                        <a class="dropbtn"><img src="../img/dropdown.png" alt="profil"
+                            height="20px" /></a>
+                        <div class="dropdown-content">
+                            <a href="main.php">Acceuil</a>
+                            <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == "admin"):?>
+                                <a href="administrateur.php">Admin</a>
+                            <?php endif; ?>
+                            <a href="utilisateur.php">Paramètre</a>
+                        </div>
+                    </div>
+
+                    <a href="voyages.php"><img src="../img/search.png"
+                        alt="icon" height="20px" /></a>
+                
+                </ul>
+                <div style="display: flex; align-items: center; margin: 15px;">
+            	<?php if (isset($_COOKIE['style'])):?>
+		<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
+	    <?php endif; ?>
+            </div>
+                
+            </div>
+        </div>
+        
+        <div class="all">
+            <div class="slideshow"></div>
+            	<div class="content">       		
+            		<fieldset style="height:600px; width:700px">
+            			
+            			<legend>Votre réservation a bien été enregistrée</legend>
+            			
+            			<div class="thumbnail">
+            		            <?php 
+                          		$reservation = $_SESSION['paiement'];
+                          		
+                                echo "<div style='margin 20px ;padding: 10px; color: white'>";
+                                
+                                echo "<p>Séjour : ".$reservation['title']. "</p>";
+                                echo "<p>Pays : ".$reservation['place']. "</p>";
+                                echo "<p>Modèle voiture : ".$reservation['car_model']. "</p>";
+                                echo "<p>Classe voiture : ".$reservation['car_class']. "</p>";
+                                echo "<p>Début : ".$reservation['pickup_date']. "</p>";
+                                echo "<p>Fin : ".$reservation['return_date']. "</p>";
+                     
+                                echo "<p>Options : ".implode(",",array_values($reservation['options'])). "</p>";
+                                echo "<p>Activités : ".implode(",",array_values($reservation['activities'])). "</p>";
+                                echo "<p>Hébergements : ".implode(",",array_values($reservation['accommodation'])). "</p>";
+                      
+                                echo "</div><br>";
+
+                                unset($_SESSION['paiement']);
+
+                        		?>
+            		        </div>
+
+                            <a href="../php/main.php">Retour à l'accueil</a>
+            		
+            		</fieldset>
+            
+            	</div>
+            
+
+        </div>
+
+        <div class="footer">
+            <div style="display:flex; justify-content: space-between">
+                <div style="background-color: rgb(249, 249, 249, 0.7); height: 80px;">
+                    <img src="../img/logo.png" alt="logo" height="80px">
+                </div>
+                <div>
+                    <h3>Qui sommes-nous ?</h3>
+                    <h4>Nos services</h4>
+                    <h4>Notre équipe</h4>
+                    <h4>Voyage sur-mesure</h4>
+                </div>
+                <div>
+                    <h3>Top destinations</h3>
+                    <h4>France</h4>
+                    <h4>Italie</h4>
+                    <h4>Japon</h4>
+                    <h4>Etats-Unis</h4>
+                    <h4>Australie</h4>
+                </div>
+                <div>
+                    <h3>Idées voyages</h3>
+                    <h4>En solo</h4>
+                    <h4>En couple</h4>
+                    <h4>Entre amis</h4>
+                    <h4>Déconnecter</h4>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
