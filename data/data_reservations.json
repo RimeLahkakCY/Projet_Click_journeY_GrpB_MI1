@@ -1,3 +1,89 @@
 [
-    
+    {
+        "user_id": "5",
+        "reservations": [
+            {
+                "id": "3",
+                "title": "Sur la route 66",
+                "place": "États-Unis",
+                "car_model": "Toyota",
+                "car_class": "Essence",
+                "lenght": "10",
+                "pickup_date": "2025-05-07",
+                "return_date": "2025-05-17",
+                "pickup_location": "Aéroport de Orly",
+                "return_location": "Aéroport de Orly",
+                "daily_rate": "1350",
+                "insurance": "Couverture Complete",
+                "insurance_rate": 15,
+                "options": [
+                    "guide",
+                    "hébergement écoresponsable"
+                ],
+                "activities": [
+                    "musée",
+                    "road trip"
+                ],
+                "accommodation": [
+                    "hôtel"
+                ]
+            },
+            {
+                "id": "7",
+                "title": "À travers l’Indochine",
+                "place": "Vietnam",
+                "car_model": "Toyota",
+                "car_class": "Essence",
+                "lenght": "12",
+                "pickup_date": "2025-05-07",
+                "return_date": "2025-05-19",
+                "pickup_location": "Aéroport de Orly",
+                "return_location": "Aéroport de Orly",
+                "daily_rate": "950",
+                "insurance": "Couverture Complete",
+                "insurance_rate": 15,
+                "options": [
+                    "kit cuisine de route (réchaud + ustensiles)"
+                ],
+                "activities": [
+                    "temples",
+                    "croisière"
+                ],
+                "accommodation": [
+                    "hôtel"
+                ]
+            }
+        ]
+    },
+    {
+        "user_id": "4",
+        "reservations": [
+            {
+                "id": "2",
+                "title": "En pleine nature",
+                "place": "Éthiopie",
+                "car_model": "Toyota",
+                "car_class": "Essence",
+                "lenght": "6",
+                "pickup_date": "2025-05-07",
+                "return_date": "2025-05-13",
+                "pickup_location": "Aéroport de Orly",
+                "return_location": "Aéroport de Orly",
+                "daily_rate": "730",
+                "insurance": "Couverture Complete",
+                "insurance_rate": 15,
+                "options": [
+                    "voiture décapotable",
+                    "déjeuné inclus"
+                ],
+                "activities": [
+                    "safari",
+                    "trekking"
+                ],
+                "accommodation": [
+                    "hôtel"
+                ]
+            }
+        ]
+    }
 ]
