@@ -6,7 +6,7 @@ function checkForm() {
     var isOk = true;
     var msg = '';
 
-    for (i = 0; i < children.length; i++) {
+    for (i = 0; i < children.length; i++) { 
         var child = children[i];
         if (child.value === " ") {
             isOk = false;
