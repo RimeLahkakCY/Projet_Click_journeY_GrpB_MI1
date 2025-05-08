@@ -29,7 +29,8 @@ $_SESSION['etapes'] = $etapes;
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <title>Projet web</title>
-    <script type="text/javascript" src="../test.js"></script>
+    <script type="text/javascript" src="../js/fonctionnel.js"></script>
+    <script type="text/javascript" src="../js/visual.js"></script>
     </head>
 
     <body>
