@@ -10,7 +10,7 @@ function musicBox() {
         musicButton.src = "../extra/soundOn.png";
     } else {
         audio.pause();
-        musicButton.src = "../extra/soundOff.png";
+        musicButton.src = "../extra/soundOff.png"; 
     }
     isPlaying = !isPlaying;
 }
