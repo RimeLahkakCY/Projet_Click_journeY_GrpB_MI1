@@ -9,7 +9,7 @@
 session_start();\
 require_once 'config/database.php';\
 require_once 'controllers/CartController.php';\
-// Autres includes...\
+// Autres includes...\ 
 \
 // V\'e9rifier si l'utilisateur est connect\'e9\
 $user_id = $_SESSION['user_id'] ?? null;\
