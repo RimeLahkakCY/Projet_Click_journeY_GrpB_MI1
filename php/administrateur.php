@@ -1,5 +1,5 @@
 <?php
-    session_start(); 
+    session_start();  
     
     if(!isset($_COOKIE['style'])){
 		setcookie("style", "main", time() + 360*60, "/");
