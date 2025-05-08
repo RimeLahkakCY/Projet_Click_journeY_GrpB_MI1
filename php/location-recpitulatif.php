@@ -103,7 +103,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 	$_SESSION['paiement'] = $rentalInfo;
-
+	
+	if(isset($_POST['retour_accueil'])){
+		header("Location: main.php");
+		exit();
+	}
 ?>
 
 <html> 
@@ -116,7 +120,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="../css/main.css">
-		<script type="text/javascript" src="../test.js"></script>
+        <script type="text/javascript" src="../js/fonctionnel.js"></script>
+   	 <script type="text/javascript" src="../js/visual.js"></script>
     </head>
 <body class="location">
     <div class="container_location">
@@ -165,16 +170,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="resume-section">
                 <h2>Détails de la Location</h2>
                 <div class="resume-item">
-                    <span class="label">Date de Prise en Charge:</span>
-                    <input onchange="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" id="depart" type="date" name="pickup_date" value="<?php echo $rentalInfo['pickup_date']; ?>" required><br><br>
+                    <div class="label">Date de Prise en Charge:</div>
+                    <input style="margin-left: 500px;" type="date" name="pickup_date" value="<?php echo $rentalInfo['pickup_date']; ?>" required><br><br>
                 </div>
                 <div class="resume-item">
                     <span class="label">Date de Retour:</span>
-                    <input onchange="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" id="retour" type="date" name="pickup_date" value="<?php echo $rentalInfo['pickup_date']; ?>" required><br><br>
+                    <span class="value"><?php echo date('j F Y', strtotime($rentalInfo['return_date'])); ?></span>
                 </div>
                 <div class="resume-item">
                     <span class="label">Durée:</span>
-                    <span id="duree" class="value">0 jours</span>
+                    <span class="value"><?php echo $rentalInfo['lenght']; ?> jours</span>
                 </div>
                 <div class="resume-item">
                     <span class="label">Lieu de Prise en Charge:</span>
@@ -199,17 +204,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="value"><?php echo $prix; ?> $</span>
                 </div>
                 <div class="resume-item">
-                    <span class="label">Coût de Location:</span>
-                    <span id="prix_duree" class="value">0 $</span>
+                    <span class="label">Coût de Location (<?php echo $duree; ?> jours):</span>
+                    <span class="value"><?php echo number_format($rental_cost, 2, ',', ' '); ?> $</span>
                 </div>
                 <div class="resume-item">
-                     <span class="label"><input type="checkbox" onmouseout="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" name="assurance" value="Assurance"checked>Assurance (Couverture Complete):</span>
+                    <span class="label">Assurance (<?php echo $rentalInfo['insurance']; ?>):</span>
                     <span class="value"><?php echo number_format($insurance_cost, 2, ',', ' '); ?> $</span>
                 </div>
 
                 <span class="label">Activités :</span><br>
                 <?php foreach ($rentalInfo['activities'] as $activity): ?>
-                    <input type="checkbox" onmouseout="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" name="activities[]" value="<?php echo $activity; ?>"
+                    <input type="checkbox" onclick="prix_reservation(<?php echo $subtotal ?>)" name="activities[]" value="<?php echo $activity; ?>"
                     <?php echo (!empty($_POST['activities']) && in_array($activity, $_POST['activities'])) ? 'checked' : ''; ?>>
                     <?php echo $activity; ?><br>
                 <?php endforeach; ?>
@@ -217,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <span class="label">Hébergement :</span><br>
                 <?php foreach ($rentalInfo['accommodation'] as $place): ?>
-                    <input type="radio" onmouseout="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" name="accommodation" value="<?php echo $place; ?>"  
+                    <input type="radio" onclick="b(<?php echo $subtotal ?>)" name="accommodation" value="<?php echo $place; ?>"  
                 <?php echo (isset($_POST['accommodation']) ? ($_POST['accommodation'] == $place) : (isset($rentalInfo['accommodation'][0]) && $rentalInfo['accommodation'][0] == $place)) ? 'checked' : ''; ?> required>
                 <?php echo $place; ?><br>
                 <?php endforeach; ?>
@@ -226,7 +231,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php if (!empty($rentalInfo['options'])): ?>
                     <span class="label">Options supplémentaires (+10$ par option):</span><br>
                     <?php foreach ($rentalInfo['options'] as $extra): ?>
-                    <input type="checkbox" onmouseout="prix_reservation(<?php echo $subtotal ?>, <?php echo $prix; ?>)" name="options[]" value="<?php echo $extra; ?>"
+                    <input type="checkbox" onclick="prix_reservation(<?php echo $subtotal ?>)" name="options[]" value="<?php echo $extra; ?>"
                     <?php echo (!empty($_POST['options']) && in_array($extra, $_POST['options'])) ? 'checked' : ''; ?>>
                     <?php echo $extra; ?><br>
                 <?php endforeach; ?>
@@ -259,6 +264,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$vendeur = 'MI-1_B';
 			$titre  = $_SESSION['voyages'][$i]['titre'];
             		$retour = "http://localhost:1234/php/detailsPaiement.php";
+			//$retour = "http://localhost/site-fonctionnel-main2/php/detailsPaiement.php";
 
 			$api_key = getAPIKey($vendeur);
 
@@ -269,7 +275,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 		<form action="https://www.plateforme-smc.fr/cybank/" method="POST">
 		
-        <input type="hidden" name="transaction" value="<?php echo $transaction ; ?>">
+        	<input type="hidden" name="transaction" value="<?php echo $transaction ; ?>">
 		<input type="hidden" name="montant" value="<?php echo $montant; ?>">
 		<input type="hidden" name="vendeur" value="<?php echo $vendeur; ?>">
 		<input type="hidden" name="retour" value="<?php echo $retour; ?>">
