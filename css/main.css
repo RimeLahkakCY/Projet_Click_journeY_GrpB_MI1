@@ -12,6 +12,7 @@ body {
     justify-content: flex-start;
     width: 100%;
     position: relative;
+
 }
 
 .slideshow {
@@ -364,7 +365,6 @@ fieldset.recherche {
     opacity: 0.3;
 }
 
-
 .conteneur-voyages {
     display: flex;
     align-items: stretch;
@@ -611,7 +611,7 @@ h4 {
 .pagination {
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 20px 20px 80px 20px;
 }
 
 .page {
@@ -623,8 +623,8 @@ h4 {
     margin: 0px 5px 0px 5px;
 }
 
-.reservation{
-    background-color: #0098d4; 
-    border: 3px solid #0098d4; 
+.reservation {
+    background-color: #0098d4;
+    border: 3px solid #0098d4;
     border-radius: 2%;
 }
