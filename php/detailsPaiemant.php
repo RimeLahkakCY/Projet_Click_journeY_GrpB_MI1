@@ -17,6 +17,8 @@
 	$data = [];
 	$userId = $_SESSION['user']['id'];
 	$reservation = $_SESSION['paiement'];
+	
+	$montant = $_GET['montant'];
 
 	if (file_exists($dataFile)) {
     	$data = json_decode(file_get_contents($dataFile), true);
@@ -50,11 +52,11 @@
 
 	file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
-	// Nettoyage
-	//unset($_SESSION['paiement']);
-
-	//header("Location: main.php");
-	//exit();
+	if(isset($_POST['retour_accueil'])){
+		header("Location: main.php");
+		unset($_SESSION['paiement']);
+		exit();
+	}
 		
 ?>
 
@@ -68,7 +70,8 @@
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <title>Projet web</title>
-    <script type="text/javascript" src="../test.js"></script>
+    <script type="text/javascript" src="../js/fonctionnel.js"></script>
+   	 <script type="text/javascript" src="../js/visual.js"></script>
 </head>
     
     <body>
@@ -143,10 +146,13 @@
                                 echo "<p>Classe voiture : ".$reservation['car_class']. "</p>";
                                 echo "<p>Début : ".$reservation['pickup_date']. "</p>";
                                 echo "<p>Fin : ".$reservation['return_date']. "</p>";
-                     
+                     		
+                     		
                                 echo "<p>Options : ".implode(",",array_values($reservation['options'])). "</p>";
                                 echo "<p>Activités : ".implode(",",array_values($reservation['activities'])). "</p>";
                                 echo "<p>Hébergements : ".implode(",",array_values($reservation['accommodation'])). "</p>";
+                                
+                                echo "<p>Montant total : ".$montant. " $</p>";
                       
                                 echo "</div><br>";
 
@@ -155,7 +161,9 @@
                         		?>
             		        </div>
 
-                            <a href="../php/main.php">Retour à l'accueil</a>
+                           <form method="POST">
+                           		<input style="margin: 20px;" class="btn btn-primary" type="submit" name="retour_accueil" value="Retour Accueil">
+                          	</form>
             		
             		</fieldset>
             
