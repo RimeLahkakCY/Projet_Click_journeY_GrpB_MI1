@@ -6,7 +6,7 @@
 		$style = "main";
 	}else{
 		$style = $_COOKIE['style'];
-	}
+	} 
 
     if (!isset($_SESSION['user'])){
         header("Location: main.php");
