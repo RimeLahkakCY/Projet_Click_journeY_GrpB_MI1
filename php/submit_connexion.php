@@ -12,7 +12,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header("Location: connexion.php");
     exit();
 }
-
+  
 $data = array(
         'nom' => $nom,
         'prenom' => $prenom,
