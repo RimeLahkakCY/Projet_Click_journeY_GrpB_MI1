@@ -5,7 +5,7 @@ if(!isset($_COOKIE['style'])){
     setcookie("style", "main", time() + 360*60, "/");
     $style = "main";
 }else{
-    $style = $_COOKIE['style'];
+    $style = $_COOKIE['style']; 
 }
 
 $i = isset($_GET['i']) ? (int) $_GET['i'] : 0;
