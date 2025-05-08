@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-
+ 
 $i= isset($_GET['i']) ? (int) $_GET['i'] : 0;
 
 if(!isset($_SESSION['user'])){
