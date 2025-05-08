@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="../css/main.css">
-		<script type="text/javascript" src="../test.js"></script>
+	<script type="text/javascript" src="../js/fonctionnel.js"></script>
     </head>
 <body class="location">
     <div class="container_location">
