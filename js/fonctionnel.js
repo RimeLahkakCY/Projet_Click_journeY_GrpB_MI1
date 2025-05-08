@@ -237,25 +237,71 @@ function trier() {
     });
 }
     
-function prix_reservation(v){
+function prix_reservation(v,d){
  	for(var i of document.getElementsByName('activities[]')){
  	if(i.checked){
  		if(i.value=='musée'){
- 			v+=20;
+ 			v=v+30;
  		}
- 		else if(i.value=='restauration'){
- 			v+=30;
- 		}else{
- 			v+=10;
+ 		if(i.value=='restauration'){
+ 			v=v+10;
  		}
+		if(i.value=='randonnée'){
+ 			v=v+5;
+ 		}
+ 		if(i.value=='visite historique'){
+ 			v=v+20;
+ 		}
+		if(i.value=='croisière'){
+ 			v=v+40;
+ 		}
+		else{
+			v=v+50;
+		}
  	}
  	}
  	for(var j of document.getElementsByName('options[]')){
  	if(j.checked){
- 		v+=10;
+ 		v=v+10;
  	}
  	}
- 	
+	for(var k of document.getElementsByName('assurance')){
+ 	if(!k.checked){
+ 		v=v-10;
+ 	}
+ 	}
+	for(var q of document.getElementsByName('accommodation')){
+ 	if(q.checked){
+ 		if(q.value=='hôtel'){
+ 			v=v+30;
+ 		}
+		if(q.value=='camping'){
+ 			v=v+10;
+ 		}
+ 		if(q.value=='hébergement écoresponsable'){
+ 			v=v+5;
+ 		}
+		if(q.value=='location'){
+ 			v=v+20;
+ 		}
+		else{
+			v=v+50;
+		}
+ 	}
+ 	}
+	
+	var depart=document.getElementById('depart').value;
+	var retour=document.getElementById('retour').value;
+	var tab_depart=depart.split("-");
+	var tab_retour=retour.split("-");
+	var an=tab_retour[0]-tab_depart[0];
+	var mois=tab_retour[1]-tab_depart[1];
+	var j=tab_retour[2]-tab_depart[2];
+	var duree=(an*365)+(mois*30)+j;
+	document.getElementById('duree').innerHTML=duree+" jours";
+	document.getElementById('prix_duree').innerHTML=(duree*d)+" $";
+	
+ 	v=v+(duree*d);
  	document.getElementById('ssttl').innerHTML=v+" $";
  	document.getElementById('tva').innerHTML=(v* 0.20)+" $";
  	document.getElementById('ttl').innerHTML=(v+(v* 0.20))+" $";
