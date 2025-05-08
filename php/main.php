@@ -5,7 +5,7 @@
 		setcookie("style", "main", time() + 360*60, "/");
 		$style = "main";
 	}else{
-		$style = $_COOKIE['style'];
+		$style = $_COOKIE['style']; 
 	}	
 ?>
 
