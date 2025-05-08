@@ -27,7 +27,8 @@
     href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
     rel="stylesheet">
     <title>Projet web</title>
-    <script type="text/javascript" src="../test.js"></script>
+    <script type="text/javascript" src="../js/fonctionnel.js"></script>
+   	 <script type="text/javascript" src="../js/visual.js"></script>
 </head>
     
     <body>
@@ -93,7 +94,7 @@
 			
 	<div class="all">
         <div class="slideshow"></div>                        
-        <div style="display: flex;justify-content: center; align-items: stretch; margin-top: 20px; min-height: 700px;">
+        <div style="display: flex;justify-content: center; align-items: stretch; margin: 80px;">
 
 		   
 			<form name="inscription" id="form" method="POST" action="../php/submit_modification.php">
@@ -124,7 +125,7 @@
                         </div><br/>
 
                         <div class="div1">
-                            Prénom : 
+                            Prénom :
                         </div>
 
                         <div class="div2">
@@ -172,18 +173,20 @@
                     
                 </form>
 
-                <div style="background-color: #0098d4; border: 3px solid #0098d4; border-radius: 2%;">
+                <div class="reservation">
                     <h1>Mes réservations</h1>
                     <div class="conteneur-voyages">
                         <?php 
                           $reservFile = "../data/data_reservations.json";
+                          $existe_reserv = false;
                           if(file_exists($reservFile)){
                             $reservations = json_decode(file_get_contents($reservFile),true);  
 
                             foreach($reservations as $reservation){
                                 if($reservation['user_id'] == $_SESSION['user']['id']){
                                     foreach($reservation['reservations'] as $reserv){
-                                        echo "<div style='margin 20px ;padding: 10px; background-color: white;'>";
+                                    	$existe_reserv = true;
+                                        echo "<div class='reservation'>";
                                         echo "<p>Séjour : ".$reserv['title']. "</p>";
                                         echo "<p>Pays : ".$reserv['place']. "</p>";
                                         echo "<p>Modèle voiture : ".$reserv['car_model']. "</p>";
@@ -199,9 +202,11 @@
                                     }
                                 }
                             }  
-                          }else{
-                                echo "<p>Aucune réservation trouvée.</p>";
                           }
+                          
+                          if(!$existe_reserv){
+                                	echo "<p>Aucune réservation trouvée.</p>";
+                                }
 
                         ?>
                     </div>
@@ -239,12 +244,6 @@
                             <h4>Déconnecter</h4>
                         </div>
 
-                        <div>
-                            <h3>Top destinations</h3>
-                            <h4>France</h4>
-                            <h4>Italie</h4>
-                            <h4>Belgique</h4>
-                        </div>
                     </div>
                     
         </div>
