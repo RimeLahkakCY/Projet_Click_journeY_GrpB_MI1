@@ -10,7 +10,7 @@
 ?>
 
 <html>
-
+ 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/<?php echo $style; ?>.css">
