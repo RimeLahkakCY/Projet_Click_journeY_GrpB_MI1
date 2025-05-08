@@ -19,7 +19,8 @@
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <title>Projet web</title>
-    <script type="text/javascript" src="../test.js"></script>
+    <script type="text/javascript" src="../js/fonctionnel.js"></script>
+    <script type="text/javascript" src="../js/visual.js"></script>
 </head>
 
 <body>
@@ -73,8 +74,8 @@
 
             <div style="display: flex; align-items: center; margin: 15px;">
             	<?php if (isset($_COOKIE['style'])):?>
-				<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
-	    		<?php endif; ?>
+			<img class="mode" id="mode" onclick="color();" height="25px" src="../img/main_mode.png"/>
+	    	<?php endif; ?>
             </div>
 
         </div>
@@ -196,13 +197,6 @@
                 <h4>En couple</h4>
                 <h4>Entre amis</h4>
                 <h4>Déconnecter</h4>
-            </div>
-
-            <div>
-                <h3>Top destinations</h3>
-                <h4>France</h4>
-                <h4>Italie</h4>
-                <h4>Belgique</h4>
             </div>
             
         </div>
