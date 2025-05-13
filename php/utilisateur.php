@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
     session_start(); 
 
@@ -28,7 +29,98 @@
     rel="stylesheet">
     <title>Projet web</title>
     <script type="text/javascript" src="../js/fonctionnel.js"></script>
-   	 <script type="text/javascript" src="../js/visual.js"></script>
+   <script type="text/javascript" src="../js/visual.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script>
+   $(document).ready(function(){
+	$("#user_submit").click(function(){
+
+		console.log("@@@@");
+
+		$.post("../php/submit_modification.php",
+		
+		{
+		 nom: document.getElementsByName('nom')[0].value,
+    		 prenom: document.getElementsByName('prenom')[0].value,
+    		 email: document.getElementsByName('email')[0].value,
+    		 mdp: document.getElementsByName('mdp')[0].value
+		},
+		function verifconsole(data,status) {
+    		 console.log(data+" "+status);
+    		 v=function verifForm(data,status) {
+var nom=document.getElementsByName('nom')[0];
+var prenom=document.getElementsByName('prenom')[0];
+var email=document.getElementsByName('email')[0];
+var mdp=document.getElementsByName('mdp')[0];
+var form = document.getElementById('form');
+
+    		 var errors = document.getElementById('errors');
+
+    		 var correct = true;
+    		 var errorMessages = [];
+
+    		 if (nom.value.trim() === "") {
+        		errorMessages.push("Champ Nom est vide !");
+        		nom.parentElement.style.borderColor = "#e35532";
+        		nom.focus();
+        		correct = false;
+    		 } else {
+        		nom.parentElement.style.borderColor = "#80de64";
+    		 }
+
+
+    		 if (prenom.value.trim() === "") {
+        	 	errorMessages.push("Champ Prénom est vide !");
+        		prenom.parentElement.style.borderColor = "#e35532";
+        		prenom.focus();
+        		correct = false;
+    		 } else {
+        		prenom.parentElement.style.borderColor = "#80de64";
+    		 }
+
+    		 const email_valide = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    		 if (email.value.trim() === "") {
+        		errorMessages.push("Champ Email est vide !");
+        		email.parentElement.style.borderColor = "#e35532";
+        		email.focus();
+        		correct = false;
+    		 }
+    		 else if (!email_valide.test(email.value.trim())) {
+        		errorMessages.push("L'Email est incorrect !");
+        		email.parentElement.style.borderColor = "#e35532";
+        		correct = false;
+    		 } else {
+        		email.parentElement.style.borderColor = "#80de64";
+    		 }
+
+    		 if (mdp.value.trim() === "") {
+        		errorMessages.push("Champ Mot de passe est vide !");
+        		mdp.parentElement.style.borderColor = "#e35532";
+        		mdp.focus();
+        		correct = false;
+    		 }
+    		 if (mdp.value.length < 5) {
+        		errorMessages.push("Nombre de caractères < à 5");
+        		mdp.parentElement.style.borderColor = "#e35532";
+        		correct = false;
+    		 } else {
+        		mdp.parentElement.style.borderColor = "#80de64";
+    		 }
+
+    		 if (correct) {
+        		errors.innerHTML = "";
+        		return true;
+    		 } else {
+        		errors.innerHTML = "\n" + errorMessages.join("<strong><h2></h2></strong>") + "\n";
+        		return false;
+    		}
+}
+    		return v;
+		});
+	
+	});
+});
+   </script>
 </head>
     
     <body>
@@ -166,7 +258,7 @@
                         </div><br/>
 
                         <div class="soumettre">
-                            <button type="submit" id="user_submit" onclick="verifForm();" style="display:none;">Soumettre</button>
+                            <button type="button" id="user_submit" style="display:none;">Soumettre</button>
                         </div>
 						
                     </fieldset>
