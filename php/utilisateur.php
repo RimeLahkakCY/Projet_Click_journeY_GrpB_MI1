@@ -35,8 +35,6 @@
    $(document).ready(function(){
 	$("#user_submit").click(function(){
 
-		console.log("@@@@");
-
 		$.post("../php/submit_modification.php",
 		
 		{
@@ -47,12 +45,13 @@
 		},
 		function verifconsole(data,status) {
     		 console.log(data+" "+status);
-    		 v=function verifForm(data,status) {
-var nom=document.getElementsByName('nom')[0];
-var prenom=document.getElementsByName('prenom')[0];
-var email=document.getElementsByName('email')[0];
-var mdp=document.getElementsByName('mdp')[0];
-var form = document.getElementById('form');
+			 document.getElementById("user_submit").style.display = 'none';
+    		 v=function verifForm() {
+			 var nom=document.getElementsByName('nom')[0];
+			 var prenom=document.getElementsByName('prenom')[0];
+			 var email=document.getElementsByName('email')[0];
+			 var mdp=document.getElementsByName('mdp')[0];
+			 var form = document.getElementById('form');
 
     		 var errors = document.getElementById('errors');
 
