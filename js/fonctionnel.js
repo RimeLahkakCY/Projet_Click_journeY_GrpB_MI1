@@ -97,7 +97,7 @@ function valider(champ) {
     var input = document.querySelector(`input[name="${champ}"]`);
     var boutons = input.parentElement.querySelector('.boutons_user');
 
-    input.readOnly = true;
+    input.disabled = true;
     boutons.style.display = 'none';
 
     // Affiche le bouton Soumettre
