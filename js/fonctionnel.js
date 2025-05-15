@@ -167,7 +167,7 @@ function trier() {
     });
 }
     
-function prix_reservation(v,d){
+function prix_reservation(v,t,d){
  	for(var i of document.getElementsByName('activities[]')){
  	if(i.checked){
  		if(i.value=='musée'){
@@ -218,21 +218,17 @@ function prix_reservation(v,d){
 			v=v+50;
 		}
  	}
- 	}
+ 	}	
 	
-	var depart=document.getElementById('depart').value;
-	var retour=document.getElementById('retour').value;
-	var tab_depart=depart.split("-");
-	var tab_retour=retour.split("-");
-	var an=tab_retour[0]-tab_depart[0];
-	var mois=tab_retour[1]-tab_depart[1];
-	var j=tab_retour[2]-tab_depart[2];
-	var duree=(an*365)+(mois*30)+j;
-	document.getElementById('duree').innerHTML=duree+" jours";
-	document.getElementById('prix_duree').innerHTML=(duree*d)+" $";
-	
- 	v=v+(duree*d);
+	v=v*(t*d);
  	document.getElementById('ssttl').innerHTML=v+" $";
  	document.getElementById('tva').innerHTML=(v* 0.20)+" $";
  	document.getElementById('ttl').innerHTML=(v+(v* 0.20))+" $";
- }   
+ } 
+
+function Dretour(t){
+	var depart=Date(document.getElementById('depart').value);
+	var r=depart.setDate(depart.getDate+t);
+	
+	document.getElementById('retour').innerHTML=r;
+}	  
