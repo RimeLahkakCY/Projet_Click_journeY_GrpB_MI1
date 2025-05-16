@@ -71,6 +71,76 @@ function Compteur() {
     }
 }
 
+function verifForm() {
+    var form = document.getElementById('form');
+
+    var nom = document.getElementsByName('nom')[0];
+    var prenom = document.getElementsByName('prenom')[0];
+    var email = document.getElementsByName('email')[0];
+    var mdp = document.getElementsByName('mdp')[0];
+
+    var errors = document.getElementById('errors');
+
+    var correct = true;
+    var errorMessages = [];
+
+    if (nom.value.trim() === "") {
+        errorMessages.push("Champ Nom est vide !");
+        nom.parentElement.style.borderColor = "#e35532";
+        nom.focus();
+        correct = false;
+    } else {
+        nom.parentElement.style.borderColor = "#80de64";
+    }
+
+
+    if (prenom.value.trim() === "") {
+        errorMessages.push("Champ Prénom est vide !");
+        prenom.parentElement.style.borderColor = "#e35532";
+        prenom.focus();
+        correct = false;
+    } else {
+        prenom.parentElement.style.borderColor = "#80de64";
+    }
+
+    const email_valide = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email.value.trim() === "") {
+        errorMessages.push("Champ Email est vide !");
+        email.parentElement.style.borderColor = "#e35532";
+        email.focus();
+        correct = false;
+    }
+    else if (!email_valide.test(email.value.trim())) {
+        errorMessages.push("L'Email est incorrect !");
+        email.parentElement.style.borderColor = "#e35532";
+        correct = false;
+    } else {
+        email.parentElement.style.borderColor = "#80de64";
+    }
+
+    if (mdp.value.trim() === "") {
+        errorMessages.push("Champ Mot de passe est vide !");
+        mdp.parentElement.style.borderColor = "#e35532";
+        mdp.focus();
+        correct = false;
+    }
+    if (mdp.value.length < 5) {
+        errorMessages.push("Nombre de caractères < à 5");
+        mdp.parentElement.style.borderColor = "#e35532";
+        correct = false;
+    } else {
+        mdp.parentElement.style.borderColor = "#80de64";
+    }
+
+    if (correct) {
+        errors.innerHTML = "";
+        //form.submit();
+        return true;
+    } else {
+        errors.innerHTML = "\n" + errorMessages.join("<strong><h2></h2></strong>") + "\n";
+        return false;
+    }
+}
 
 
 function modifier(champ) {
@@ -78,7 +148,7 @@ function modifier(champ) {
     var boutons = input.parentElement.querySelector('.boutons_user');
 
     input.dataset.val_initial = input.value; // stocke l'ancienne valeur
-    input.disabled = false;
+    input.readOnly = false;
     boutons.style.display = 'flex';
 
     document.getElementById("user_submit").style.display = 'none';
@@ -89,7 +159,7 @@ function annuler(champ) {
     var boutons = input.parentElement.querySelector('.boutons_user');
 
     input.value = input.dataset.val_initial;
-    input.disabled = true;
+    input.readOnly = true;
     boutons.style.display = 'none';
 }
 
@@ -97,7 +167,7 @@ function valider(champ) {
     var input = document.querySelector(`input[name="${champ}"]`);
     var boutons = input.parentElement.querySelector('.boutons_user');
 
-    input.disabled = true;
+    input.readOnly = true;
     boutons.style.display = 'none';
 
     // Affiche le bouton Soumettre
@@ -166,30 +236,31 @@ function trier() {
         content.appendChild(voyage);
     });
 }
-    
-function prix_reservation(v,t,d){
- 	for(var i of document.getElementsByName('activities[]')){
- 	if(i.checked){
- 		if(i.value=='musée'){
- 			v=v+30;
+
+function prix_reservation(v,d,t){
+
+ 			for(var i of document.getElementsByName('activities[]')){
+ 				if(i.checked){
+ 				if(i.value == 'musée'){
+ 					v=v+30;
+ 				}
+ 				if(i.value == 'restauration'){
+ 					v=v+10;
+ 				}
+				if(i.value == 'randonnée'){
+ 					v=v+5;
+ 				}
+ 				if(i.value == 'visite historique'){
+ 					v=v+20;
+ 				}
+				if(i.value == 'croisière'){
+ 					v=v+40;
+ 				}
+				else{
+					v=v+50;
+				}
+ 			}
  		}
- 		if(i.value=='restauration'){
- 			v=v+10;
- 		}
-		if(i.value=='randonnée'){
- 			v=v+5;
- 		}
- 		if(i.value=='visite historique'){
- 			v=v+20;
- 		}
-		if(i.value=='croisière'){
- 			v=v+40;
- 		}
-		else{
-			v=v+50;
-		}
- 	}
- 	}
  	for(var j of document.getElementsByName('options[]')){
  	if(j.checked){
  		v=v+10;
@@ -202,33 +273,69 @@ function prix_reservation(v,t,d){
  	}
 	for(var q of document.getElementsByName('accommodation')){
  	if(q.checked){
- 		if(q.value=='hôtel'){
+ 		if(q.value == 'hôtel'){
  			v=v+30;
  		}
-		if(q.value=='camping'){
+		if(q.value == 'camping'){
  			v=v+10;
  		}
- 		if(q.value=='hébergement écoresponsable'){
+ 		if(q.value == 'hébergement écoresponsable'){
  			v=v+5;
  		}
-		if(q.value=='location'){
+		if(q.value == 'location'){
  			v=v+20;
  		}
 		else{
 			v=v+50;
 		}
  	}
- 	}	
+ 	}
 	
-	v=v*(t*d);
  	document.getElementById('ssttl').innerHTML=v+" $";
  	document.getElementById('tva').innerHTML=(v* 0.20)+" $";
  	document.getElementById('ttl').innerHTML=(v+(v* 0.20))+" $";
- } 
+}
 
 function Dretour(t){
-	var depart=Date(document.getElementById('depart').value);
-	var r=depart.setDate(depart.getDate+t);
-	
-	document.getElementById('retour').innerHTML=r;
-}	  
+
+	var depart = new Date(document.getElementById('depart').value);
+	var retourDate = document.getElementById('retour');
+
+	depart.setDate(depart.getDate() + parseInt(t));
+	retourDate.innerHTML = depart.toLocaleDateString();
+}
+
+
+$(document).ready(function(){
+
+	$("#user_submit").click(function(){
+
+		if(verifForm()){
+			$.post("../php/submit_modification.php",
+			{
+		 		nom: document.getElementsByName('nom')[0].value,
+    			prenom: document.getElementsByName('prenom')[0].value,
+    			email: document.getElementsByName('email')[0].value,
+    			mdp: document.getElementsByName('mdp')[0].value
+    			
+			}, function(data, status){
+				if(status === 'success'){
+				
+					document.querySelectorAll('input').forEach(input => {
+                    input.readOnly = true;
+                    });
+                    document.querySelectorAll('.boutons_user').forEach(btn => {
+                    btn.style.display = 'none';
+                    });
+
+                    document.getElementById("user_submit").style.display = 'none';
+					console.log("Success");
+					
+				}else{
+					console.log("Failed");
+				}
+			}
+			);
+		}
+	});
+});
