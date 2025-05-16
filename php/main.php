@@ -72,10 +72,11 @@
                 
                 </ul>
 
-            <div style="display: flex; align-items: center; margin: 15px;">
+            <div style="display: flex; justify-content: space-between; margin: 15px;">
             	<?php if (isset($_COOKIE['style'])):?>
 			<img class="mode" id="mode" onclick="color();" height="25px" src="../img/main_mode.png"/>
 	    	<?php endif; ?>
+                <img class="mode" id="musicButton" onclick="musicBox();" height="25px" src="../img/musicOn.png"/>
             </div>
 
         </div>
@@ -87,8 +88,9 @@
             <div class="slideshow"></div>
                 <?php if (isset($_SESSION['user'])): ?>
                     <h1 class="titre">Bienvenue <?php echo $_SESSION['user']['prenom']?> !</h1>
+                    <h1>Vous pouvez désormais consulter votre profil et nos voyages.</h1>
                 <?php else: ?>
-                    <h1 class="titre">Trouvez votre roadtrip idéal !</h1>
+                    <h1 class="titre">Réaliser votre roadtrip idéal !</h1>
                 <?php endif; ?>
 
                 <div class="part1">
@@ -101,9 +103,9 @@
 
         <div class="content mainB">
 
-		    <h1 style="color:blue">Nos sélections du moment : </h1>
+		    <h1>Nos sélections du moment : </h1>
 			
-                <div class="voyages">
+                <div class="voyagesRow">
                 <br/>
                 <?php
 			    $voyages = json_decode(file_get_contents("../data/data_voyages.json"), true);
@@ -112,23 +114,26 @@
 			    $i=0;
 			    foreach($voyages as $voyage){?>
 
-		    <div class="thumbnail">
-			    <div>
-				    <img src="<?php echo $voyage['photo'];?>" alt="img" height="200px"/>   
-			    </div>
-			    <div>
-				    <h1><?php echo $voyage['titre'];?></h1>
-				    <p><?php echo $voyage['description'];?></p>
-				    <h3>Dès <?php echo $voyage['prix'];?>$</h3>
-				    <h3><?php echo $voyage['duree'];?> jours, 
-                    <?php foreach ($etapes as $item){
-                        if($voyage['lieux'] == $item['lieux']){
-                            echo "en ".$item['lieux'];
+            <a href="reservations.php?i=<?php echo $voyage['id']; ?>">
+		        <div class="thumbnailRow">
+			    
+			    <img src="<?php echo $voyage['photo'];?>" alt="img" height="200px"/>   
+			    
+			        <div>
+				        <h1><?php echo $voyage['titre'];?></h1>
+				        <p><?php echo $voyage['description'];?></p>
+				        <h3>Dès <?php echo $voyage['prix'];?>$</h3>
+				        <h3><?php echo $voyage['duree'];?> jours, 
+                        <?php foreach ($etapes as $item){
+                            if($voyage['lieux'] == $item['lieux']){
+                                echo "en ".$item['lieux'];
+                            }
                         }
-                    }
-                    ?>
+                        ?>
+			        </div>
 
-			    </div>
+            </a>
+
 			</div>
 			</br></br>
 			<?php
