@@ -22,7 +22,7 @@ if (file_exists($file) && filesize($file) > 0) {
     foreach ($jsonData as &$user) { 
         if ($user['email'] == $user_email) {
             // Mise à jour des informations
-            $user['role'] = $_POST['statut_'.str_replace(['@', '.'], '_', $user_email)];
+            $user['role'] = $_POST['role'];
 
             $modif = true;
             break;
