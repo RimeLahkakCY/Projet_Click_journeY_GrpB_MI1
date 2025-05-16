@@ -139,16 +139,16 @@
 						<form method="POST" id="statut_<?php echo $cleanEmail?>" action="../php/submit_statut.php">
 							
 							
-						<select name="statut_<?php echo $cleanEmail?>">
+						<select id="role" name="statut_<?php echo $cleanEmail?>">
 							<option value="user" <?php echo $user['role'] == 'user' ? 'selected' : ''; ?>>user</option>
 							<option value="admin" <?php echo $user['role'] == 'admin' ? 'selected' : ''; ?>>admin</option>
 							<option value="banni" <?php echo $user['role'] == 'ban' ? 'selected' : ''; ?>>ban</option>
 						</select>
 						
 					</td>
-					<input type="hidden" name='email' value=<?php echo $user['email']?>>
+					<input type="hidden" id="email" name='email' value=<?php echo $user['email']?>>
 					<td>    
-                            			<button type="submit" name="statut_submit_<?php echo $cleanEmail; ?>" class="champ" >OK</button>
+                            			<button type="button" id="admin_submit" name="statut_submit_<?php echo $cleanEmail; ?>" class="champ" >OK</button>
                         		</td>
 
 						</form>	
