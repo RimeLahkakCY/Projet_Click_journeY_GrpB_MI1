@@ -1,16 +1,16 @@
-// fonction pour musique d'ambiance (W.I.P) 
+
 let isPlaying = false;
-const audio = document.getElementById("music");
+const audio = new Audio("../img/music.wav");
 const musicButton = document.getElementById("musicButton");
+audio.loop = true;
 
 function musicBox() {
-
     if (!isPlaying) {
         audio.play();
-        musicButton.src = "../extra/soundOn.png";
+        //musicButton.src = "../img/musicOn.png";
     } else {
         audio.pause();
-        musicButton.src = "../extra/soundOff.png"; 
+        //musicButton.src = "../img/musicOff.png";
     }
     isPlaying = !isPlaying;
 }
@@ -30,12 +30,12 @@ function color() {
 
     let actuel;
     let nouveau;
-    
+
     var img = document.getElementById("mode");
 
     if (document.cookie.includes("style=dark")) {
         actuel = "dark";
-       
+
     } else {
         actuel = "main";
     }
@@ -53,23 +53,25 @@ function color() {
 
 
 function slideshow() {
-    slide.style.opacity = 0;
 
-    setTimeout(() => {
-        slide.style.backgroundImage = "url(" + photos[i] + ")";
-        slide.style.opacity = 1;
-        if (i < (photos.length - 1)) {
-            i++;
-        } else {
-            i = 0;
-        }
-    }, 700); // wait 1s for fade-out
+    if (slide) {
+        slide.style.opacity = 0;
+
+        setTimeout(() => {
+            slide.style.backgroundImage = "url(" + photos[i] + ")";
+            slide.style.opacity = 1;
+            if (i < (photos.length - 1)) {
+                i++;
+            } else {
+                i = 0;
+            }
+        }, 700); // fade-out ici !
+    } else {
+        console.log("Erreur : slide n'existe pas !");
+    }
 }
 
 window.onload = function () {
     slide = document.querySelector(".slideshow");
     setInterval(slideshow, 5000); // run every 4 seconds
 };
-
-
-
