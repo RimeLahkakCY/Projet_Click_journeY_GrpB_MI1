@@ -1,63 +1,74 @@
 <?php  
-	session_start();
+    session_start();
 
     if (!isset($_SESSION['user']) || !isset($_SESSION['paiement'])) {
-    	header("Location: main.php");
-    	exit();
-	}
+        header("Location: main.php");
+        exit();
+    }
 
     if(!isset($_COOKIE['style'])){
-		setcookie("style", "main", time() + 360*60, "/");
-		$style = "main";
-	}else{
-		$style = $_COOKIE['style'];
-	}
+        setcookie("style", "main", time() + 360*60, "/");
+        $style = "main";
+    }else{
+        $style = $_COOKIE['style'];
+    }
 
-	$dataFile = '../data/data_reservations.json';
-	$data = [];
-	$userId = $_SESSION['user']['id'];
-	$reservation = $_SESSION['paiement'];
-	
-	$montant = $_GET['montant'];
+    $dataFile = '../data/data_reservations.json';
+    $data = [];
+    $userId = $_SESSION['user']['id'];
+    $reservation = $_SESSION['paiement'];
+    
+    $montant = $_GET['montant'];
+    $statut = $_GET['status'];
+    
+    //print_r($statut);
+    
 
-	if (file_exists($dataFile)) {
-    	$data = json_decode(file_get_contents($dataFile), true);
-    	$userFound = false;
+    //print_r($_SESSION['paiement']);
 
-    	foreach ($data as &$userData) {
-        	if ($userData['user_id'] == $userId) {
-            	$userFound = true;
-            	$found = false;
-            	foreach ($userData['reservations'] as &$res) {
-                	if ($res['id'] == $reservation['id']) {
-                    	$res = $reservation;
-                    	$found = true;
-                    	break;
-                	}
-            	}
-            	if (!$found) {
-                	$userData['reservations'][] = $reservation;
-            	}
-            	break;
-        	}
-    	}
+    if (file_exists($dataFile)) {
+        $data = json_decode(file_get_contents($dataFile), true);
+        $userFound = false;
 
-    	if (!$userFound) {
-        	$data[] = [
-            	'user_id' => $userId,
-            	'reservations' => [$reservation]
-        	];
-    	}
-	}
+        foreach ($data as &$userData) {
+            if ($userData['user_id'] == $userId) {
+                $userFound = true;
+                $found = false;
+                foreach ($userData['reservations'] as &$res) {
+                    if ($res['id'] == $reservation['id']) {
+                        $res = $reservation;
+                        $found = true;
+                        break;
+                    }
+                }
+                if (!$found) {
+                    $userData['reservations'][] = $reservation;
+                }
+                break;
+            }
+        }
 
-	file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        if (!$userFound) {
+            $data[] = [
+                'user_id' => $userId,
+                'reservations' => [$reservation]
+            ];
+        }
+    }
 
-	if(isset($_POST['retour_accueil'])){
-		header("Location: main.php");
-		unset($_SESSION['paiement']);
-		exit();
-	}
-		
+    if($statut === 'accepted'){
+        file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+
+    if(isset($_POST['retour_accueil'])){
+        unset($_SESSION['paiement']);
+        header("Location: main.php");
+        exit();
+    }else if(isset($_POST['retour_voyage'])){
+        header("Location: location-recpitulatif.php?i=" . $reservation['id']);
+        exit();
+    }
+        
 ?>
 
 <html>
@@ -71,7 +82,7 @@
         rel="stylesheet">
     <title>Projet web</title>
     <script type="text/javascript" src="../js/fonctionnel.js"></script>
-   	 <script type="text/javascript" src="../js/visual.js"></script>
+        <script type="text/javascript" src="../js/visual.js"></script>
 </head>
     
     <body>
@@ -118,26 +129,34 @@
                         alt="icon" height="20px" /></a>
                 
                 </ul>
-                <div style="display: flex; align-items: center; margin: 15px;">
+                <div style="display: flex; justify-content: space-between; margin: 15px;">
             	<?php if (isset($_COOKIE['style'])):?>
-		<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
-	    <?php endif; ?>
-            </div>
+			    <img class="mode" id="mode" onclick="color();" height="25px" src="../img/main_mode.png"/>
+	    	    <?php endif; ?>
+                <img class="mode" id="musicButton" onclick="musicBox();" height="25px" src="../img/musicOn.png"/>
+                </div>
                 
             </div>
         </div>
         
         <div class="all">
             <div class="slideshow"></div>
-            	<div class="content">       		
-            		<fieldset style="height:600px; width:700px">
-            			
-            			<legend>Votre réservation a bien été enregistrée</legend>
-            			
-            			<div class="thumbnail">
-            		            <?php 
-                          		$reservation = $_SESSION['paiement'];
-                          		
+                <div class="content">               
+                    <fieldset style="height:600px; width:700px">
+                        
+                        <?php if($statut === 'accepted'){
+                            echo "<legend>Votre réservation a bien été enregistrée
+                             <img height='30px' src='../img/marque.png'/></legend>";
+                        }else{
+                            echo "<legend>Votre réservation n'a pas été enregistrée 
+                            <img height='30px' src='../img/croix.png'/></legend>";
+                        }
+                        ?>
+                        
+                        <div class="thumbnail">
+                                <?php 
+                                  $reservation = $_SESSION['paiement'];
+                                  
                                 echo "<div style='margin 20px ;padding: 10px; color: white'>";
                                 
                                 echo "<p>Séjour : ".$reservation['title']. "</p>";
@@ -146,8 +165,8 @@
                                 echo "<p>Classe voiture : ".$reservation['car_class']. "</p>";
                                 echo "<p>Début : ".$reservation['pickup_date']. "</p>";
                                 echo "<p>Fin : ".$reservation['return_date']. "</p>";
-                     		
-                     		
+                             
+                             
                                 echo "<p>Options : ".implode(",",array_values($reservation['options'])). "</p>";
                                 echo "<p>Activités : ".implode(",",array_values($reservation['activities'])). "</p>";
                                 echo "<p>Hébergements : ".implode(",",array_values($reservation['accommodation'])). "</p>";
@@ -156,18 +175,22 @@
                       
                                 echo "</div><br>";
 
-                                unset($_SESSION['paiement']);
-
-                        		?>
-            		        </div>
+                          
+                                ?>
+                            </div>
 
                            <form method="POST">
-                           		<input style="margin: 20px;" class="btn btn-primary" type="submit" name="retour_accueil" value="Retour Accueil">
-                          	</form>
-            		
-            		</fieldset>
+                                   <?php if($statut === 'accepted'){
+                                   echo "<input style='margin: 20px;' class='btn btn-primary' type='submit' name='retour_accueil' value='Retour Accueil'> " ;  
+                                   }else if($statut === 'denied'){
+                                   echo "<input style='margin: 20px;' class='btn btn-primary' type='submit' name='retour_voyage' value='Retour Voyage'> "  ;
+                                   }?>
+                                  
+                              </form>
+                    
+                    </fieldset>
             
-            	</div>
+                </div>
             
 
         </div>
