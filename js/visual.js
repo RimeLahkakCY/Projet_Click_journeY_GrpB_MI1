@@ -31,8 +31,6 @@ function color() {
     let actuel;
     let nouveau;
 
-    var img = document.getElementById("mode");
-
     if (document.cookie.includes("style=dark")) {
         actuel = "dark";
 
@@ -42,10 +40,8 @@ function color() {
 
     if (actuel === "dark") {
         nouveau = "main";
-        img.src = "../img/main_mode.png";
     } else {
         nouveau = "dark";
-        img.src = "../img/dark_mode.png";
     }
     document.cookie = "style=" + nouveau + "; path=/; max-age=" + (360 * 60);
     location.reload();
