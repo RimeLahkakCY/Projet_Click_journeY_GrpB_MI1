@@ -222,6 +222,7 @@
                     <h4>Déconnecter</h4>
                 </div>
             </div>
+		        <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank"><img src="../img/cookie.png"alt="icon" height="20px" /></a>
         </div>
     </body>
 </html>
