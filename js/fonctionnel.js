@@ -342,15 +342,15 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 
-	$("#admin_submit").click(function(e){
-			e.preventDefault();
+	$("#admin_submit").click(function(){
+	
 			$.post("../php/submit_statut.php",
 			{
-    			email: $("#email").value,
-    			role: $("#role").value
+    			email: $("#email").val(),
+    			role: $("#role").val()
 			}, function(data, status){
-				console.log(data+" "+status);
-				
+				console.log($("#email").val()+" "+$("#role").val());
+				return true; 
 			}
 			);
 		
