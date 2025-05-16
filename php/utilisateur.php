@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
     session_start(); 
 
@@ -28,98 +27,9 @@
     href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
     rel="stylesheet">
     <title>Projet web</title>
-    <script type="text/javascript" src="../js/fonctionnel.js"></script>
-   <script type="text/javascript" src="../js/visual.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   <script>
-   $(document).ready(function(){
-	$("#user_submit").click(function(){
-
-		$.post("../php/submit_modification.php",
-		
-		{
-		 nom: document.getElementsByName('nom')[0].value,
-    		 prenom: document.getElementsByName('prenom')[0].value,
-    		 email: document.getElementsByName('email')[0].value,
-    		 mdp: document.getElementsByName('mdp')[0].value
-		},
-		function verifconsole(data,status) {
-    		 console.log(data+" "+status);
-			 document.getElementById("user_submit").style.display = 'none';
-    		 v=function verifForm() {
-			 var nom=document.getElementsByName('nom')[0];
-			 var prenom=document.getElementsByName('prenom')[0];
-			 var email=document.getElementsByName('email')[0];
-			 var mdp=document.getElementsByName('mdp')[0];
-			 var form = document.getElementById('form');
-
-    		 var errors = document.getElementById('errors');
-
-    		 var correct = true;
-    		 var errorMessages = [];
-
-    		 if (nom.value.trim() === "") {
-        		errorMessages.push("Champ Nom est vide !");
-        		nom.parentElement.style.borderColor = "#e35532";
-        		nom.focus();
-        		correct = false;
-    		 } else {
-        		nom.parentElement.style.borderColor = "#80de64";
-    		 }
-
-
-    		 if (prenom.value.trim() === "") {
-        	 	errorMessages.push("Champ Prénom est vide !");
-        		prenom.parentElement.style.borderColor = "#e35532";
-        		prenom.focus();
-        		correct = false;
-    		 } else {
-        		prenom.parentElement.style.borderColor = "#80de64";
-    		 }
-
-    		 const email_valide = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    		 if (email.value.trim() === "") {
-        		errorMessages.push("Champ Email est vide !");
-        		email.parentElement.style.borderColor = "#e35532";
-        		email.focus();
-        		correct = false;
-    		 }
-    		 else if (!email_valide.test(email.value.trim())) {
-        		errorMessages.push("L'Email est incorrect !");
-        		email.parentElement.style.borderColor = "#e35532";
-        		correct = false;
-    		 } else {
-        		email.parentElement.style.borderColor = "#80de64";
-    		 }
-
-    		 if (mdp.value.trim() === "") {
-        		errorMessages.push("Champ Mot de passe est vide !");
-        		mdp.parentElement.style.borderColor = "#e35532";
-        		mdp.focus();
-        		correct = false;
-    		 }
-    		 if (mdp.value.length < 5) {
-        		errorMessages.push("Nombre de caractères < à 5");
-        		mdp.parentElement.style.borderColor = "#e35532";
-        		correct = false;
-    		 } else {
-        		mdp.parentElement.style.borderColor = "#80de64";
-    		 }
-
-    		 if (correct) {
-        		errors.innerHTML = "";
-        		return true;
-    		 } else {
-        		errors.innerHTML = "\n" + errorMessages.join("<strong><h2></h2></strong>") + "\n";
-        		return false;
-    		}
-}
-    		return v;
-		});
-	
-	});
-});
-   </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/fonctionnel.js"></script>
+   	<script type="text/javascript" src="../js/visual.js"></script>
 </head>
     
     <body>
@@ -173,10 +83,11 @@
                 
                 </ul>
 
-            <div style="display: flex; align-items: center; margin: 15px;">
+            <div style="display: flex; justify-content: space-between; margin: 15px;">
             	<?php if (isset($_COOKIE['style'])):?>
-				<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
-	    		<?php endif; ?>
+			<img class="mode" id="mode" onclick="color();" height="25px" src="../img/main_mode.png"/>
+	    	<?php endif; ?>
+                <img class="mode" id="musicButton" onclick="musicBox();" height="25px" src="../img/musicOn.png"/>
             </div>
 
         </div>
@@ -188,7 +99,7 @@
         <div style="display: flex;justify-content: center; align-items: stretch; margin: 80px;">
 
 		   
-			<form name="inscription" id="form" method="POST" action="../php/submit_modification.php">
+			<form name="inscription" id="form" method="POST">
                     
                     <fieldset>
                         
@@ -207,7 +118,7 @@
                         </div>
 						
                         <div class="div2">
-                            <input type="text" name="nom" value="<?php echo $_SESSION['user']['nom']?>" disabled><br>
+                            <input type="text" name="nom" value="<?php echo $_SESSION['user']['nom']?>" readOnly><br>
                             <img class="eye" onclick="modifier('nom');" src="../img/modify.png" id="modif" alt="modifier" height=20px;>
                             <div class="boutons_user" style="display: none;">
                                 <img class="eye" type="button" onclick="annuler('nom');" src="../img/cancel.png" alt="annuler" height=20px;>
@@ -220,7 +131,7 @@
                         </div>
 
                         <div class="div2">
-                            <input type="text" name="prenom" value="<?php echo $_SESSION['user']['prenom']?>" disabled><br>
+                            <input type="text" name="prenom" value="<?php echo $_SESSION['user']['prenom']?>" readOnly><br>
                             <img class="eye" onclick="modifier('prenom');" src="../img/modify.png" id="modif" alt="modifier" height=20px;>
                             <div class="boutons_user" style="display: none;">
                                 <img class="eye" type="button" onclick="annuler('prenom');" src="../img/cancel.png" alt="annuler" height=20px;>
@@ -233,7 +144,7 @@
                         </div>
 
                         <div class="div2"> 
-                            <input type="email" name="email" value="<?php echo $_SESSION['user']['email']?>" disabled><br>
+                            <input type="email" name="email" value="<?php echo $_SESSION['user']['email']?>" readOnly><br>
                             <img class="eye" onclick="modifier('email');" src="../img/modify.png" id="modif" alt="modifier" height=20px;>
                             <div class="boutons_user" style="display: none;">
                                 <img class="eye" type="button" onclick="annuler('email');" src="../img/cancel.png" alt="annuler" height=20px;>
@@ -246,7 +157,7 @@
                         </div>
 
                         <div class="div2">
-                            <input type="password" name="mdp" value="<?php echo $_SESSION['user']['mdp']?>" disabled><br>
+                            <input type="password" name="mdp" value="<?php echo $_SESSION['user']['mdp']?>" readOnly><br>
                             <img class="eye" id="eye" onclick="showPassword();" height=20px src="../img/eye_closed.png"/>
                             <img class="eye" onclick="modifier('mdp');" src="../img/modify.png" id="modif" alt="modifier" height=20px;>
                             
@@ -257,8 +168,11 @@
                         </div><br/>
 
                         <div class="soumettre">
+                            <!--<button type="submit" id="user_submit" onclick="verifForm();" style="display:none;">Soumettre</button>-->
                             <button type="button" id="user_submit" style="display:none;">Soumettre</button>
-                        </div>
+                        </div><br>
+                        
+                        <span id="errors" class="error-messages" style="color:rgb(221, 54, 42); padding: 15px; margin : 10px"></span>
 						
                     </fieldset>
                     
