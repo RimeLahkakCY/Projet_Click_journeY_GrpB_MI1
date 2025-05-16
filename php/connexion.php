@@ -78,10 +78,11 @@ if(isset($_SESSION['user'])){
                 
                 </ul>
 
-            <div style="display: flex; align-items: center; margin: 15px;">
+            <div style="display: flex; justify-content: space-between; margin: 15px;">
             	<?php if (isset($_COOKIE['style'])):?>
-				<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
-	    		<?php endif; ?>
+			<img class="mode" id="mode" onclick="color();" height="25px" src="../img/main_mode.png"/>
+	    	<?php endif; ?>
+                <img class="mode" id="musicButton" onclick="musicBox();" height="25px" src="../img/musicOn.png"/>
             </div>
 
         </div>
