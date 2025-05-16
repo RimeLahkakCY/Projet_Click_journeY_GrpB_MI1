@@ -14,6 +14,7 @@
     }
     
     $file = "../data/data_utilisateur.json";
+    //print_r($_SESSION['user']['email']);
     
     if(file_exists($file)){
     	$users = json_decode(file_get_contents($file), true);
@@ -32,6 +33,7 @@
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <title>Projet web</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/fonctionnel.js"></script>
     <script type="text/javascript" src="../js/visual.js"></script>
     </head>
@@ -84,10 +86,11 @@
                 
                 </ul>
 
-            <div style="display: flex; align-items: center; margin: 15px;">
+            <div style="display: flex; justify-content: space-between; margin: 15px;">
             	<?php if (isset($_COOKIE['style'])):?>
-			<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
+			<img class="mode" id="mode" onclick="color();" height="25px" src="../img/main_mode.png"/>
 	    	<?php endif; ?>
+                <img class="mode" id="musicButton" onclick="musicBox();" height="25px" src="../img/musicOn.png"/>
             </div>
 
         </div>
@@ -127,35 +130,34 @@
 				foreach($usersPage as $user){
                     $cleanEmail = str_replace(['@', '.'], '_', $user['email']);
 				?>
-					
-					<tr>
-						<td><?php echo strtoupper($user['nom']); ?></td>
-						<td><?php echo strtoupper($user['prenom']); ?></td>
-                        <td><?php echo strtoupper($user['email']); ?></td>
-
-						<td>
-							<form method="POST" id="statut_<?php echo $cleanEmail?>">
+				<form method="POST" id="statut_<?php echo $cleanEmail?>" action="../php/submit_statut.php">
+				<tr>
+					<td><?php echo strtoupper($user['nom']); ?></td>
+					<td><?php echo strtoupper($user['prenom']); ?></td>
+                        		<td><?php echo strtoupper($user['email']); ?></td>
+                        		
+					<td>
+						<form method="POST" id="statut_<?php echo $cleanEmail?>" action="../php/submit_statut.php">
 							
-							<select name="statut_<?php echo $cleanEmail?>">
-								<option value="user" <?php echo $user['role'] == 'user' ? 'selected' : ''; ?>>user</option>
-								<option value="admin" <?php echo $user['role'] == 'admin' ? 'selected' : ''; ?>>admin</option>
-								<option value="banni" <?php echo $user['role'] == 'ban' ? 'selected' : ''; ?>>ban</option>
-							</select>
+							
+						<select name="statut_<?php echo $cleanEmail?>">
+							<option value="user" <?php echo $user['role'] == 'user' ? 'selected' : ''; ?>>user</option>
+							<option value="admin" <?php echo $user['role'] == 'admin' ? 'selected' : ''; ?>>admin</option>
+							<option value="banni" <?php echo $user['role'] == 'ban' ? 'selected' : ''; ?>>ban</option>
+						</select>
 						
-						</td>
+					</td>
 					
-						<td>    
-                            <button type="button" name="statut_submit_<?php echo $cleanEmail; ?>" class="champ" onclick="statutModif('<?php echo $cleanEmail; ?>');">OK</button>
-                        </td>
+					<td>    
+                            			<button type="submit" name="statut_submit_<?php echo $cleanEmail; ?>" class="champ" onclick="statutModif('<?php echo $cleanEmail; ?>');">OK</button>
+                        		</td>
 
-							</form>
+						</form>	
 					</tr>
 				<?php
 				}
 				?>
-				
 
-			</tbody>
 		</table>
         
         <div class="pagination">
