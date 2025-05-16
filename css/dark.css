@@ -1,10 +1,10 @@
-body { 
+body {
     margin: 0;
     font-family: "Didact Gothic", serif;
     font-weight: 100;
     width: 100%;
     color: #ffffff;
-    background-color: #525252;
+    background-color: #1b1f22;
 }
 
 .all {
@@ -20,8 +20,11 @@ body {
     width: 100%;
 }
 
-h1, h2, h3, h4{
-	color: white;
+h1,
+h2,
+h3,
+h4 {
+    color: white;
 }
 
 h2 {
@@ -356,13 +359,18 @@ fieldset.recherche {
 
 .filtres {
     background-color: #07036a;
-    text-align: left;
-    margin: 50px;
+    border-radius: 0.4rem;
+    margin: 0px 20px 20px 10px;
     padding: 20px;
-    width: 150px;
-    height: 600px;
     font-weight: bold;
-    font-size: 15px;
+}
+
+.voyagesRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 20px;
+
 }
 
 .voyages {
@@ -378,6 +386,18 @@ fieldset.recherche {
 img[alt="img"] {
     border-radius: 10px;
     border: 4px solid #0b5da0d8;
+}
+
+.thumbnailRow {
+    max-height: 600px;
+    max-width: 400px;
+    background-color: #03b4e0;
+    border: 4px solid #0b5da0d8;
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px 1px rgba(0, 72, 90, 0.2);
+    padding: 15px;
+    margin: 10px;
+
 }
 
 .thumbnail {
@@ -616,3 +636,10 @@ h4 {
     border-radius: 2%;
 }
 
+.mode {
+    margin-left: 10px;
+}
+
+.mode:hover {
+    cursor: pointer;
+}
