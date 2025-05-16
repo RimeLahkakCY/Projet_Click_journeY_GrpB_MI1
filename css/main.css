@@ -6,7 +6,7 @@ body {
 }
 
 .all {
-    flex: 1; 
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -34,6 +34,11 @@ body {
     z-index: var(--z-index-main-header);
     z-index: 100;
     width: 100%;
+}
+
+h1,
+h3 {
+    margin-left: 10px;
 }
 
 h2 {
@@ -80,11 +85,11 @@ p {
 }
 
 .mainB {
-    background-color: #95cef0;
+    background-color: white;
 }
 
 .mainC {
-    background-color: white;
+    background-color: #95cef0;
 }
 
 .part1 {
@@ -220,6 +225,7 @@ legend {
     text-align: center;
     font-size: 80px;
     color: rgb(43, 34, 34);
+    background-color: rgba(241, 238, 242, 0.4);
 }
 
 button,
@@ -378,6 +384,13 @@ fieldset.recherche {
     font-weight: bold;
 }
 
+.voyagesRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+
 .voyages {
     display: flex;
     flex-direction: column;
@@ -390,6 +403,18 @@ fieldset.recherche {
 img[alt="img"] {
     border-radius: 10px;
     border: 4px solid #0b5da0d8;
+}
+
+.thumbnailRow {
+    max-height: 600px;
+    max-width: 400px;
+    background-color: #03b4e0;
+    border: 4px solid #0b5da0d8;
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px 1px rgba(0, 72, 90, 0.2);
+    padding: 15px;
+    margin: 10px;
+
 }
 
 .thumbnail {
@@ -627,4 +652,12 @@ h4 {
     background-color: #0098d4;
     border: 3px solid #0098d4;
     border-radius: 2%;
+}
+
+.mode {
+    margin-left: 10px;
+}
+
+.mode:hover {
+    cursor: pointer;
 }
