@@ -81,10 +81,11 @@ $_SESSION['etapes'] = $etapes;
                 
                 </ul>
 
-            <div style="display: flex; align-items: center; margin: 15px;">
+            <div style="display: flex; justify-content: space-between; margin: 15px;">
             	<?php if (isset($_COOKIE['style'])):?>
-				<img class="mode" id="mode" onclick="color();" height="25px" src="../img/dark_mode.png"/>
-	    		<?php endif; ?>
+			<img class="mode" id="mode" onclick="color();" height="25px" src="../img/main_mode.png"/>
+	    	<?php endif; ?>
+                <img class="mode" id="musicButton" onclick="musicBox();" height="25px" src="../img/musicOn.png"/>
             </div>
 
         </div>
@@ -93,38 +94,43 @@ $_SESSION['etapes'] = $etapes;
 
         <div class="all">
             <div class="slideshow"></div>                    
-				<center>
-					<h1 class="titre">Nos voyages</h1>
+		<center>
+			<h1 class="titre">Réservation</h1>
 					
-							<table class="info">
-								<tr>
-									<td class="illustration">
-										<img src="<?php echo $_SESSION['voyages'][$i]['photo']; ?>" alt="img" height="200px"/> 
-									</td>
-									<td>
-										<h1><?php echo $_SESSION['voyages'][$i]['titre']; ?></h1>
-										<p><?php echo $_SESSION['voyages'][$i]['description']; ?></p>
-										<h2>Dès <?php echo $_SESSION['voyages'][$i]['prix']; ?>$</h2>
-										<h2><?php echo $_SESSION['voyages'][$i]['duree']; ?> jours</h2>
-									</td>
-								</tr>
+				<table class="info">
+					<tr>
+					<td class="illustration">
+					<img src="<?php echo $_SESSION['voyages'][$i]['photo']; ?>" alt="img" height="200px"/> 
+					</td>
+					
+					<td>
+					<h1><?php echo $_SESSION['voyages'][$i]['titre']; ?></h1>
+					<p><?php echo $_SESSION['voyages'][$i]['description']; ?></p>
+					<h2>Dès <?php echo $_SESSION['voyages'][$i]['prix']; ?>$</h2>
+					<h2><?php echo $_SESSION['voyages'][$i]['duree']; ?> jours</h2>
+					</td>
+					
+					</tr>
 		
-								<tr>
-									<td colspan="2">
-										<p>Lieux : <?php echo $_SESSION['voyages'][$i]['lieux']; ?></p>
+					<tr>
+					
+					<td colspan="2">
+					<p>Lieux : <?php echo $_SESSION['voyages'][$i]['lieux']; ?></p>
                                         <p>Etapes : <?php echo implode(", ",array_values($_SESSION['etapes'][$i]['ville']))?></p>
-                                        
-									</td>
-								</tr>
+					</td>
+					
+					</tr>
 		
-								<tr>
-									<td>
-										<a href="location-recpitulatif.php?i=<?php echo $i; ?>"><input type="submit" name="ok" value="Réserver" class="champ"/><a/>
-									</td>
-								</tr>
-							</table>
+					<tr>
+					
+					<td>
+					<a href="location-recpitulatif.php?i=<?php echo $i; ?>"><input type="submit" name="ok" value="Réserver" class="champ"/><a/>
+					</td>
+					
+					</tr>
+				</table>
 				
-				</center>
+		</center>
 
         </div>
         
