@@ -130,7 +130,6 @@
 				foreach($usersPage as $user){
                     $cleanEmail = str_replace(['@', '.'], '_', $user['email']);
 				?>
-				<form method="POST" id="statut_<?php echo $cleanEmail?>" action="../php/submit_statut.php">
 				<tr>
 					<td><?php echo strtoupper($user['nom']); ?></td>
 					<td><?php echo strtoupper($user['prenom']); ?></td>
@@ -147,9 +146,9 @@
 						</select>
 						
 					</td>
-					
+					<input type="hidden" name='email' value=<?php echo $user['email']?>>
 					<td>    
-                            			<button type="submit" name="statut_submit_<?php echo $cleanEmail; ?>" class="champ" onclick="statutModif('<?php echo $cleanEmail; ?>');">OK</button>
+                            			<button type="submit" name="statut_submit_<?php echo $cleanEmail; ?>" class="champ" >OK</button>
                         		</td>
 
 						</form>	
@@ -180,8 +179,8 @@
                         
                         <div style="background-color: rgb(249, 249, 249, 0.7); height: 80px;">
                             <img src="../img/logo.png" alt="logo" height="80px">
-                        </div>
-						
+                        </div>	
+					
                         <div>
                             <h3>Qui sommes-nous ?</h3>
                             <h4>Nos services</h4>
@@ -207,8 +206,9 @@
                         </div>
 
                     </div>
-        <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank"><img src="../img/cookie.png"alt="icon" height="20px" /></a>
+         <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank"><img src="../img/cookie.png"alt="icon" height="20px" /></a>         
         </div>
+        
     
     </body>
     
