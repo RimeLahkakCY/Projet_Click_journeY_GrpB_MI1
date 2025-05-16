@@ -139,7 +139,7 @@
 						<form method="POST" id="statut_<?php echo $cleanEmail?>" action="../php/submit_statut.php">
 							
 							
-						<select id="role" name="statut_<?php echo $cleanEmail?>">
+						<select id="role" name="role">
 							<option value="user" <?php echo $user['role'] == 'user' ? 'selected' : ''; ?>>user</option>
 							<option value="admin" <?php echo $user['role'] == 'admin' ? 'selected' : ''; ?>>admin</option>
 							<option value="banni" <?php echo $user['role'] == 'ban' ? 'selected' : ''; ?>>ban</option>
