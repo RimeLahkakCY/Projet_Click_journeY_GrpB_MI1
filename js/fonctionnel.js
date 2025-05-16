@@ -339,3 +339,20 @@ $(document).ready(function(){
 		}
 	});
 });
+
+$(document).ready(function(){
+
+	$("#admin_submit").click(function(e){
+			e.preventDefault();
+			$.post("../php/submit_statut.php",
+			{
+    			email: $("#email").value,
+    			role: $("#role").value
+			}, function(data, status){
+				console.log(data+" "+status);
+				
+			}
+			);
+		
+	});
+});
