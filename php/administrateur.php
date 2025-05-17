@@ -131,28 +131,25 @@
                     $cleanEmail = str_replace(['@', '.'], '_', $user['email']);
 				?>
 				<tr>
-					<td><?php echo strtoupper($user['nom']); ?></td>
-					<td><?php echo strtoupper($user['prenom']); ?></td>
-                        		<td><?php echo strtoupper($user['email']); ?></td>
-                        		
-					<td>
-						<form method="POST" id="statut_<?php echo $cleanEmail?>" action="../php/submit_statut.php">
-							
-							
-						<select id="role" name="role">
-							<option value="user" <?php echo $user['role'] == 'user' ? 'selected' : ''; ?>>user</option>
-							<option value="admin" <?php echo $user['role'] == 'admin' ? 'selected' : ''; ?>>admin</option>
-							<option value="banni" <?php echo $user['role'] == 'ban' ? 'selected' : ''; ?>>ban</option>
-						</select>
-						
-					</td>
-					<input type="hidden" id="email" name='email' value=<?php echo $user['email']?>>
-					<td>    
-                            			<button type="button" id="admin_submit" name="statut_submit_<?php echo $cleanEmail; ?>" class="champ" >OK</button>
-                        		</td>
+    <td><?php echo strtoupper($user['nom']); ?></td>
+    <td><?php echo strtoupper($user['prenom']); ?></td>
+    <td><?php echo strtoupper($user['email']); ?></td>
 
-						</form>	
-					</tr>
+    <td colspan="2">
+        <form method="POST" class="statut" action="../php/submit_statut.php">
+            <select name="role" class="role">
+                <option value="user" <?php echo $user['role'] == 'user' ? 'selected' : ''; ?>>user</option>
+                <option value="admin" <?php echo $user['role'] == 'admin' ? 'selected' : ''; ?>>admin</option>
+                <option value="banni" <?php echo $user['role'] == 'banni' ? 'selected' : ''; ?>>ban</option>
+            </select>
+
+            <input type="hidden" name="email" class="email" value="<?php echo $user['email']; ?>">
+
+            <button type="button" class="champ">OK</button>
+        </form>
+    </td>
+</tr>
+	
 				<?php
 				}
 				?>
@@ -179,6 +176,7 @@
                         
                         <div style="background-color: rgb(249, 249, 249, 0.7); height: 80px;">
                             <img src="../img/logo.png" alt="logo" height="80px">
+							 
                         </div>	
 					
                         <div>
@@ -206,10 +204,12 @@
                         </div>
 
                     </div>
-         <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank"><img src="../img/cookie.png"alt="icon" height="20px" /></a>         
+		<br/><br/>
+         
         </div>
-        
-    
+		<div style="background-color: #0b5da0d8">
+        <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" ><img src="../img/cookie.png"alt="icon" style="height: 30px" />Accepter cookie?</a> 
+		</div>
     </body>
     
 </html>
