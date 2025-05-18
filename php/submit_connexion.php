@@ -41,7 +41,14 @@ if(file_exists($file)){
             if($user['role'] == "admin"){
                 header("Location: administrateur.php");
                 exit;
-            }else if($user['role'] == "user"){
+            }
+			if($user['role'] == "banni"){
+				session_destroy(); //détruit la session en court
+				echo "Compte banni";
+				header("Location: main.php"); 
+				exit();
+            }
+			else if($user['role'] == "user"){
                 header("Location: main.php");
                 exit;
             }
