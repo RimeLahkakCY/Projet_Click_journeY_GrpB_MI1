@@ -1,18 +1,12 @@
-
-let isPlaying = false;
-const audio = new Audio("../img/music.wav");
-const musicButton = document.getElementById("musicButton");
-audio.loop = true;
+let playerWindow = null;
 
 function musicBox() {
-    if (!isPlaying) {
-        audio.play();
-        //musicButton.src = "../img/musicOn.png";
+    if (!playerWindow || playerWindow.closed) {
+        playerWindow = window.open("../extra/musicPlayer.html", "musicPlayer", "width=1,height=1,resizable=no");
+        window.blur();
     } else {
-        audio.pause();
-        //musicButton.src = "../img/musicOff.png";
+        playerWindow.close();
     }
-    isPlaying = !isPlaying;
 }
 
 var photos = [
