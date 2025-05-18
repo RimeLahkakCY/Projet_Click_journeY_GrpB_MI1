@@ -243,8 +243,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <span class="label">Hébergement :</span><br>
                 <?php foreach ($rentalInfo['accommodation'] as $place): ?>
-                    <input type="radio" onclick="b(<?php echo $subtotal ?>)" name="accommodation" value="<?php echo $place; ?>"  
-                <?php echo (isset($_POST['accommodation']) ? ($_POST['accommodation'] == $place) : (isset($_SESSION['paiement']['accommodation']) && $_SESSION['paiement']['accommodation'][0] == $place)) ? 'checked' : ''; ?> required>
+                 <input type="radio" onclick="prix_reservation(<?php echo $subtotal ?>, <?php echo $rentalInfo['lenght']; ?>, <?php echo $prix; ?>)" name="accommodation" value="<?php echo $place; ?>"  
+                <?php echo (isset($_POST['accommodation']) ? ($_POST['accommodation'] == $place) : (isset($rentalInfo['accommodation'][0]) && $rentalInfo['accommodation'][0] == $place)) ? 'checked' : ''; ?> required>   
                 <?php echo $place; ?><br>
                 <?php endforeach; ?>
                 <br>
@@ -285,7 +285,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$vendeur = 'MI-1_B';
 			$titre  = $_SESSION['voyages'][$i]['titre'];
             $retour = "http://localhost:1234/php/detailsPaiement.php";
-			//$retour = "http://localhost/site_fonctionnel-main4/php/detailsPaiement.php";
 
 			$api_key = getAPIKey($vendeur);
 
