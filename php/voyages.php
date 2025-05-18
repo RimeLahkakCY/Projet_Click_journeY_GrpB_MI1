@@ -19,6 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <title>Projet web</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/fonctionnel.js"></script>
     <script type="text/javascript" src="../js/visual.js"></script>
 </head>
@@ -196,36 +197,40 @@
         </div>
 
         <div class="footer">
-            <div style="display:flex; justify-content: space-between">
-                <div style="background-color: rgb(249, 249, 249, 0.7); height: 80px;">
-                    <img src="../img/logo.png" alt="logo" height="80px">
-                </div>
-                <div>
-                    <h3>Qui sommes-nous ?</h3>
-                    <h4>Nos services</h4>
-                    <h4>Notre équipe</h4>
-                    <h4>Voyage sur-mesure</h4>
-                </div>
-                <div>
-                    <h3>Top destinations</h3>
-                    <h4>France</h4>
-                    <h4>Italie</h4>
-                    <h4>Japon</h4>
-                    <h4>Etats-Unis</h4>
-                    <h4>Australie</h4>
-                </div>
-                <div>
-                    <h3>Idées voyages</h3>
-                    <h4>En solo</h4>
-                    <h4>En couple</h4>
-                    <h4>Entre amis</h4>
-                    <h4>Déconnecter</h4>
-                </div>
+        <div style="display:flex; justify-content: space-between">
+
+            <div style="background-color: rgb(249, 249, 249, 0.7); height: 80px;">
+                <img src="../img/logo.png" alt="logo" height="80px">
             </div>
-		       
+
+            <div>
+                <h3>Qui sommes-nous ?</h3>
+                <h4>Nos services</h4>
+                <h4>Notre équipe</h4>
+                <h4>Voyage sur-mesure</h4>
+            </div>
+
+            <div>
+                <h3>Top destinations</h3>
+                <h4>France</h4>
+                <h4>Italie</h4>
+                <h4>Japon</h4>
+                <h4>Etats-Unis</h4>
+                <h4>Australie</h4>
+            </div>
+
+            <div>
+                <h3>Idées voyages</h3>
+                <h4>En solo</h4>
+                <h4>En couple</h4>
+                <h4>Entre amis</h4>
+                <h4>Déconnecter</h4>
+            </div>
+            
         </div>
-			    <div style="background-color: #0b5da0d8">
-        <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" ><img src="../img/cookie.png"alt="icon" style="height: 30px" />Accepter cookie?</a> 
-		</div>
+	           
+        <div>
+            <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" ><img src="../img/cookie.png"alt="icon" style="height: 30px" />Accepter cookie?</a> 
+        </div>
     </body>
 </html>
