@@ -341,18 +341,28 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+    $(".champ").click(function(e){
+        e.preventDefault();
 
-	$("#admin_submit").click(function(){
-	
-			$.post("../php/submit_statut.php",
-			{
-    			email: $("#email").val(),
-    			role: $("#role").val()
-			}, function(data, status){
-				console.log($("#email").val()+" "+$("#role").val());
-				return true; 
-			}
-			);
-		
-	});
+        const form = $(this).closest("form"); // ← très important
+        const email = form.find(".email").val();
+        const role = form.find(".role").val();
+
+        console.log("Email :", email);
+        console.log("Role :", role);
+
+        $.post("../php/submit_statut.php", {
+            email: email,
+            role: role
+        }, function(data, status){
+	if(status === 'success'){
+            console.log("Modification envoyée :", email, role);
+	    return true;
+	}
+	else{
+	    console.log("Echec modification");
+		return false;
+	}
+        });
+    });
 });
