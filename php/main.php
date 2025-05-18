@@ -19,6 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Didact+Gothic&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <title>Projet web</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/fonctionnel.js"></script>
     <script type="text/javascript" src="../js/visual.js"></script>
 </head>
@@ -206,9 +207,9 @@
             
         </div>
 	           
-<div style="background-color: #0b5da0d8">
-        <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" ><img src="../img/cookie.png"alt="icon" style="height: 30px" />Accepter cookie?</a> 
-</div>
+        <div>
+            <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" ><img src="../img/cookie.png"alt="icon" style="height: 30px" />Accepter cookie?</a> 
+        </div>
 </body>
 
 </html>
